@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fast & Smart Translator</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&family=Kanit:wght@500;700&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+
+  <style>
+    body { font-family: 'Sarabun', sans-serif; background: #f8fafc; }
+    .heading { font-family: 'Kanit', sans-serif; }
+    .jp-font { font-family: 'Noto Sans JP', sans-serif; }
+    .listening-active {
+      border-color: #ef4444 !important;
+      background-color: #fef2f2 !important;
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+    }
+    .interim { color: #9ca3af; font-style: italic; }
+
+    @keyframes ripple {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+      100% { box-shadow: 0 0 0 20px rgba(239, 68, 68, 0); }
+    }
+    .ripple { animation: ripple 1s infinite; }
+    
+    /* ปรับแต่ง Scrollbar สำหรับข้อความยาวๆ */
+    #resultDisplay, #textDisplay {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4">
+
+  <div class="bg-white p-6 md:p-10 rounded-[2.5rem] shadow-2xl w-full max-w-lg border border-gray-50">
+
+    <div class="flex items-center justify-between mb-8">
+      <div class="flex items-center gap-3">
+        <img src="image/logo.jpg" alt="Logo" class="w-12 h-12 rounded-full border-2 border-red-500 shadow-sm">
+        <h2 class="text-xl font-bold text-gray-800 heading leading-tight">Translator</h2>
+      </div>
+
+      <button id="switchBtn" type="button" class="bg-gray-100 hover:bg-red-500 hover:text-white px-4 py-2 rounded-2xl transition-all flex items-center gap-2 group border border-gray-200">
+        <span id="langLabel" class="text-xs font-bold">ไทย ➔ ญี่ปุ่น</span>
+        <i class="bi bi-arrow-left-right transition-transform group-hover:rotate-180"></i>
+      </button>
+    </div>
+
+    <div class="space-y-4">
+      <div id="inputBox" class="bg-gray-50 rounded-3xl p-6 border-2 border-gray-100 min-h-[140px] transition-all relative">
+        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">
+          สถานะ: <span id="statusText" class="text-red-500">พร้อมใช้งาน</span>
+        </p>
+        <div id="textDisplay" class="text-xl text-gray-700 leading-relaxed">
+          แตะไมค์แล้วเริ่มพูด...
+        </div>
+      </div>
+
+      <div class="bg-red-50 rounded-3xl p-6 border-2 border-red-50 relative">
+        <p id="outputLabel" class="text-[10px] font-bold text-red-400 uppercase tracking-widest mb-2">คำแปล (JAPANESE)</p>
+        <div id="resultDisplay" class="text-2xl text-red-900 jp-font font-bold min-h-[60px] leading-snug">
+          ...
+        </div>
+        <div id="loader" class="hidden absolute top-4 right-4 text-red-400">
+          <div class="inline-block animate-spin rounded-full h-5 w-5 border-2 border-current border-t-transparent"></div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-3 pt-4">
+        <button id="micBtn" type="button" class="bg-red-500 hover:bg-red-600 text-white py-5 rounded-3xl text-lg font-bold flex items-center justify-center gap-3 transition-all shadow-xl active:scale-95">
+          <i class="bi bi-mic-fill text-2xl" id="micIcon"></i>
+          <span id="micStatus">กดเพื่อพูด</span>
+        </button>
+
+        <div class="flex gap-3">
+          <button id="replayBtn" type="button" class="hidden flex-1 bg-white border border-gray-200 text-gray-600 py-4 rounded-2xl hover:bg-gray-50 transition-all items-center justify-center gap-2 font-bold shadow-sm">
+            <i class="bi bi-volume-up-fill text-xl text-red-500"></i>
+            ฟังเสียงอ่าน
+          </button>
+          <a href="index.html" class="bg-gray-100 hover:bg-gray-200 text-gray-400 px-6 py-4 rounded-2xl flex items-center justify-center transition-all">
+            <i class="bi bi-house-door-fill text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const micBtn = document.getElementById('micBtn');
+    const switchBtn = document.getElementById('switchBtn');
+    const replayBtn = document.getElementById('replayBtn');
+    const textDisplay = document.getElementById('textDisplay');
+    const resultDisplay = document.getElementById('resultDisplay');
+    const langLabel = document.getElementById('langLabel');
+    const micStatus = document.getElementById('micStatus');
+    const statusText = document.getElementById('statusText');
+    const loader = document.getElementById('loader');
+    const inputBox = document.getElementById('inputBox');
+    const outputLabel = document.getElementById('outputLabel');
+
+    let isThaiToJp = true;
+    let isListening = false;
+    let recognition = null;
+    let finalText = "";
+    let lastResultText = "";
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    function initRecognition() {
+      if (!SpeechRecognition) {
+        statusText.innerText = "ไม่รองรับการรับเสียง";
+        micBtn.disabled = true;
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = true;
+
+      recognition.onstart = () => {
+        finalText = "";
+        isListening = true;
+        micBtn.classList.add('ripple', 'bg-red-600');
+        micStatus.innerText = "กำลังฟัง...";
+        statusText.innerText = isThaiToJp ? "กำลังฟังภาษาไทย..." : "正在聴取中...";
+        inputBox.classList.add('listening-active');
+        textDisplay.innerText = "";
+      };
+
+      recognition.onresult = (event) => {
+        let interimTranscript = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalText += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        textDisplay.innerHTML = escapeHtml(finalText) + `<span class="interim">${escapeHtml(interimTranscript)}</span>`;
+      };
+
+      recognition.onerror = (event) => {
+        console.error(event.error);
+        statusText.innerText = "เกิดข้อผิดพลาด: " + event.error;
+        stopMic();
+      };
+
+      recognition.onend = () => {
+        stopMic();
+        const text = finalText.trim();
+        if (text !== "") translate(text);
+      };
+    }
+
+    function startMic() {
+      if (!recognition) return;
+      window.speechSynthesis.cancel();
+      finalText = "";
+      resultDisplay.innerText = "...";
+      replayBtn.classList.add('hidden');
+      replayBtn.classList.remove('flex');
+
+      recognition.lang = isThaiToJp ? 'th-TH' : 'ja-JP';
+      try {
+        recognition.start();
+      } catch (error) {
+        stopMic();
+      }
+    }
+
+    function stopMic() {
+      isListening = false;
+      micBtn.classList.remove('ripple', 'bg-red-600');
+      micStatus.innerText = "กดเพื่อพูด";
+      inputBox.classList.remove('listening-active');
+    }
+
+    micBtn.addEventListener('click', () => {
+      isListening ? recognition.stop() : startMic();
+    });
+
+    switchBtn.addEventListener('click', () => {
+      if (isListening) recognition.stop();
+      window.speechSynthesis.cancel();
+      isThaiToJp = !isThaiToJp;
+
+      langLabel.innerText = isThaiToJp ? "ไทย ➔ ญี่ปุ่น" : "ญี่ปุ่น ➔ ไทย";
+      statusText.innerText = isThaiToJp ? "รอฟังเสียงพูดภาษาไทย" : "日本語の音声を待っています";
+      outputLabel.innerText = isThaiToJp ? "คำแปล (JAPANESE)" : "คำแปล (ไทย)";
+      textDisplay.innerText = "แตะไมค์แล้วเริ่มพูด...";
+      resultDisplay.innerText = "...";
+      replayBtn.classList.add('hidden');
+      replayBtn.classList.remove('flex');
+    });
+
+    async function translate(text) {
+      if (!text.trim()) return;
+      loader.classList.remove('hidden');
+      statusText.innerText = "กำลังประมวลผล...";
+      
+      const sl = isThaiToJp ? 'th' : 'ja';
+      const tl = isThaiToJp ? 'ja' : 'th';
+      const encodedText = encodeURIComponent(text);
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodedText}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        // รวมประโยคยาวๆ ทั้งหมด
+        let translatedResult = "";
+        if (data[0]) {
+            data[0].forEach(part => { if (part[0]) translatedResult += part[0]; });
+        }
+
+        lastResultText = translatedResult;
+        resultDisplay.innerText = translatedResult;
+        replayBtn.classList.remove('hidden');
+        replayBtn.classList.add('flex');
+        statusText.innerText = "แปลเสร็จแล้ว";
+
+        speak(translatedResult, tl);
+      } catch (error) {
+        resultDisplay.innerText = "การแปลขัดข้อง";
+        statusText.innerText = "ล้มเหลว";
+      } finally {
+        loader.classList.add('hidden');
+      }
+    }
+
+    function speak(text, lang) {
+      if (!text) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang === 'ja' ? 'ja-JP' : 'th-TH';
+      
+      // ปรับความเร็วประโยคยาวๆ ให้ฟังง่ายขึ้น
+      utterance.rate = lang === 'ja' ? 0.85 : 1.0; 
+
+      // เลือกเสียงที่ดีที่สุด (Premium/Google) เพื่อการอ่านคันจิที่แม่นยำ
+      const voices = window.speechSynthesis.getVoices();
+      if (voices.length > 0) {
+        const voice = voices.find(v => v.lang.startsWith(lang) && v.name.includes('Google')) || 
+                      voices.find(v => v.lang.startsWith(lang));
+        if (voice) utterance.voice = voice;
+      }
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    replayBtn.addEventListener('click', () => {
+      const tl = isThaiToJp ? 'ja' : 'th';
+      speak(lastResultText || resultDisplay.innerText, tl);
+    });
+
+    function escapeHtml(text) {
+      return String(text).replace(/[&<>"']/g, m => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+      })[m]);
+    }
+
+    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+    initRecognition();
+  </script>
+
+</body>
+</html>

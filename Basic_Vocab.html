@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เรียนรู้คำศัพท์ภาษาญี่ปุ่นพื้นฐานเริ่มต้นจากตัวอักษรฮิระงะนะ พร้อมคำอ่านไทยและเสียงประกอบกับ Pisek Sensei">
+    <title>คำศัพท์พื้นฐาน - Pisek Sensei</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #fcfcfc; color: #333; }
+        .navbar { background-color: #2c313c; padding: 12px 0; }
+        
+        /* --- Header & Search --- */
+        .page-header { background: white; padding: 40px 0; border-bottom: 1px solid #f0f0f0; margin-bottom: 30px; }
+        .search-box { 
+            border-radius: 50px; padding: 12px 25px; border: 2px solid #eee; 
+            transition: 0.3s; max-width: 500px; margin: 0 auto;
+        }
+        .search-box:focus { border-color: #dc3545; box-shadow: 0 4px 12px rgba(220, 53, 69, 0.1); outline: none; }
+
+        /* --- Vocab Card Style --- */
+        .basic-card {
+            background: white; border: 1px solid #eee; border-radius: 16px;
+            padding: 25px; transition: 0.3s; height: 100%;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .basic-card:hover { 
+            border-color: #dc3545; 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+        }
+        
+        .roma-text { color: #888; font-size: 0.85rem; letter-spacing: 2px; font-weight: 600; margin-bottom: 8px; }
+        .hira-main { font-size: 2.5rem; font-weight: 700; color: #dc3545; line-height: 1.2; }
+        .thai-read { color: #666; font-size: 0.9rem; margin-bottom: 15px; font-weight: 400; }
+        
+        .meaning-box { 
+            background: #fff5f5; padding: 10px 20px; border-radius: 50px; 
+            font-size: 1.1rem; font-weight: 600; color: #2c313c; width: 100%;
+        }
+        
+        .voice-btn {
+            background: white; border: 1px solid #eee; width: 45px; height: 45px;
+            border-radius: 50%; color: #dc3545; transition: 0.2s; 
+            margin-top: 15px; display: flex; align-items: center; justify-content: center;
+        }
+        .voice-btn:hover { background: #dc3545; color: white; border-color: #dc3545; }
+
+        /* --- Loading Spinner --- */
+        #loader { display: flex; justify-content: center; align-items: center; min-height: 200px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+            <i class="bi bi-translate me-2"></i> PISEK SENSEI
+        </a>
+        <a href="index.html" class="btn btn-sm btn-outline-light rounded-pill px-3">กลับหน้าหลัก</a>
+    </div>
+</nav>
+
+<header class="page-header text-center">
+    <div class="container">
+        <h2 class="fw-bold mb-2">คำศัพท์พื้นฐาน (Basic Vocabulary)</h2>
+        <p class="text-muted mb-4">เริ่มต้นสะสมคำศัพท์ง่ายๆ พร้อมเสียงอ่านจากเจ้าของภาษา</p>
+        <input type="text" id="basicSearch" class="form-control search-box" placeholder="ค้นหาคำศัพท์, โรมันจิ หรือความหมาย..." onkeyup="filterBasic()">
+    </div>
+</header>
+
+<div class="container pb-5">
+    <div id="loader">
+        <div class="spinner-border text-danger" role="status"></div>
+    </div>
+
+    <div class="row g-4" id="basicContainer">
+        </div>
+</div>
+
+<script>
+    let basicData = []; 
+
+    // ฟังก์ชันดึงข้อมูลจากไฟล์ Basic_Vocab.json
+    async function fetchBasicData() {
+        const loader = document.getElementById('loader');
+        const container = document.getElementById('basicContainer');
+        
+        try {
+            const response = await fetch('Basic_Vocab.json'); 
+            if (!response.ok) throw new Error('ไม่พบไฟล์ Basic_Vocab.json กรุณาตรวจสอบชื่อไฟล์');
+            
+            basicData = await response.json();
+            loader.style.display = 'none';
+            displayBasic(basicData); 
+        } catch (error) {
+            console.error(error);
+            loader.style.display = 'none';
+            container.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <div class="alert alert-warning d-inline-block">
+                        <i class="bi bi-exclamation-triangle me-2"></i> ${error.message}
+                    </div>
+                </div>`;
+        }
+    }
+
+    // ฟังก์ชันแสดงผลการ์ดคำศัพท์
+    function displayBasic(data) {
+        const container = document.getElementById('basicContainer');
+        container.innerHTML = '';
+
+        if (data.length === 0) {
+            container.innerHTML = '<div class="col-12 text-center py-5 text-muted"><h3>ไม่พบคำศัพท์ที่ค้นหา</h3></div>';
+            return;
+        }
+
+        data.forEach(item => {
+            const hira = item["คำศัพท์ (ฮิระงะนะ)"] || "";
+            const roma = item["โรมันจิ"] || "";
+            const thaiRead = item["คำอ่านภาษาไทย"] || "";
+            const mean = item["ความหมาย"] || "";
+
+            const card = `
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="basic-card shadow-sm">
+                        <div class="roma-text text-uppercase">${roma}</div>
+                        <div class="hira-main">${hira}</div>
+                        <div class="thai-read">(${thaiRead})</div>
+                        <div class="meaning-box">${mean}</div>
+                        <button class="voice-btn" onclick="playVoice('${hira}')" title="ฟังเสียง">
+                            <i class="bi bi-volume-up-fill fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', card);
+        });
+    }
+
+    // ระบบค้นหา
+    function filterBasic() {
+        const term = document.getElementById('basicSearch').value.toLowerCase();
+        const filtered = basicData.filter(item => 
+            (item["คำศัพท์ (ฮิระงะนะ)"] && item["คำศัพท์ (ฮิระงะนะ)"].includes(term)) || 
+            (item["ความหมาย"] && item["ความหมาย"].toLowerCase().includes(term)) || 
+            (item["โรมันจิ"] && item["โรมันจิ"].toLowerCase().includes(term)) ||
+            (item["คำอ่านภาษาไทย"] && item["คำอ่านภาษาไทย"].includes(term))
+        );
+        displayBasic(filtered);
+    }
+
+    // ระบบออกเสียง
+    function playVoice(text) {
+        if (!text) return;
+        window.speechSynthesis.cancel();
+        const msg = new SpeechSynthesisUtterance(text);
+        msg.lang = 'ja-JP';
+        msg.rate = 0.85;
+        window.speechSynthesis.speak(msg);
+    }
+
+    // เริ่มโหลดข้อมูลเมื่อเปิดหน้าเว็บ
+    document.addEventListener('DOMContentLoaded', fetchBasicData);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

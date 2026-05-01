@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisek Sensei - Japanese Learning Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Kanit:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red: #dc3545;
+            --soft-red: #ff4d5a;
+            --dark-blue: #2c313c;
+            --glass-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body { font-family: 'Sarabun', sans-serif; background-color: #f4f7f9; overflow-x: hidden; }
+        .kanit { font-family: 'Kanit', sans-serif; }
+
+        /* --- 1. Welcome Screen --- */
+        #welcome-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #000; display: flex; justify-content: center;
+            align-items: center; z-index: 10000; transition: opacity 1s ease-out;
+        }
+        .intro-logo {
+            width: 140px; height: 140px; border-radius: 50%; border: 3px solid #fff;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2); margin-bottom: 25px;
+            animation: pulseLogo 2s infinite ease-in-out;
+        }
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        #typing-text { color: #fff; font-size: 1.4rem; font-weight: 300; letter-spacing: 1px; min-height: 1.5em; }
+        .fade-out { opacity: 0 !important; pointer-events: none; }
+
+        /* --- 2. Navbar --- */
+        .navbar { background: var(--dark-blue); padding: 10px 0; border-bottom: 3px solid var(--primary-red); }
+        .navbar-brand img { height: 48px; border-radius: 50%; border: 2px solid #fff; transition: 0.3s; }
+        .navbar-brand:hover img { transform: rotate(10deg); }
+        .nav-link { color: #fff !important; text-align: center; margin: 0 10px; transition: 0.3s; position: relative; }
+        .nav-link:hover { color: var(--soft-red) !important; }
+        .nav-link span { display: block; font-size: 0.7rem; opacity: 0.6; font-weight: 300; }
+
+        /* --- 3. Hero Section --- */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-attachment: fixed; background-position: center;
+            color: white; padding: 100px 0; text-align: center;
+        }
+        .hero-section h1 { letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+
+        /* --- 4. Menu Cards --- */
+        .menu-card {
+            background: var(--glass-bg); border-radius: 24px; padding: 35px 25px; text-align: center;
+            text-decoration: none !important; color: var(--dark-blue); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: block; border: 1px solid rgba(255,255,255,0.3); height: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .menu-card:hover { 
+            transform: translateY(-12px); 
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(220, 53, 69, 0.15);
+            border-color: var(--soft-red);
+        }
+        .menu-icon { font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; display: block; transition: 0.4s; }
+        .menu-card:hover .menu-icon { transform: scale(1.1) rotate(-5deg); color: var(--soft-red); }
+
+        /* --- 5. Modern Slider Section --- */
+        .section-title { position: relative; display: inline-block; padding-bottom: 10px; }
+        .section-title::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 50px; height: 3px; background: var(--primary-red); transform: translateX(-50%); }
+
+        .slider-container { position: relative; padding: 0 50px; }
+        .slider-wrapper {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+            scroll-behavior: smooth; gap: 25px; padding: 20px 5px; scrollbar-width: none;
+        }
+        .slider-wrapper::-webkit-scrollbar { display: none; }
+        .slide-item { flex: 0 0 300px; scroll-snap-align: center; }
+
+        .modern-book-card { 
+            border: none; border-radius: 22px; overflow: hidden; background: #fff; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06); transition: 0.4s; height: 100%;
+        }
+        .modern-book-card:hover { transform: scale(1.02); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .img-container { height: 380px; overflow: hidden; position: relative; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .modern-book-card:hover img { transform: scale(1.1); }
+        
+        .badge-tag {
+            position: absolute; top: 15px; right: 15px; background: var(--primary-red);
+            color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; z-index: 5;
+        }
+
+        .btn-action {
+            background: linear-gradient(45deg, var(--primary-red), var(--soft-red));
+            color: white; border-radius: 50px; padding: 10px 25px; border: none;
+            transition: 0.3s; font-weight: 600; width: 100%;
+        }
+        .btn-action:hover { color: white; filter: brightness(1.1); box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3); }
+
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 45px; height: 45px; background: white; border: none;
+            border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.12); z-index: 10;
+            transition: 0.3s; color: var(--primary-red);
+        }
+        .nav-btn:hover { background: var(--primary-red); color: white; }
+        .btn-prev { left: 0; } .btn-next { right: 0; }
+
+        footer { background: var(--dark-blue); color: #dee2e6; padding: 40px 0; border-top: 5px solid var(--primary-red); }
+    </style>
+</head>
+<body>
+
+<!-- 1. Welcome Screen -->
+<div id="welcome-screen">
+    <div class="text-center">
+        <img src="image/logo.jpg" alt="Logo" class="intro-logo">
+        <h1 id="typing-text" class="kanit"></h1>
+    </div>
+</div>
+
+<!-- 2. Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="image/logo.jpg" alt="Logo">
+        </a>
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="bi bi-list fs-2"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto text-uppercase fw-bold">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home<span>หน้าแรก</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="Practice.html">Hiragana<span>ฮิระงะนะ</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="Katakana.html">Katakana<span>คาตะคะนะ</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="Basic_Vocab.html">Basic<span>ศัพท์พื้นฐาน</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="Contact.html">Contact<span>ติดต่อเรา</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 3. Hero Section -->
+<header class="hero-section">
+    <div class="container">
+        <h1 class="display-3 fw-bold animate__animated animate__fadeInDown kanit">Pisek Sensei Japanese</h1>
+        <p class="fs-4 animate__animated animate__fadeInUp opacity-90">แหล่งเรียนรู้ภาษาญี่ปุ่นออนไลน์ ครบจบในที่เดียว</p>
+    </div>
+</header>
+
+<!-- 4. Menu Selection -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <a href="Vocabulary.html" class="menu-card">
+                    <i class="bi bi-translate menu-icon"></i>
+                    <h4 class="kanit fw-bold">JLPT Vocabulary</h4>
+                    <p class="text-muted small">รวบรวมคำศัพท์สอบวัดระดับ N5 - N1 พร้อมเสียงอ่าน</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="Kanji.html" class="menu-card">
+                    <i class="bi bi-pencil-square menu-icon"></i>
+                    <h4 class="kanit fw-bold">คันจิอัจฉริยะ</h4>
+                    <p class="text-muted small">ฝึกเขียนและจำคันจิด้วยแอนิเมชันลำดับเส้นที่ถูกต้อง</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="Technical_Vocab.html" class="menu-card">
+                    <i class="bi bi-gear-fill menu-icon"></i>
+                    <h4 class="kanit fw-bold">คลังศัพท์เฉพาะทาง</h4>
+                    <p class="text-muted small">ศัพท์โรงงานและงานวิศวกรรมมากกว่า 60,000 คำ</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="phrase.html" class="menu-card">
+                    <i class="bi bi-chat-dots-fill menu-icon"></i>
+                    <h4 class="kanit fw-bold">วลีที่ใช้ในการสนทนา</h4>
+                    <p class="text-muted small">รวมประโยคใช้จริงในชีวิตประจำวันและที่ทำงาน</p>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="Translator.html" class="menu-card">
+                    <i class="bi bi-mic-fill menu-icon"></i>
+                    <h4 class="kanit fw-bold">การแปลด้วยเสียง</h4>
+                    <p class="text-muted small">แปลเสียงพูดไทย-ญี่ปุ่น แบบเรียลไทม์ แม่นยำ</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Recommended Resources -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold section-title kanit">หนังสือและเอกสารแนะนำ</h2>
+        </div>
+
+        <div class="slider-container">
+            <button class="nav-btn btn-prev" onclick="moveSlide('left')"><i class="bi bi-chevron-left"></i></button>
+            <button class="nav-btn btn-next" onclick="moveSlide('right')"><i class="bi bi-chevron-right"></i></button>
+
+            <div class="slider-wrapper" id="mainSlider">
+                <div class="slide-item">
+                    <div class="modern-book-card">
+                        <div class="badge-tag">BEST SELLER</div>
+                        <div class="img-container"><img src="image/1200semi.png" alt="Semiconductor Vocab"></div>
+                        <div class="p-4 text-center">
+                            <h6 class="fw-bold mb-3">คลังศัพท์ Semiconductor</h6>
+                            <a href="pdf/sample1.pdf" target="_blank" class="btn btn-action">ดูตัวอย่างเนื้อหา</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="modern-book-card">
+                        <div class="badge-tag">NEW</div>
+                        <div class="img-container"><img src="image/verbs.png" alt="Japanese Verbs"></div>
+                        <div class="p-4 text-center">
+                            <h6 class="fw-bold mb-3">A-Level 3150 สรุปไวยากรณ์</h6>
+                            <a href="pdf/sample2.pdf" target="_blank" class="btn btn-action">ดูตัวอย่างเนื้อหา</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- เพิ่มรายการหนังสือตรงนี้ได้อีก -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center">
+    <div class="container">
+        <h5 class="kanit fw-bold text-white mb-3">Pisek Sensei Japanese Learning Center</h5>
+        <p class="mb-0 opacity-75 small">© 2026 All rights reserved. มุ่งมั่นพัฒนาทักษะภาษาญี่ปุ่นเพื่ออนาคต</p>
+    </div>
+</footer>
+
+<script>
+    // 1. Typing Effect
+    const introText = "ยินดีต้อนรับสู่ Pisek Sensei Japanese";
+    let i = 0;
+    function typeEffect() {
+        if (i < introText.length) {
+            document.getElementById("typing-text").innerHTML += introText.charAt(i);
+            i++;
+            setTimeout(typeEffect, 60);
+        }
+    }
+
+    window.addEventListener('load', () => {
+        const screen = document.getElementById('welcome-screen');
+        if (!sessionStorage.getItem('introShown')) {
+            setTimeout(typeEffect, 400); 
+            setTimeout(() => {
+                screen.classList.add('fade-out');
+                setTimeout(() => { 
+                    screen.style.display = 'none'; 
+                    sessionStorage.setItem('introShown', 'true'); 
+                }, 1000);
+            }, 3200);
+        } else {
+            screen.style.display = 'none';
+        }
+    });
+
+    // 2. Slider
+    function moveSlide(dir) {
+        const slider = document.getElementById('mainSlider');
+        const scrollAmount = 320;
+        slider.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
