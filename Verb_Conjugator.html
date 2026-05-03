@@ -28,21 +28,12 @@
 
         .kanit { font-family: 'Kanit', sans-serif; }
 
-        /* Navbar Styling */
         .navbar {
             background-color: var(--secondary-color);
-            backdrop-filter: blur(10px);
             padding: 12px 0;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
 
-        .navbar-brand {
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        /* Main Container Card */
         .main-card {
             background: var(--glass-bg);
             border-radius: 24px;
@@ -52,32 +43,6 @@
             border: 1px solid rgba(255,255,255,0.3);
         }
 
-        .section-title {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        /* Form Elements */
-        .form-label {
-            font-weight: 600;
-            color: #555;
-            margin-bottom: 8px;
-        }
-
-        .form-control, .form-select {
-            border-radius: 12px;
-            padding: 12px 18px;
-            border: 2px solid #eee;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus, .form-select:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 0.25rem rgba(69, 123, 157, 0.15);
-        }
-
         .btn-action {
             background: linear-gradient(45deg, var(--primary-color), #f76c6c);
             color: white;
@@ -85,118 +50,37 @@
             border-radius: 14px;
             padding: 15px 30px;
             font-weight: 600;
-            transition: all 0.3s ease;
             width: 100%;
             margin-top: 20px;
+            transition: 0.3s;
         }
 
-        .btn-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
-            color: white;
-        }
+        .btn-action:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3); }
 
-        /* Result Section */
         .result-box {
             display: none;
             background: white;
             border-radius: 20px;
             padding: 35px;
             margin-top: 35px;
-            border: 1px solid #eef2f7;
-            position: relative;
-            overflow: hidden;
+            border-left: 8px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .result-box::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 6px;
-            background: var(--primary-color);
-        }
-
-        .verb-kanji {
-            font-size: 3.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            line-height: 1.1;
-        }
-
-        .verb-hira {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .meaning-badge {
-            background-color: #fff1f2;
-            color: var(--primary-color);
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            display: inline-block;
-            border: 1px solid rgba(230, 57, 70, 0.1);
-        }
-
-        .status-pill {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            background: #e9ecef;
-            color: #6c757d;
-            margin-bottom: 15px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid #eee;
-        }
-
-        .info-item label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: #999;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .info-item span {
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-
-        /* Animations */
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fadeIn {
-            animation: slideIn 0.5s ease forwards;
-        }
+        .verb-kanji { font-size: 3.8rem; font-weight: 700; color: var(--primary-color); line-height: 1.1; }
+        .verb-hira { font-size: 1.8rem; color: var(--secondary-color); font-weight: 500; margin-bottom: 20px; }
+        .meaning-badge { background-color: #fff1f2; color: var(--primary-color); padding: 12px 25px; border-radius: 50px; font-weight: 600; display: inline-block; border: 1px solid rgba(230, 57, 70, 0.1); }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
+        .info-item label { display: block; font-size: 0.8rem; color: #999; margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
 <nav class="navbar navbar-dark sticky-top">
     <div class="container d-flex align-items-center">
         <a class="navbar-brand kanit d-flex align-items-center" href="#">
-            <i class="bi bi-translate me-2"></i>
-            Pisek Verb AI
+            <i class="bi bi-translate me-2"></i> Pisek Verb AI
         </a>
-        <!-- ปุ่มกลับหน้าแรก -->
         <a href="index.html" class="btn btn-outline-light btn-sm rounded-pill px-4 transition">
             <i class="bi bi-house-door me-1"></i> กลับหน้าแรก
         </a>
@@ -206,31 +90,28 @@
 <div class="container pb-5">
     <div class="row justify-content-center">
         <div class="col-lg-10 col-xl-8">
-            
-            <!-- Input Card -->
-            <div class="main-card animate-fadeIn">
-                <h3 class="kanit section-title text-center">ระบบผันกริยาอัจฉริยะ</h3>
+            <div class="main-card animate-fadeIn text-center">
+                <h3 class="kanit mb-4">ระบบผันกริยาอัจฉริยะ</h3>
                 
-                <div id="dbStatus" class="alert alert-light border text-center py-2 mb-4 rounded-pill small">
-                    <span class="spinner-border spinner-border-sm text-secondary me-2"></span>
+                <div id="dbStatus" class="alert alert-light border py-2 mb-4 rounded-pill small text-secondary">
                     กำลังเตรียมฐานข้อมูล...
                 </div>
 
-                <div class="row g-4">
+                <div class="row g-4 text-start">
                     <div class="col-md-6">
-                        <label class="form-label">พิมพ์คำกริยา (คันจิ/ฮิระงะนะ)</label>
+                        <label class="form-label fw-bold">พิมพ์คำกริยา (คันจิ/ฮิระงะนะ)</label>
                         <input type="text" id="inputVerb" class="form-control" placeholder="เช่น 食べる, 立つ, 行く">
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">เลือกรูปแบบการผัน</label>
+                        <label class="form-label fw-bold">เลือกรูปแบบการผัน</label>
                         <select id="conjugationForm" class="form-select">
                             <optgroup label="รูปพื้นฐาน">
                                 <option value="masu">รูปสุภาพ (〜ます)</option>
+                                <option value="mashou">รูปเชิญชวน (〜ましょう)</option>
                                 <option value="nai">รูปปฏิเสธ (〜ない)</option>
                                 <option value="te">รูปเตะ (〜て)</option>
                                 <option value="ta">รูปอดีต (〜た)</option>
                                 <option value="tai">รูปอยาก (〜たい)</option>
-                                <option value="mashou">รูปเชิญชวน (〜ましょう)</option>
                             </optgroup>
                             <optgroup label="เงื่อนไข & ตั้งใจ">
                                 <option value="ba">รูปเงื่อนไข (〜ば)</option>
@@ -238,60 +119,41 @@
                                 <option value="to">รูปเงื่อนไข (〜と)</option>
                                 <option value="ikou">รูปตั้งใจ (〜おう/よう)</option>
                             </optgroup>
-                            <optgroup label="คำสั่ง & ข้อบังคับ">
-                                <option value="te_kudasai">รูปคำสั่งสุภาพ (〜てください)</option>
-                                <option value="must_inf">จำเป็นต้อง (〜なければならない)</option>
-                                <option value="prohibit">รูปห้ามทำ (〜な)</option>
-                            </optgroup>
-                            <optgroup label="ความรู้สึก & ประสม">
-                                <option value="takunai">รูปไม่อยาก (〜たくない)</option>
+                            <optgroup label="ประสม & ความรู้สึก">
                                 <option value="teiru">กำลัง... (〜ている)</option>
                                 <option value="teshimau">...เสียแล้ว (〜てしまう)</option>
+                                <option value="takunai">ไม่อยาก... (〜たくない)</option>
+                                <option value="must_inf">จำเป็นต้อง (〜なければならない)</option>
+                                <option value="te_kudasai">กรุณา... (〜てください)</option>
                             </optgroup>
                         </select>
                     </div>
                 </div>
 
-                <button class="btn btn-action shadow-sm" onclick="conjugate()">
+                <button class="btn btn-action" onclick="conjugate()">
                     ผันกริยาและแปลความหมาย <i class="bi bi-magic ms-2"></i>
                 </button>
             </div>
 
-            <!-- Result Section -->
-            <div id="resultArea" class="result-box animate-fadeIn">
+            <div id="resultArea" class="result-box text-center">
                 <div class="d-flex justify-content-between align-items-start mb-4">
-                    <span class="status-pill" id="displayGroup">กริยากลุ่ม -</span>
+                    <span class="badge bg-light text-dark border rounded-pill px-3 py-2" id="displayGroup">กริยากลุ่ม -</span>
                     <button class="btn btn-outline-danger btn-sm rounded-pill px-3" onclick="playVoice()">
                         <i class="bi bi-volume-up-fill me-1"></i> ฟังเสียง
                     </button>
                 </div>
-
-                <div class="text-center">
-                    <div id="displayResultKanji" class="verb-kanji"></div>
-                    <div id="displayResultHira" class="verb-hira"></div>
-                    
-                    <div class="meaning-badge mt-2">
-                        <span id="displayMeaning">-</span>
-                    </div>
-
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <label>Onyomi (เสียงจีน)</label>
-                            <span id="displayOn">-</span>
-                        </div>
-                        <div class="info-item">
-                            <label>Kunyomi (เสียงญี่ปุ่น)</label>
-                            <span id="displayKun">-</span>
-                        </div>
-                    </div>
+                <div id="displayResultKanji" class="verb-kanji"></div>
+                <div id="displayResultHira" class="verb-hira"></div>
+                <div class="meaning-badge"><span id="displayMeaning">-</span></div>
+                <div class="info-grid">
+                    <div class="info-item border-end"><label>Onyomi</label><span id="displayOn">-</span></div>
+                    <div class="info-item"><label>Kunyomi</label><span id="displayKun">-</span></div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 
-<!-- JavaScript Logic -->
 <script>
     let verbDatabase = [];
 
@@ -299,19 +161,16 @@
         try {
             const response = await fetch('Verb_Conjugator.json?t=' + Date.now());
             verbDatabase = await response.json();
-            const status = document.getElementById('dbStatus');
-            status.innerHTML = '<i class="bi bi-check-circle-fill text-success me-2"></i>ฐานข้อมูลกริยาพร้อมใช้งาน';
-            status.classList.replace('alert-light', 'alert-success');
-            status.style.backgroundColor = '#e8f5e9';
+            document.getElementById('dbStatus').innerHTML = '<i class="bi bi-check-circle-fill text-success"></i> ฐานข้อมูลพร้อมใช้งาน';
         } catch (e) {
-            document.getElementById('dbStatus').innerHTML = '<i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>ไม่พบไฟล์ข้อมูล';
+            document.getElementById('dbStatus').innerHTML = '<i class="bi bi-x-circle-fill text-danger"></i> โหลดข้อมูลไม่สำเร็จ';
         }
     }
 
     function getVerbGroup(hira) {
         if (hira.endsWith("する") || hira === "くる") return 3;
-        const v2 = ["える", "ける", "せる", "てる", "ねる", "める", "れる", "べる", "いる", "きる", "しる", "ちる", "นิる", "ひる", "みる", "りる"];
-        if (hira.endsWith("る") && v2.includes(hira.slice(-2))) return 2;
+        const v2_rules = ["える", "ける", "せる", "てる", "ねる", "める", "れる", "べる", "いる", "きる", "しる", "ちる", "にる", "ひる", "みる", "りる"];
+        if (hira.endsWith("る") && v2_rules.includes(hira.slice(-2))) return 2;
         return 1;
     }
 
@@ -320,86 +179,97 @@
         const form = document.getElementById('conjugationForm').value;
         const item = verbDatabase.find(v => v.คันจิ === input || v.ฮิระงะนะ === input);
 
-        if (!item) { 
-            alert("ไม่พบข้อมูลกริยานี้ในฐานข้อมูลครับ"); 
-            return; 
-        }
+        if (!item) { alert("ไม่พบข้อมูลกริยา"); return; }
 
         const kanjiStem = item.คันจิ;
         const hiraStem = item.ฮิระงะนะ;
         const group = getVerbGroup(hiraStem);
 
-        // Unicode Mapping สำหรับภาษาญี่ปุ่น
+        // Unicode Mappings
         const uToA = { "う":"わ", "く":"か", "ぐ":"が", "す":"さ", "つ":"た", "ぬ":"な", "ぶ":"ば", "む":"ま", "る":"ら" };
         const uToI = { "う":"い", "く":"き", "ぐ":"ぎ", "す":"し", "つ":"ち", "ぬ":"に", "ぶ":"び", "む":"み", "る":"り" };
-        const uToE = { "う":"え", "く":"け", "ぐ":"げ", "す":"せ", "つ":"て", "ぬ":"ね", "ぶ":"べ", "む":"เม", "る":"れ" };
-        const uToO = { "う":"おう", "く":"こう", "ぐ":"ごう", "ส":"そう", "つ":"とう", "ぬ":"โน", "ぶ":"ぼう", "む":"もう", "る":"ろう" };
+        const uToE = { "う":"え", "く":"け", "ぐ":"げ", "す":"せ", "つ":"て", "ぬ":"เน", "ぶ":"เบ", "む":"เม", "る":"れ" };
+        const uToO = { "う":"おう", "く":"こう", "ぐ":"ごう", "す":"そう", "つ":"とう", "ぬ":"のう", "ぶ":"ぼう", "む":"もう", "る":"ろう" };
 
-        function applyForm(stem, dict) {
+        function applyRule(stem, dict) {
             const base = stem.slice(0, -1);
             const last = dict.slice(-1);
             
+            // Logic for Te & Ta Form
             const getTeTa = (type) => {
                 const teMap = { "う":"って", "つ":"って", "る":"って", "ぬ":"んで", "ぶ":"んで", "む":"んで", "く":"いて", "ぐ":"いで", "す":"して" };
                 const taMap = { "う":"った", "つ":"った", "る":"った", "ぬ":"んだ", "ぶ":"んだ", "む":"んだ", "く":"いた", "ぐ":"いだ", "す":"した" };
-                if (group === 3) return dict === "くる" ? (type === 'te' ? "きて" : "きた") : stem.replace("する", type === 'te' ? "して" : "ทำ");
+                if (group === 3) return dict === "くる" ? (type === 'te' ? "きて" : "きた") : stem.replace("する", type === 'te' ? "して" : "した");
                 if (group === 2) return base + (type === 'te' ? "て" : "た");
                 if (dict === "いく") return type === 'te' ? "いって" : "いった";
                 return base + (type === 'te' ? teMap[last] : taMap[last]);
             };
 
             switch(form) {
-                case "masu": return group === 3 ? (dict === "くる" ? "きます" : stem.replace("する", "します")) : (group === 2 ? base + "ます" : base + uToI[last] + "ます");
-                case "nai":  return group === 3 ? (dict === "くる" ? "こない" : stem.replace("する", "しない")) : (group === 2 ? base + "ない" : base + uToA[last] + "ない");
-                case "te":   return getTeTa('te');
-                case "ta":   return getTeTa('ta');
-                case "tai":  return group === 3 ? (dict === "くる" ? "きたい" : stem.replace("する", "したい")) : (group === 2 ? base + "たい" : base + uToI[last] + "たい");
-                case "ba":   return group === 3 ? (dict === "くる" ? "くれば" : stem.replace("する", "すれば")) : (group === 2 ? base + "れば" : base + uToE[last] + "ば");
+                case "masu": 
+                    if (group === 3) return dict === "くる" ? "きます" : stem.replace("する", "します");
+                    return (group === 2 ? base : base + uToI[last]) + "ます";
+                case "mashou": 
+                    if (group === 3) return dict === "くる" ? "きましょう" : stem.replace("する", "しましょう");
+                    return (group === 2 ? base : base + uToI[last]) + "ましょう";
+                case "nai":
+                    if (group === 3) return dict === "くる" ? "こない" : stem.replace("する", "しない");
+                    return (group === 2 ? base : base + uToA[last]) + "ない";
+                case "te": return getTeTa('te');
+                case "ta": return getTeTa('ta');
+                case "tai":
+                    if (group === 3) return dict === "くる" ? "きたい" : stem.replace("する", "したい");
+                    return (group === 2 ? base : base + uToI[last]) + "たい";
+                case "ba":
+                    if (group === 3) return dict === "くる" ? "くれば" : stem.replace("する", "すれば");
+                    return (group === 2 ? base + "れば" : base + uToE[last] + "บา");
                 case "tara": return getTeTa('ta') + "ら";
-                case "to":   return dict + "と";
+                case "to": return dict + "と";
+                case "ikou":
+                    if (group === 3) return dict === "くる" ? "こよう" : stem.replace("する", "しよう");
+                    return group === 2 ? base + "よう" : base + uToO[last];
                 case "teiru": return getTeTa('te') + "いる";
                 case "teshimau": return getTeTa('te') + "しまう";
-                case "takunai": return group === 3 ? (dict === "くる" ? "きたくない" : stem.replace("する", "したくない")) : (group === 2 ? base + "たくない" : base + uToI[last] + "たくない");
+                case "takunai":
+                    if (group === 3) return dict === "くる" ? "きたくない" : stem.replace("する", "したくない");
+                    return (group === 2 ? base : base + uToI[last]) + "たくない";
+                case "must_inf":
+                    if (group === 3) return dict === "くる" ? "こなければならない" : stem.replace("する", "しなければならない");
+                    return (group === 2 ? base : base + uToA[last]) + "なければならない";
+                case "te_kudasai": return getTeTa('te') + "ください";
                 default: return stem;
             }
         }
 
         const mS = { 
-            masu:" (รูปสุภาพ)", nai:"ไม่...", te:"และ/โดย...", ta:"แล้ว", 
-            tai:"อยาก...", ba:"ถ้า...", tara:"ถ้า...แล้ว", to:"พอ...ก็", 
-            teiru:"กำลัง...", teshimau:"...เสียแล้ว", takunai:"ไม่อยาก..." 
+            masu:" (รูปสุภาพ)", mashou:" ...กันเถอะ", nai:"ไม่...", te:"และ/โดย...", ta:"แล้ว", 
+            tai:"อยาก...", ba:"ถ้า...", tara:"ถ้า...แล้ว", to:"พอ...ก็", ikou: "ตั้งใจว่า...",
+            teiru:"กำลัง...", teshimau:"...เสียแล้ว", takunai:"ไม่อยาก...", must_inf: "ต้อง...", te_kudasai: "กรุณา..."
         };
         
         let finalM = item.ความหมายไทย;
-        if(form === "nai" || form === "takunai") finalM = mS[form].replace("...", finalM);
+        if(["nai", "takunai", "must_inf", "te_kudasai"].includes(form)) finalM = mS[form].replace("...", finalM);
         else finalM = finalM + (mS[form] || "");
 
         document.getElementById('resultArea').style.display = "block";
-        document.getElementById('displayResultKanji').innerText = applyForm(kanjiStem, hiraStem);
-        document.getElementById('displayResultHira').innerText = applyForm(hiraStem, hiraStem);
+        document.getElementById('displayResultKanji').innerText = applyRule(kanjiStem, hiraStem);
+        document.getElementById('displayResultHira').innerText = applyRule(hiraStem, hiraStem);
         document.getElementById('displayMeaning').innerText = finalM;
         document.getElementById('displayGroup').innerText = `กริยากลุ่ม ${group}`;
         document.getElementById('displayOn').innerText = item.Onyomi || '-';
         document.getElementById('displayKun').innerText = item.Kunyomi || '-';
         
-        // Auto scroll to result
-        setTimeout(() => {
-            document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100);
+        setTimeout(() => { document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
     }
 
     function playVoice() {
         const text = document.getElementById('displayResultHira').innerText;
         window.speechSynthesis.cancel();
         const m = new SpeechSynthesisUtterance(text);
-        m.lang = 'ja-JP'; 
-        m.rate = 0.85;
+        m.lang = 'ja-JP'; m.rate = 0.85;
         window.speechSynthesis.speak(m);
     }
-
     document.addEventListener('DOMContentLoaded', loadData);
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
