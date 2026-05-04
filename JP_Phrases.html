@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisek JP - Multi-Device Learning</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&family=Kanit:wght@500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --jp-green: #2ecc71;
+            --jp-dark: #2c3e50;
+            --jp-light: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--jp-light);
+            /* เว้นที่ว่างให้ประโยคอยู่กึ่งกลางพอดี */
+            padding: 45vh 0; 
+            overflow-x: hidden;
+        }
+
+        .kanit { font-family: 'Kanit', sans-serif; }
+
+        .navbar {
+            background-color: var(--jp-dark);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .phrase-container {
+            width: 95%;
+            max-width: 600px; /* ขนาดสูงสุดเมื่อดูบนคอมพิวเตอร์ */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ปรับขนาดพื้นฐานสำหรับหน้าจอทั่วไป */
+        .phrase-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px 20px; 
+            margin-bottom: 40vh; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0.15;
+            transform: scale(0.85);
+            border: 2px solid transparent;
+            width: 100%;
+        }
+
+        /* --- สไตล์เมื่อ Active (รองรับทุกอุปกรณ์) --- */
+        .phrase-card.active {
+            opacity: 1;
+            transform: scale(1.05); /* บนมือถือขยายเล็กน้อยพอสวยงาม */
+            border-color: var(--jp-green);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        /* --- ขนาดตัวอักษรมาตรฐาน --- */
+        .thai-translation { font-weight: 600; color: #333; font-size: 1.2rem; margin-bottom: 8px; }
+        .jp-text { color: var(--jp-dark); font-size: 2rem; font-weight: 700; margin-bottom: 5px; }
+        .romaji-text { color: var(--jp-green); font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .thai-reading { color: #888; font-size: 0.95rem; font-style: italic; }
+        .speaker-icon { margin-top: 15px; color: #ddd; font-size: 1.5rem; }
+        .active .speaker-icon { color: var(--jp-green); animation: pulse 1s infinite; }
+
+        /* --- ปรับแต่งสำหรับหน้าจอคอมพิวเตอร์และแล็บท็อป (ขนาดใหญ่) --- */
+        @media (min-width: 992px) {
+            .phrase-card.active {
+                transform: scale(1.25); /* ขยายใหญ่ขึ้นเมื่ออยู่บนจอคอม */
+            }
+            .thai-translation { font-size: 1.5rem; }
+            .jp-text { font-size: 2.3rem; }
+            .romaji-text { font-size: 1.3rem; }
+            .thai-reading { font-size: 1.1rem; }
+        }
+
+        /* --- ปรับแต่งสำหรับมือถือขนาดเล็กมาก --- */
+        @media (max-width: 400px) {
+            .jp-text { font-size: 1.8rem; }
+            .thai-translation { font-size: 1.1rem; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+        <a class="navbar-brand kanit d-flex align-items-center" href="#">
+            <i class="bi bi-translate me-2"></i> Pisek Learn JP
+        </a>
+        <a href="index.html" class="btn btn-outline-light btn-sm rounded-pill px-3">
+            <i class="bi bi-house-door me-1"></i>
+        </a>
+    </div>
+</nav>
+
+<div class="phrase-container" id="phrasesList">
+    <!-- รายการประโยคจะถูกสร้างด้วย JavaScript -->
+</div>
+
+<script>
+    const phrases = [
+            { 
+        th: "สวัสดีตอนเช้า", 
+        jp: "おはようございます。", 
+        romaji: "Ohayou gozaimasu.", 
+        reading: "โอ-ฮะ-โย-โกะ-ไซ-มาส" 
+    },
+    { 
+        th: "สวัสดีตอนบ่าย", 
+        jp: "こんにちは。", 
+        romaji: "Konnichiwa.", 
+        reading: "คน-นิ-จิ-วะ" 
+    },
+    { 
+        th: "สวัสดีตอนเย็น", 
+        jp: "こんばんは。", 
+        romaji: "Konbanwa.", 
+        reading: "คม-บัง-วะ" 
+    },
+    { 
+        th: "ราตรีสวัสดิ์", 
+        jp: "おやすみなさい。", 
+        romaji: "Oyasuminasai.", 
+        reading: "โอ-ยะ-สุ-มิ-นะ-ไซ" 
+    },
+    { 
+        th: "ยินดีที่ได้รู้จัก", 
+        jp: "はじめまして。", 
+        romaji: "Hajimemashite.", 
+        reading: "ฮะ-จิ-เมะ-มะ-ชิ-เตะ" 
+    },
+    { 
+        th: "ฝากตัวด้วยนะครับ/คะ", 
+        jp: "よろしくお願いします。", 
+        romaji: "Yoroshiku onegaishimasu.", 
+        reading: "โยะ-โระ-ชิ-คุ-โอ-เนะ-ไก-ชิ-มาส" 
+    },
+    { 
+        th: "สบายดีไหมครับ/คะ?", 
+        jp: "お元気ですか？", 
+        romaji: "O-genki desu ka?", 
+        reading: "โอ-เก็น-กิ-เดส-ก๊ะ" 
+    },
+    { 
+        th: "สบายดีครับ/ค่ะ", 
+        jp: "元気です。", 
+        romaji: "Genki desu.", 
+        reading: "เก็น-กิ-เดส" 
+    },
+    { 
+        th: "ช่วงนี้เป็นยังไงบ้าง?", 
+        jp: "最近どうですか？", 
+        romaji: "Saikin dou desu ka?", 
+        reading: "ไซ-คิน-โด-เดส-ก๊ะ" 
+    },
+    { 
+        th: "ไม่ได้เจอกันนานเลย", 
+        jp: "お久しぶりです。", 
+        romaji: "Ohisashiburi desu.", 
+        reading: "โอ-ฮิ-ซะ-ชิ-บุ-ริ-เดส" 
+    },
+    { 
+        th: "ยินดีต้อนรับ", 
+        jp: "ようこそ。", 
+        romaji: "Youkoso.", 
+        reading: "โย-โคะ-โซะ" 
+    },
+    { 
+        th: "เชิญเข้ามาได้เลย", 
+        jp: "どうぞ入ってください。", 
+        romaji: "Douzo haitte kudasai.", 
+        reading: "โด-โซะ-ไฮต-เตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "วันนี้เป็นยังไงบ้าง?", 
+        jp: "今日はどうですか？", 
+        romaji: "Kyou wa dou desu ka?", 
+        reading: "เคียว-วะ-โด-เดส-ก๊ะ" 
+    },
+    { 
+        th: "ดีใจที่ได้เจอคุณ", 
+        jp: "会えて嬉しいです。", 
+        romaji: "Aete ureshii desu.", 
+        reading: "อะ-เอะ-เตะ-อุ-เระ-ชิ-อิ-เดส" 
+    },
+    { 
+        th: "วันนี้ดูสดใสนะ", 
+        jp: "今日は元気そうですね。", 
+        romaji: "Kyou wa genki sou desu ne.", 
+        reading: "เคียว-วะ-เก็น-กิ-โซ-เดส-เนะ" 
+    },
+    { 
+        th: "ไปก่อนนะ", 
+        jp: "行ってきます。", 
+        romaji: "Ittekimasu.", 
+        reading: "อิต-เตะ-คิ-มาส" 
+    },
+    { 
+        th: "เดินทางดีๆนะ", 
+        jp: "行ってらっしゃい。", 
+        romaji: "Itterasshai.", 
+        reading: "อิต-เตะ-รัช-ไช" 
+    },
+    { 
+        th: "ฉันกลับมาแล้ว", 
+        jp: "ただいま。", 
+        romaji: "Tadaima.", 
+        reading: "ทะ-ได-มะ" 
+    },
+    { 
+        th: "ยินดีต้อนรับกลับ", 
+        jp: "お帰りなさい。", 
+        romaji: "Okaerinasai.", 
+        reading: "โอ-คะ-เอะ-ริ-นะ-ไซ" 
+    },
+    { 
+        th: "แล้วเจอกันใหม่", 
+        jp: "また会いましょう。", 
+        romaji: "Mata aimashou.", 
+        reading: "มะ-ตะ-ไอ-มะ-โช" 
+    },
+    { 
+        th: "คุณพูดภาษาญี่ปุ่นได้ไหม?", 
+        jp: "日本語を話せますか？", 
+        romaji: "Nihongo o hanasemasu ka?", 
+        reading: "นิ-ฮน-โกะ-โอ๊ะ-ฮะ-นะ-เซะ-มาส-ก๊ะ" 
+    },
+    { 
+        th: "ฉันพูดภาษาญี่ปุ่นได้นิดหน่อย", 
+        jp: "日本語を少し話せます。", 
+        romaji: "Nihongo o sukoshi hanasemasu.", 
+        reading: "นิ-ฮน-โกะ-โอ๊ะ-สุ-โคะ-ชิ-ฮะ-นะ-เซะ-มาส" 
+    },
+    { 
+        th: "ช่วยพูดช้าๆหน่อยได้ไหม?", 
+        jp: "もう少しゆっくり話してください。", 
+        romaji: "Mou sukoshi yukkuri hanashite kudasai.", 
+        reading: "โม-สุ-โคะ-ชิ-ยุก-คุ-ริ-ฮะ-นะ-ชิ-เตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "วันนี้อากาศดีนะ", 
+        jp: "今日はいい天気ですね。", 
+        romaji: "Kyou wa ii tenki desu ne.", 
+        reading: "เคียว-วะ-อี-เท็น-คิ-เดส-เนะ" 
+    },
+    { 
+        th: "วันนี้ร้อนมาก", 
+        jp: "今日はとても暑いです。", 
+        romaji: "Kyou wa totemo atsui desu.", 
+        reading: "เคียว-วะ-โทะ-เตะ-โมะ-อัต-สึ-อิ-เดส" 
+    },
+    { 
+        th: "วันนี้หนาวมาก", 
+        jp: "今日はとても寒いです。", 
+        romaji: "Kyou wa totemo samui desu.", 
+        reading: "เคียว-วะ-โทะ-เตะ-โมะ-ซะ-มุ-อิ-เดส" 
+    },
+    { 
+        th: "ฉันเหนื่อยแล้ว", 
+        jp: "疲れました。", 
+        romaji: "Tsukaremashita.", 
+        reading: "สึ-คะ-เระ-มะ-ชิ-ตะ" 
+    },
+    { 
+        th: "ฉันหิวแล้ว", 
+        jp: "お腹が空きました。", 
+        romaji: "Onaka ga sukimashita.", 
+        reading: "โอ-นะ-กะ-กะ-สุ-คิ-มะ-ชิ-ตะ" 
+    },
+    { 
+        th: "อร่อยมาก!", 
+        jp: "とても美味しいです！", 
+        romaji: "Totemo oishii desu!", 
+        reading: "โทะ-เตะ-โมะ-โอ-อิ-ชิ-อิ-เดส" 
+    },
+    { 
+        th: "ฉันชอบอาหารญี่ปุ่น", 
+        jp: "日本料理が好きです。", 
+        romaji: "Nihon ryouri ga suki desu.", 
+        reading: "นิ-ฮน-เรียว-ริ-กะ-สุ-คิ-เดส" 
+    },
+    { 
+        th: "ขอน้ำหนึ่งแก้ว", 
+        jp: "お水を一杯ください。", 
+        romaji: "Omizu o ippai kudasai.", 
+        reading: "โอ-มิ-สุ-โอ๊ะ-อิป-ไป-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "ฉันไม่กินเผ็ด", 
+        jp: "辛い物は食べられません。", 
+        romaji: "Karai mono wa taberaremasen.", 
+        reading: "คะ-ไร-โมะ-โนะ-วะ-ทะ-เบะ-รา-เระ-มา-เซ็น" 
+    },
+    { 
+        th: "ขอเมนูหน่อยครับ/ค่ะ", 
+        jp: "メニューをお願いします。", 
+        romaji: "Menyuu o onegaishimasu.", 
+        reading: "เมะ-นิว-โอ๊ะ-โอ-เนะ-ไก-ชิ-มาส" 
+    },
+    { 
+        th: "ฉันอิ่มแล้ว", 
+        jp: "もうお腹いっぱいです。", 
+        romaji: "Mou onaka ippai desu.", 
+        reading: "โม-โอ-นะ-กะ-อิป-ไป-เดส" 
+    },
+    { 
+        th: "ฉันง่วงนอน", 
+        jp: "眠いです。", 
+        romaji: "Nemui desu.", 
+        reading: "เนะ-มุ-อิ-เดส" 
+    },
+    { 
+        th: "ฉันมีความสุขมาก", 
+        jp: "とても幸せです。", 
+        romaji: "Totemo shiawase desu.", 
+        reading: "โทะ-เตะ-โมะ-ชิ-อะ-วะ-เซะ-เดส" 
+    },
+    { 
+        th: "ฉันเศร้านิดหน่อย", 
+        jp: "少し悲しいです。", 
+        romaji: "Sukoshi kanashii desu.", 
+        reading: "สุ-โคะ-ชิ-คะ-นะ-ชิ-อิ-เดส" 
+    },
+    { 
+        th: "ช่วยเปิดประตูหน่อย", 
+        jp: "ドアを開けてください。", 
+        romaji: "Doa o akete kudasai.", 
+        reading: "โดะ-อะ-โอ๊ะ-อะ-เคะ-เตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "ช่วยปิดหน้าต่างหน่อย", 
+        jp: "窓を閉めてください。", 
+        romaji: "Mado o shimete kudasai.", 
+        reading: "มะ-โดะ-โอ๊ะ-ชิ-เมะ-เตะ-คุ-ดะ-ไซ" 
+    },
+        { 
+        th: "วันนี้อากาศดีนะ", 
+        jp: "今日はいい天気ですね。", 
+        romaji: "Kyou wa ii tenki desu ne.", 
+        reading: "เคียว-วะ-อี-เท็น-คิ-เดส-เนะ" 
+    },
+    { 
+        th: "วันนี้เหนื่อยไหม?", 
+        jp: "今日は疲れましたか？", 
+        romaji: "Kyou wa tsukaremashita ka?", 
+        reading: "เคียว-วะ-สึ-คะ-เระ-มะ-ชิ-ตะ-ก๊ะ" 
+    },
+    { 
+        th: "ขอให้วันนี้เป็นวันที่ดี", 
+        jp: "良い一日を。", 
+        romaji: "Yoi ichinichi o.", 
+        reading: "โย-อิ-อิ-จิ-นิ-จิ-โอ๊ะ" 
+    },
+    { 
+        th: "ระวังสุขภาพด้วยนะ", 
+        jp: "体に気をつけてください。", 
+        romaji: "Karada ni ki o tsukete kudasai.", 
+        reading: "คะ-ระ-ดะ-นิ-คิ-โอ๊ะ-สึ-เคะ-เตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "พักผ่อนให้เพียงพอนะ", 
+        jp: "ゆっくり休んでください。", 
+        romaji: "Yukkuri yasunde kudasai.", 
+        reading: "ยุก-คุ-ริ-ยะ-ซุน-เดะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "วันนี้ทำงานหนักไหม?", 
+        jp: "今日は仕事が大変でしたか？", 
+        romaji: "Kyou wa shigoto ga taihen deshita ka?", 
+        reading: "เคียว-วะ-ชิ-โกะ-โตะ-กะ-ไท-เฮ็น-เดะ-ชิ-ตะ-ก๊ะ" 
+    },
+    { 
+        th: "ขอบคุณที่เหนื่อยนะ", 
+        jp: "お疲れ様でした。", 
+        romaji: "Otsukaresama deshita.", 
+        reading: "โอ-สึ-คะ-เระ-ซะ-มะ-เดะ-ชิ-ตะ" 
+    },
+    { 
+        th: "วันนี้ดูมีความสุขนะ", 
+        jp: "今日は楽しそうですね。", 
+        romaji: "Kyou wa tanoshisou desu ne.", 
+        reading: "เคียว-วะ-ทะ-โนะ-ชิ-โซ-เดส-เนะ" 
+    },
+    { 
+        th: "ช่วงนี้ยุ่งไหม?", 
+        jp: "最近忙しいですか？", 
+        romaji: "Saikin isogashii desu ka?", 
+        reading: "ไซ-คิน-อิ-โซะ-กะ-ชิ-อิ-เดส-ก๊ะ" 
+    },
+    { 
+        th: "ไม่ได้คุยกันนานเลยนะ", 
+        jp: "久しぶりに話しますね。", 
+        romaji: "Hisashiburi ni hanashimasu ne.", 
+        reading: "ฮิ-ซะ-ชิ-บุ-ริ-นิ-ฮะ-นะ-ชิ-มาส-เนะ" 
+    },
+    { 
+        th: "ดีใจที่ได้พบอีกครั้ง", 
+        jp: "また会えて嬉しいです。", 
+        romaji: "Mata aete ureshii desu.", 
+        reading: "มะ-ตะ-อะ-เอะ-เตะ-อุ-เระ-ชิ-อิ-เดส" 
+    },
+    { 
+        th: "วันนี้ก็มาสู้กันนะ", 
+        jp: "今日も頑張りましょう。", 
+        romaji: "Kyou mo ganbarimashou.", 
+        reading: "เคียว-โมะ-กัน-บะ-ริ-มะ-โช" 
+    },
+    { 
+        th: "ขอฝากตัวอีกครั้งนะ", 
+        jp: "改めてよろしくお願いします。", 
+        romaji: "Aratamete yoroshiku onegaishimasu.", 
+        reading: "อะ-ระ-ทะ-เมะ-เตะ-โยะ-โระ-ชิ-คุ-โอ-เนะ-ไก-ชิ-มาส" 
+    },
+    { 
+        th: "เดินทางกลับดีๆนะ", 
+        jp: "気をつけて帰ってください。", 
+        romaji: "Ki o tsukete kaette kudasai.", 
+        reading: "คิ-โอ๊ะ-สึ-เคะ-เตะ-คะ-เอะ-ตเตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "ขอให้โชคดีนะ", 
+        jp: "頑張ってください。", 
+        romaji: "Ganbatte kudasai.", 
+        reading: "กัน-บัต-เตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "ยินดีที่ได้ร่วมงานกัน", 
+        jp: "一緒に働けて嬉しいです。", 
+        romaji: "Issho ni hatarakete ureshii desu.", 
+        reading: "อิส-โชะ-นิ-ฮะ-ตะ-ระ-เคะ-เตะ-อุ-เระ-ชิ-อิ-เดส" 
+    },
+    { 
+        th: "ดูแลตัวเองด้วยนะ", 
+        jp: "お体に気をつけてください。", 
+        romaji: "Okarada ni ki o tsukete kudasai.", 
+        reading: "โอ-คะ-ระ-ดะ-นิ-คิ-โอ๊ะ-สึ-เคะ-เตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "วันนี้ก็ขอฝากด้วยนะ", 
+        jp: "今日もよろしくお願いします。", 
+        romaji: "Kyou mo yoroshiku onegaishimasu.", 
+        reading: "เคียว-โมะ-โยะ-โระ-ชิ-คุ-โอ-เนะ-ไก-ชิ-มาส" 
+    },
+    { 
+        th: "ไว้คุยกันใหม่นะ", 
+        jp: "また話しましょう。", 
+        romaji: "Mata hanashimashou.", 
+        reading: "มะ-ตะ-ฮะ-นะ-ชิ-มะ-โช" 
+    },
+    { 
+        th: "เช้านี้อากาศสดชื่นนะ", 
+        jp: "今朝は気持ちがいいですね。", 
+        romaji: "Kesa wa kimochi ga ii desu ne.", 
+        reading: "เคะ-สะ-วะ-คิ-โมะ-จิ-กะ-อี-เดส-เนะ" 
+    },
+    { 
+        th: "เมื่อคืนหลับสบายไหม?", 
+        jp: "昨夜はよく眠れましたか？", 
+        romaji: "Sakuya wa yoku nemuremashita ka?", 
+        reading: "ซะ-คุ-ยะ-วะ-โยะ-คุ-เนะ-มุ-เระ-มะ-ชิ-ตะ-ก๊ะ" 
+    },
+    { 
+        th: "วันนี้ดูสดชื่นมากเลย", 
+        jp: "今日はとても元気そうですね。", 
+        romaji: "Kyou wa totemo genki sou desu ne.", 
+        reading: "เคียว-วะ-โทะ-เตะ-โมะ-เก็น-กิ-โซ-เดส-เนะ" 
+    },
+    { 
+        th: "ช่วงนี้อากาศเปลี่ยนบ่อยนะ", 
+        jp: "最近天気が変わりやすいですね。", 
+        romaji: "Saikin tenki ga kawariyasui desu ne.", 
+        reading: "ไซ-คิน-เท็น-คิ-กะ-คะ-วะ-ริ-ยะ-สุ-อิ-เดส-เนะ" 
+    },
+    { 
+        th: "วันนี้ก็ตั้งใจทำงานนะ", 
+        jp: "今日も仕事を頑張ってください。", 
+        romaji: "Kyou mo shigoto o ganbatte kudasai.", 
+        reading: "เคียว-โมะ-ชิ-โกะ-โตะ-โอ๊ะ-กัน-บัต-เตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "ขอให้สอบผ่านนะ", 
+        jp: "試験頑張ってください。", 
+        romaji: "Shiken ganbatte kudasai.", 
+        reading: "ชิ-เค็น-กัน-บัต-เตะ-คุ-ดะ-ไซ" 
+    },
+    { 
+        th: "ไม่ได้เจอกันตั้งนาน สบายดีไหม?", 
+        jp: "長い間会っていませんでしたね。元気でしたか？", 
+        romaji: "Nagai aida atteimasen deshita ne. Genki deshita ka?", 
+        reading: "นะ-งะ-อิ-อะ-อิ-ดะ-อัต-เตะ-อิ-มะ-เซ็น-เดะ-ชิ-ตะ-เนะ เก็น-กิ-เดะ-ชิ-ตะ-ก๊ะ" 
+    },
+    { 
+        th: "ขอบคุณที่มาวันนี้", 
+        jp: "今日は来てくれてありがとうございます。", 
+        romaji: "Kyou wa kite kurete arigatou gozaimasu.", 
+        reading: "เคียว-วะ-คิ-เตะ-คุ-เระ-เตะ-อะ-ริ-กา-โตะ-โกะ-ไซ-มาส" 
+    },
+    { 
+        th: "วันนี้ก็ฝากตัวด้วยนะ", 
+        jp: "本日もよろしくお願いいたします。", 
+        romaji: "Honjitsu mo yoroshiku onegai itashimasu.", 
+        reading: "ฮน-จิ-สึ-โมะ-โยะ-โระ-ชิ-คุ-โอ-เนะ-ไก-อิ-ตะ-ชิ-มาส" 
+    },
+    { 
+        th: "ขอให้มีวันที่ดีนะ", 
+        jp: "素敵な一日を過ごしてください。", 
+        romaji: "Suteki na ichinichi o sugoshite kudasai.", 
+        reading: "สุ-เทะ-คิ-นะ-อิ-จิ-นิ-จิ-โอ๊ะ-สุ-โกะ-ชิ-เตะ-คุ-ดะ-ไซ" 
+    },
+
+    { 
+        th: "วันนี้ดูไม่ค่อยสบายเลยนะ", 
+        jp: "今日は少し疲れているようですね。", 
+        romaji: "Kyou wa sukoshi tsukarete iru you desu ne.", 
+        reading: "เคียว-วะ-สุ-โคะ-ชิ-สึ-คะ-เระ-เตะ-อิ-รุ-โย-เดส-เนะ" 
+    },
+    { 
+        th: "พักผ่อนบ้างนะ", 
+        jp: "無理しないでくださいね。", 
+        romaji: "Muri shinaide kudasai ne.", 
+        reading: "มุ-ริ-ชิ-ไน-เดะ-คุ-ดะ-ไซ-เนะ" 
+    },
+    { 
+        th: "ช่วงนี้ฝนตกบ่อยนะ", 
+        jp: "最近雨が多いですね。", 
+        romaji: "Saikin ame ga ooi desu ne.", 
+        reading: "ไซ-คิน-อะ-เมะ-กะ-โอ-โอ-อิ-เดส-เนะ" 
+    },
+    { 
+        th: "อย่าลืมเอาร่มไปนะ", 
+        jp: "傘を忘れないでくださいね。", 
+        romaji: "Kasa o wasurenaide kudasai ne.", 
+        reading: "คะ-สะ-โอ๊ะ-วะ-สุ-เระ-ไน-เดะ-คุ-ดะ-ไซ-เนะ" 
+    },
+    { 
+        th: "วันนี้ดูยุ่งมากเลย", 
+        jp: "今日はとても忙しそうですね。", 
+        romaji: "Kyou wa totemo isogashisou desu ne.", 
+        reading: "เคียว-วะ-โทะ-เตะ-โมะ-อิ-โซะ-กะ-ชิ-โซ-เดส-เนะ" 
+    },
+    { 
+        th: "ขอบคุณที่ช่วยเหลือเสมอ", 
+        jp: "いつも助けてくれてありがとうございます。", 
+        romaji: "Itsumo tasukete kurete arigatou gozaimasu.", 
+        reading: "อิ-สึ-โมะ-ทะ-สุ-เคะ-เตะ-คุ-เระ-เตะ-อะ-ริ-กา-โตะ-โกะ-ไซ-มาส" 
+    },
+    { 
+        th: "วันนี้ก็เต็มที่นะ", 
+        jp: "今日も全力で頑張りましょう。", 
+        romaji: "Kyou mo zenryoku de ganbarimashou.", 
+        reading: "เคียว-โมะ-เซ็น-เรียว-คุ-เดะ-กัน-บะ-ริ-มะ-โช" 
+    },
+    { 
+        th: "ดีใจที่ได้ร่วมทีมกัน", 
+        jp: "同じチームで嬉しいです。", 
+        romaji: "Onaji chiimu de ureshii desu.", 
+        reading: "โอะ-นะ-จิ-ชี-มุ-เดะ-อุ-เระ-ชิ-อิ-เดส" 
+    },
+    { 
+        th: "ไว้พบกันครั้งหน้านะ", 
+        jp: "次回またお会いしましょう。", 
+        romaji: "Jikai mata oaishimashou.", 
+        reading: "จิ-ไค-มะ-ตะ-โอ-ไอ-ชิ-มะ-โช" 
+    },
+    { 
+        th: "ขอให้เดินทางปลอดภัย", 
+        jp: "安全な旅をしてください。", 
+        romaji: "Anzen na tabi o shite kudasai.", 
+        reading: "อัน-เซ็น-นะ-ทะ-บิ-โอ๊ะ-ชิ-เตะ-คุ-ดะ-ไซ" 
+    },   
+    ];
+
+    const listContainer = document.getElementById('phrasesList');
+    let lastPlayedIndex = -1;
+
+    phrases.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'phrase-card';
+        card.id = `phrase-${index}`;
+        card.setAttribute('data-jp', item.jp);
+
+        // ตรวจสอบ Romaji ป้องกัน undefined
+        const romajiDisplay = item.romaji ? item.romaji : "";
+
+        card.innerHTML = `
+            <div class="thai-translation">${item.th}</div>
+            <div class="jp-text">${item.jp}</div>
+            <div class="romaji-text">${romajiDisplay}</div>
+            <div class="thai-reading">อ่านว่า: ${item.reading}</div>
+            <div class="speaker-icon">
+                <i class="bi bi-volume-up-fill"></i>
+            </div>
+        `;
+        listContainer.appendChild(card);
+    });
+
+    function playJPVoice(text) {
+        if (!text) return;
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ja-JP';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function handleScroll() {
+        const viewportCenter = window.innerHeight / 2;
+        const cards = document.querySelectorAll('.phrase-card');
+        let currentActiveIndex = -1;
+
+        cards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.top + (rect.height / 2);
+            // ตรวจจับจุดที่ใกล้กึ่งกลางที่สุด
+            if (Math.abs(cardCenter - viewportCenter) < 150) {
+                currentActiveIndex = index;
+            }
+        });
+
+        if (currentActiveIndex !== -1 && currentActiveIndex !== lastPlayedIndex) {
+            cards.forEach(c => c.classList.remove('active'));
+            const activeCard = cards[currentActiveIndex];
+            activeCard.classList.add('active');
+            playJPVoice(activeCard.getAttribute('data-jp'));
+            lastPlayedIndex = currentActiveIndex;
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+</script>
+
+</body>
+</html>
