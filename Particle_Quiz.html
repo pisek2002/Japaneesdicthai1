@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisek JP - Particle Quiz</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&family=Kanit:wght@500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --jp-blue: #1d3557;
+            --jp-red: #e63946;
+            --jp-green: #2ecc71;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #f4f7f6;
+            padding-bottom: 50px;
+        }
+
+        .kanit { font-family: 'Kanit', sans-serif; }
+
+        .navbar { background-color: var(--jp-blue); }
+
+        .quiz-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .sentence-box {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--jp-blue);
+            margin-bottom: 15px;
+            line-height: 2;
+        }
+
+        .particle-input {
+            width: 60px;
+            display: inline-block;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--jp-red);
+            padding: 5px;
+        }
+
+        .particle-input:focus {
+            border-color: var(--jp-blue);
+            outline: none;
+        }
+
+        .explanation {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+        }
+
+        .wrong-feedback { background-color: #fff1f2; color: #991b1b; border-left: 5px solid var(--jp-red); }
+        .correct-feedback { background-color: #f0fdf4; color: #166534; border-left: 5px solid var(--jp-green); }
+
+        .score-board {
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            background: white;
+            border-radius: 50px;
+            padding: 10px 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark sticky-top shadow-sm">
+    <div class="container d-flex justify-content-between">
+        <a class="navbar-brand kanit" href="index.html">Pisek Particle Quiz</a>
+        <a href="index.html" class="btn btn-outline-light btn-sm rounded-pill px-3">กลับหน้าแรก</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-7">
+            
+            <!-- คะแนน -->
+            <div class="score-board d-flex justify-content-between align-items-center mb-4">
+                <span class="kanit fw-bold">คะแนนของคุณ: <span id="currentScore" class="text-danger">0</span></span>
+                <button class="btn btn-sm btn-secondary rounded-pill" onclick="location.reload()">เริ่มใหม่</button>
+            </div>
+
+            <div id="quizContainer">
+                <!-- คำถามจะแสดงที่นี่ -->
+            </div>
+
+            <button class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow mt-3 mb-5" onclick="checkAll()">
+                ส่งคำตอบทั้งหมด <i class="bi bi-send-fill ms-2"></i>
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const quizData = [
+
+{
+    sentence: ["私は日本語", "勉強します。"],
+    answer: "を",
+    romaji: "Watashi wa nihongo (o) benkyou shimasu.",
+    meaning: "ฉันเรียนภาษาญี่ปุ่น",
+    explain: "ใช้ を แสดงสิ่งที่ถูกกระทำ (กรรม)"
+},
+{
+    sentence: ["朝、6時", "起きます。"],
+    answer: "に",
+    romaji: "Asa, rokuji (ni) okimasu.",
+    meaning: "ตอนเช้า ฉันตื่น 6 โมง",
+    explain: "ใช้ に กับเวลา"
+},
+{
+    sentence: ["私は会社", "行きます。"],
+    answer: "へ",
+    romaji: "Watashi wa kaisha (e) ikimasu.",
+    meaning: "ฉันไปบริษัท",
+    explain: "へ ใช้แสดงทิศทาง"
+},
+{
+    sentence: ["部屋", "テレビがあります。"],
+    answer: "に",
+    romaji: "Heya (ni) terebi ga arimasu.",
+    meaning: "มีทีวีอยู่ในห้อง",
+    explain: "に ใช้บอกตำแหน่ง"
+},
+{
+    sentence: ["私は友だち", "会います。"],
+    answer: "に",
+    romaji: "Watashi wa tomodachi (ni) aimasu.",
+    meaning: "ฉันเจอเพื่อน",
+    explain: "に ใช้กับกริยา 'พบ'"
+},
+{
+    sentence: ["水", "飲みます。"],
+    answer: "を",
+    romaji: "Mizu (o) nomimasu.",
+    meaning: "ดื่มน้ำ",
+    explain: "を ใช้กับกรรม"
+},
+{
+    sentence: ["日曜日", "休みます。"],
+    answer: "に",
+    romaji: "Nichiyoubi (ni) yasumimasu.",
+    meaning: "พักวันอาทิตย์",
+    explain: "に ใช้กับวันเวลา"
+},
+{
+    sentence: ["私は犬", "好きです。"],
+    answer: "が",
+    romaji: "Watashi wa inu (ga) suki desu.",
+    meaning: "ฉันชอบหมา",
+    explain: "好き ใช้ が"
+},
+{
+    sentence: ["学校", "勉強します。"],
+    answer: "で",
+    romaji: "Gakkou (de) benkyou shimasu.",
+    meaning: "เรียนที่โรงเรียน",
+    explain: "で ใช้บอกสถานที่ทำกิจกรรม"
+},
+{
+    sentence: ["日本", "来ました。"],
+    answer: "に",
+    romaji: "Nihon (ni) kimashita.",
+    meaning: "มาญี่ปุ่น",
+    explain: "に ใช้กับจุดหมาย"
+},
+
+{
+    sentence: ["私は本", "読みます。"],
+    answer: "を",
+    romaji: "Watashi wa hon (o) yomimasu.",
+    meaning: "ฉันอ่านหนังสือ",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["バス", "行きます。"],
+    answer: "で",
+    romaji: "Basu (de) ikimasu.",
+    meaning: "ไปโดยรถบัส",
+    explain: "で ใช้กับพาหนะ"
+},
+{
+    sentence: ["友だち", "話します。"],
+    answer: "と",
+    romaji: "Tomodachi (to) hanashimasu.",
+    meaning: "คุยกับเพื่อน",
+    explain: "と = กับ"
+},
+{
+    sentence: ["机", "上に本があります。"],
+    answer: "の",
+    romaji: "Tsukue (no) ue ni hon ga arimasu.",
+    meaning: "หนังสืออยู่บนโต๊ะ",
+    explain: "の ใช้แสดงความเป็นเจ้าของ/ขยาย"
+},
+{
+    sentence: ["家", "帰ります。"],
+    answer: "に",
+    romaji: "Ie (ni) kaerimasu.",
+    meaning: "กลับบ้าน",
+    explain: "に = จุดหมาย"
+},
+
+{
+    sentence: ["映画", "見ます。"],
+    answer: "を",
+    romaji: "Eiga (o) mimasu.",
+    meaning: "ดูหนัง",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["学校", "来ます。"],
+    answer: "へ",
+    romaji: "Gakkou (e) kimasu.",
+    meaning: "มาที่โรงเรียน",
+    explain: "へ = ทิศทาง"
+},
+{
+    sentence: ["7時", "寝ます。"],
+    answer: "に",
+    romaji: "Shichiji (ni) nemasu.",
+    meaning: "นอน 7 โมง",
+    explain: "に = เวลา"
+},
+{
+    sentence: ["友だち", "遊びます。"],
+    answer: "と",
+    romaji: "Tomodachi (to) asobimasu.",
+    meaning: "เล่นกับเพื่อน",
+    explain: "と = กับ"
+},
+{
+    sentence: ["スーパー", "買い物します。"],
+    answer: "で",
+    romaji: "Suupaa (de) kaimono shimasu.",
+    meaning: "ซื้อของที่ซุปเปอร์",
+    explain: "で = สถานที่ทำกิจกรรม"
+},
+
+{
+    sentence: ["私はコーヒー", "飲みません。"],
+    answer: "を",
+    romaji: "Watashi wa koohii (o) nomimasen.",
+    meaning: "ฉันไม่ดื่มกาแฟ",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["公園", "行きます。"],
+    answer: "に",
+    romaji: "Kouen (ni) ikimasu.",
+    meaning: "ไปสวนสาธารณะ",
+    explain: "に = จุดหมาย"
+},
+{
+    sentence: ["先生", "聞きます。"],
+    answer: "に",
+    romaji: "Sensei (ni) kikimasu.",
+    meaning: "ถามครู",
+    explain: "に = ผู้รับการกระทำ"
+},
+{
+    sentence: ["日本語", "話します。"],
+    answer: "を",
+    romaji: "Nihongo (o) hanashimasu.",
+    meaning: "พูดภาษาญี่ปุ่น",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["電車", "帰ります。"],
+    answer: "で",
+    romaji: "Densha (de) kaerimasu.",
+    meaning: "กลับโดยรถไฟ",
+    explain: "で = พาหนะ"
+},
+
+{
+    sentence: ["猫", "います。"],
+    answer: "が",
+    romaji: "Neko (ga) imasu.",
+    meaning: "มีแมว",
+    explain: "が ใช้กับการมีอยู่"
+},
+{
+    sentence: ["私", "学生です。"],
+    answer: "は",
+    romaji: "Watashi (wa) gakusei desu.",
+    meaning: "ฉันเป็นนักเรียน",
+    explain: "は = หัวข้อ"
+},
+{
+    sentence: ["友だち", "来ます。"],
+    answer: "が",
+    romaji: "Tomodachi (ga) kimasu.",
+    meaning: "เพื่อนมา",
+    explain: "が เน้นผู้กระทำ"
+},
+{
+    sentence: ["部屋", "勉強します。"],
+    answer: "で",
+    romaji: "Heya (de) benkyou shimasu.",
+    meaning: "เรียนในห้อง",
+    explain: "で = สถานที่ทำกิจกรรม"
+},
+{
+    sentence: ["私", "タイ人です。"],
+    answer: "は",
+    romaji: "Watashi (wa) taijin desu.",
+    meaning: "ฉันเป็นคนไทย",
+    explain: "は = หัวข้อ"
+},
+{
+    sentence: ["私は毎朝コーヒー", "飲みます。"],
+    answer: "を",
+    romaji: "Watashi wa maiasa koohii (o) nomimasu.",
+    meaning: "ฉันดื่มกาแฟทุกเช้า",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["6時", "起きました。"],
+    answer: "に",
+    romaji: "Rokuji (ni) okimashita.",
+    meaning: "ตื่นตอน 6 โมง",
+    explain: "に ใช้กับเวลา"
+},
+{
+    sentence: ["駅", "行きます。"],
+    answer: "へ",
+    romaji: "Eki (e) ikimasu.",
+    meaning: "ไปสถานี",
+    explain: "へ = ทิศทาง"
+},
+{
+    sentence: ["部屋", "猫がいます。"],
+    answer: "に",
+    romaji: "Heya (ni) neko ga imasu.",
+    meaning: "มีแมวอยู่ในห้อง",
+    explain: "に = สถานที่มีอยู่"
+},
+{
+    sentence: ["先生", "質問します。"],
+    answer: "に",
+    romaji: "Sensei (ni) shitsumon shimasu.",
+    meaning: "ถามครู",
+    explain: "に = ผู้รับการกระทำ"
+},
+
+{
+    sentence: ["音楽", "聞きます。"],
+    answer: "を",
+    romaji: "Ongaku (o) kikimasu.",
+    meaning: "ฟังเพลง",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["友だち", "電話します。"],
+    answer: "に",
+    romaji: "Tomodachi (ni) denwa shimasu.",
+    meaning: "โทรหาเพื่อน",
+    explain: "に = ผู้รับ"
+},
+{
+    sentence: ["バス", "学校へ行きます。"],
+    answer: "で",
+    romaji: "Basu (de) gakkou e ikimasu.",
+    meaning: "ไปโรงเรียนโดยรถบัส",
+    explain: "で = พาหนะ"
+},
+{
+    sentence: ["日曜日", "勉強しません。"],
+    answer: "は",
+    romaji: "Nichiyoubi (wa) benkyou shimasen.",
+    meaning: "วันอาทิตย์ไม่เรียน",
+    explain: "は = หัวข้อ"
+},
+{
+    sentence: ["私は魚", "嫌いです。"],
+    answer: "が",
+    romaji: "Watashi wa sakana (ga) kirai desu.",
+    meaning: "ฉันไม่ชอบปลา",
+    explain: "嫌い ใช้ が"
+},
+
+{
+    sentence: ["図書館", "本を読みます。"],
+    answer: "で",
+    romaji: "Toshokan (de) hon o yomimasu.",
+    meaning: "อ่านหนังสือที่ห้องสมุด",
+    explain: "で = สถานที่ทำกิจกรรม"
+},
+{
+    sentence: ["私はタイ", "来ました。"],
+    answer: "から",
+    romaji: "Watashi wa Tai (kara) kimashita.",
+    meaning: "ฉันมาจากไทย",
+    explain: "から = จาก"
+},
+{
+    sentence: ["8時", "会社に行きます。"],
+    answer: "に",
+    romaji: "Hachiji (ni) kaisha ni ikimasu.",
+    meaning: "ไปบริษัทตอน 8 โมง",
+    explain: "に = เวลา"
+},
+{
+    sentence: ["家族", "食事します。"],
+    answer: "と",
+    romaji: "Kazoku (to) shokuji shimasu.",
+    meaning: "กินข้าวกับครอบครัว",
+    explain: "と = กับ"
+},
+{
+    sentence: ["机", "下にかばんがあります。"],
+    answer: "の",
+    romaji: "Tsukue (no) shita ni kaban ga arimasu.",
+    meaning: "มีกระเป๋าอยู่ใต้โต๊ะ",
+    explain: "の = เชื่อมคำนาม"
+},
+
+{
+    sentence: ["雨", "降っています。"],
+    answer: "が",
+    romaji: "Ame (ga) futteimasu.",
+    meaning: "ฝนกำลังตก",
+    explain: "が = ประธาน"
+},
+{
+    sentence: ["私は毎日学校", "行きます。"],
+    answer: "に",
+    romaji: "Watashi wa mainichi gakkou (ni) ikimasu.",
+    meaning: "ฉันไปโรงเรียนทุกวัน",
+    explain: "に = จุดหมาย"
+},
+{
+    sentence: ["スーパー", "野菜を買います。"],
+    answer: "で",
+    romaji: "Suupaa (de) yasai o kaimasu.",
+    meaning: "ซื้อผักที่ซุปเปอร์",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["友だち", "映画を見ました。"],
+    answer: "と",
+    romaji: "Tomodachi (to) eiga o mimashita.",
+    meaning: "ดูหนังกับเพื่อน",
+    explain: "と = กับ"
+},
+{
+    sentence: ["私は兄", "います。"],
+    answer: "が",
+    romaji: "Watashi wa ani (ga) imasu.",
+    meaning: "ฉันมีพี่ชาย",
+    explain: "が = มีอยู่"
+},
+
+
+{
+    sentence: ["昨日", "雨でした。"],
+    answer: "は",
+    romaji: "Kinou (wa) ame deshita.",
+    meaning: "เมื่อวานฝนตก",
+    explain: "は = หัวข้อ"
+},
+{
+    sentence: ["銀行", "お金を引き出します。"],
+    answer: "で",
+    romaji: "Ginkou (de) okane o hikidashimasu.",
+    meaning: "ถอนเงินที่ธนาคาร",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["母", "プレゼントをあげます。"],
+    answer: "に",
+    romaji: "Haha (ni) purezento o agemasu.",
+    meaning: "ให้ของขวัญแม่",
+    explain: "に = ผู้รับ"
+},
+{
+    sentence: ["公園", "子どもが遊んでいます。"],
+    answer: "で",
+    romaji: "Kouen (de) kodomo ga asondeimasu.",
+    meaning: "เด็กเล่นในสวน",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["私は日本語", "分かります。"],
+    answer: "が",
+    romaji: "Watashi wa nihongo (ga) wakarimasu.",
+    meaning: "ฉันเข้าใจภาษาญี่ปุ่น",
+    explain: "分かる ใช้ が"
+},
+
+// ---- 86–100 ----
+
+{
+    sentence: ["学校", "友だちに会いました。"],
+    answer: "で",
+    romaji: "Gakkou (de) tomodachi ni aimashita.",
+    meaning: "เจอเพื่อนที่โรงเรียน",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["私は朝ごはん", "食べません。"],
+    answer: "を",
+    romaji: "Watashi wa asagohan (o) tabemasen.",
+    meaning: "ฉันไม่กินอาหารเช้า",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["電車", "会社へ行きます。"],
+    answer: "で",
+    romaji: "Densha (de) kaisha e ikimasu.",
+    meaning: "ไปบริษัทโดยรถไฟ",
+    explain: "で = พาหนะ"
+},
+{
+    sentence: ["家", "帰りました。"],
+    answer: "に",
+    romaji: "Ie (ni) kaerimashita.",
+    meaning: "กลับบ้านแล้ว",
+    explain: "に = จุดหมาย"
+},
+{
+    sentence: ["私は英語", "話せます。"],
+    answer: "が",
+    romaji: "Watashi wa eigo (ga) hanasemasu.",
+    meaning: "ฉันพูดภาษาอังกฤษได้",
+    explain: "สามารถ ใช้ が"
+},
+{
+    sentence: ["先生", "本を借ります。"],
+    answer: "に",
+    romaji: "Sensei (ni) hon o karimasu.",
+    meaning: "ยืมหนังสือจากครู",
+    explain: "に = ผู้ให้"
+},
+{
+    sentence: ["夜", "テレビを見ます。"],
+    answer: "に",
+    romaji: "Yoru (ni) terebi o mimasu.",
+    meaning: "ดูทีวีตอนกลางคืน",
+    explain: "に = เวลา"
+},
+{
+    sentence: ["私は車", "持っています。"],
+    answer: "を",
+    romaji: "Watashi wa kuruma (o) motteimasu.",
+    meaning: "ฉันมีรถ",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["カフェ", "コーヒーを飲みます。"],
+    answer: "で",
+    romaji: "Kafe (de) koohii o nomimasu.",
+    meaning: "ดื่มกาแฟที่คาเฟ่",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["友だち", "一緒に帰ります。"],
+    answer: "と",
+    romaji: "Tomodachi (to) issho ni kaerimasu.",
+    meaning: "กลับบ้านด้วยกันกับเพื่อน",
+    explain: "と = กับ"
+},
+{
+    sentence: ["私は毎晩テレビ", "見ます。"],
+    answer: "を",
+    romaji: "Watashi wa maiban terebi (o) mimasu.",
+    meaning: "ฉันดูทีวีทุกคืน",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["7時", "家を出ます。"],
+    answer: "に",
+    romaji: "Shichiji (ni) ie o demasu.",
+    meaning: "ออกจากบ้านตอน 7 โมง",
+    explain: "に = เวลา"
+},
+{
+    sentence: ["学校", "来ました。"],
+    answer: "へ",
+    romaji: "Gakkou (e) kimashita.",
+    meaning: "มาที่โรงเรียน",
+    explain: "へ = ทิศทาง"
+},
+{
+    sentence: ["部屋", "机があります。"],
+    answer: "に",
+    romaji: "Heya (ni) tsukue ga arimasu.",
+    meaning: "มีโต๊ะอยู่ในห้อง",
+    explain: "に = สถานที่มีอยู่"
+},
+{
+    sentence: ["私は先生", "聞きます。"],
+    answer: "に",
+    romaji: "Watashi wa sensei (ni) kikimasu.",
+    meaning: "ฉันถามครู",
+    explain: "に = ผู้รับ"
+},
+
+// ---- 106–110 ----
+
+{
+    sentence: ["パン", "買います。"],
+    answer: "を",
+    romaji: "Pan (o) kaimasu.",
+    meaning: "ซื้อขนมปัง",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["朝", "ジョギングします。"],
+    answer: "に",
+    romaji: "Asa (ni) jogingu shimasu.",
+    meaning: "วิ่งจ๊อกกิ้งตอนเช้า",
+    explain: "に = เวลา"
+},
+{
+    sentence: ["駅", "歩いて行きます。"],
+    answer: "まで",
+    romaji: "Eki (made) aruite ikimasu.",
+    meaning: "เดินไปจนถึงสถานี",
+    explain: "まで = จนถึง"
+},
+{
+    sentence: ["友だち", "メールを送ります。"],
+    answer: "に",
+    romaji: "Tomodachi (ni) meeru o okurimasu.",
+    meaning: "ส่งเมลให้เพื่อน",
+    explain: "に = ผู้รับ"
+},
+{
+    sentence: ["私はスポーツ", "好きです。"],
+    answer: "が",
+    romaji: "Watashi wa supootsu (ga) suki desu.",
+    meaning: "ฉันชอบกีฬา",
+    explain: "好き ใช้ が"
+},
+
+// ---- 111–120 ----
+
+{
+    sentence: ["教室", "日本語を勉強します。"],
+    answer: "で",
+    romaji: "Kyoushitsu (de) nihongo o benkyou shimasu.",
+    meaning: "เรียนภาษาญี่ปุ่นในห้องเรียน",
+    explain: "で = สถานที่ทำกิจกรรม"
+},
+{
+    sentence: ["私はバンコク", "住んでいます。"],
+    answer: "に",
+    romaji: "Watashi wa Bankoku (ni) sundeimasu.",
+    meaning: "ฉันอาศัยอยู่กรุงเทพ",
+    explain: "に = สถานที่อยู่"
+},
+{
+    sentence: ["9時", "仕事が始まります。"],
+    answer: "に",
+    romaji: "Kuji (ni) shigoto ga hajimarimasu.",
+    meaning: "งานเริ่มตอน 9 โมง",
+    explain: "に = เวลา"
+},
+{
+    sentence: ["兄", "ゲームをします。"],
+    answer: "と",
+    romaji: "Ani (to) geemu o shimasu.",
+    meaning: "เล่นเกมกับพี่ชาย",
+    explain: "と = กับ"
+},
+{
+    sentence: ["机", "上にペンがあります。"],
+    answer: "の",
+    romaji: "Tsukue (no) ue ni pen ga arimasu.",
+    meaning: "มีปากกาอยู่บนโต๊ะ",
+    explain: "の = เชื่อมคำนาม"
+},
+
+// ---- 121–130 ----
+
+{
+    sentence: ["犬", "走っています。"],
+    answer: "が",
+    romaji: "Inu (ga) hashitteimasu.",
+    meaning: "หมากำลังวิ่ง",
+    explain: "が = ประธาน"
+},
+{
+    sentence: ["私は毎日会社", "行きます。"],
+    answer: "に",
+    romaji: "Watashi wa mainichi kaisha (ni) ikimasu.",
+    meaning: "ฉันไปบริษัททุกวัน",
+    explain: "に = จุดหมาย"
+},
+{
+    sentence: ["コンビニ", "おにぎりを買います。"],
+    answer: "で",
+    romaji: "Konbini (de) onigiri o kaimasu.",
+    meaning: "ซื้อข้าวปั้นที่ร้านสะดวกซื้อ",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["友だち", "話しました。"],
+    answer: "と",
+    romaji: "Tomodachi (to) hanashimashita.",
+    meaning: "คุยกับเพื่อน",
+    explain: "と = กับ"
+},
+{
+    sentence: ["私は姉", "います。"],
+    answer: "が",
+    romaji: "Watashi wa ane (ga) imasu.",
+    meaning: "ฉันมีพี่สาว",
+    explain: "が = มีอยู่"
+},
+
+// ---- 131–140 ----
+
+{
+    sentence: ["昨日", "忙しかったです。"],
+    answer: "は",
+    romaji: "Kinou (wa) isogashikatta desu.",
+    meaning: "เมื่อวานยุ่ง",
+    explain: "は = หัวข้อ"
+},
+{
+    sentence: ["レストラン", "ご飯を食べます。"],
+    answer: "で",
+    romaji: "Resutoran (de) gohan o tabemasu.",
+    meaning: "กินข้าวที่ร้านอาหาร",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["母", "手紙を書きます。"],
+    answer: "に",
+    romaji: "Haha (ni) tegami o kakimasu.",
+    meaning: "เขียนจดหมายถึงแม่",
+    explain: "に = ผู้รับ"
+},
+{
+    sentence: ["公園", "犬が遊んでいます。"],
+    answer: "で",
+    romaji: "Kouen (de) inu ga asondeimasu.",
+    meaning: "หมาเล่นในสวน",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["私は日本語", "少し分かります。"],
+    answer: "が",
+    romaji: "Watashi wa nihongo (ga) sukoshi wakarimasu.",
+    meaning: "ฉันเข้าใจญี่ปุ่นนิดหน่อย",
+    explain: "分かる ใช้ が"
+},
+
+// ---- 141–150 ----
+
+{
+    sentence: ["学校", "先生に会いました。"],
+    answer: "で",
+    romaji: "Gakkou (de) sensei ni aimashita.",
+    meaning: "เจอครูที่โรงเรียน",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["私は昼ごはん", "食べません。"],
+    answer: "を",
+    romaji: "Watashi wa hirugohan (o) tabemasen.",
+    meaning: "ฉันไม่กินข้าวกลางวัน",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["自転車", "学校へ行きます。"],
+    answer: "で",
+    romaji: "Jitensha (de) gakkou e ikimasu.",
+    meaning: "ไปโรงเรียนโดยจักรยาน",
+    explain: "で = พาหนะ"
+},
+{
+    sentence: ["家", "帰ります。"],
+    answer: "に",
+    romaji: "Ie (ni) kaerimasu.",
+    meaning: "กลับบ้าน",
+    explain: "に = จุดหมาย"
+},
+{
+    sentence: ["私は中国語", "話せません。"],
+    answer: "が",
+    romaji: "Watashi wa chuugokugo (ga) hanasemasen.",
+    meaning: "ฉันพูดภาษาจีนไม่ได้",
+    explain: "สามารถ ใช้ が"
+},
+{
+    sentence: ["先生", "質問します。"],
+    answer: "に",
+    romaji: "Sensei (ni) shitsumon shimasu.",
+    meaning: "ถามครู",
+    explain: "に = ผู้รับ"
+},
+{
+    sentence: ["夜", "本を読みます。"],
+    answer: "に",
+    romaji: "Yoru (ni) hon o yomimasu.",
+    meaning: "อ่านหนังสือตอนกลางคืน",
+    explain: "に = เวลา"
+},
+{
+    sentence: ["私は猫", "飼っています。"],
+    answer: "を",
+    romaji: "Watashi wa neko (o) katteimasu.",
+    meaning: "ฉันเลี้ยงแมว",
+    explain: "を = กรรม"
+},
+{
+    sentence: ["カフェ", "友だちと話します。"],
+    answer: "で",
+    romaji: "Kafe (de) tomodachi to hanashimasu.",
+    meaning: "คุยกับเพื่อนที่คาเฟ่",
+    explain: "で = สถานที่"
+},
+{
+    sentence: ["友だち", "一緒に旅行します。"],
+    answer: "と",
+    romaji: "Tomodachi (to) issho ni ryokou shimasu.",
+    meaning: "ไปเที่ยวกับเพื่อน",
+    explain: "と = กับ"
+}
+
+
+];
+    
+
+    const quizContainer = document.getElementById('quizContainer');
+    let totalScore = 0;
+
+    // สร้างข้อสอบ
+    quizData.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.innerHTML = `
+            <div class="sentence-box">
+                ${index + 1}. ${item.sentence[0]} 
+                <input type="text" class="particle-input" id="input-${index}" maxlength="2" placeholder="?"> 
+                ${item.sentence[1]}
+            </div>
+            <div class="text-muted small mb-2">คำแปล: ${item.meaning}</div>
+            <div id="feedback-${index}" class="explanation">
+                <div class="fw-bold mb-1" id="status-text-${index}"></div>
+                <div id="explain-text-${index}"></div>
+            </div>
+        `;
+        quizContainer.appendChild(card);
+    });
+
+    function checkAll() {
+        totalScore = 0;
+        quizData.forEach((item, index) => {
+            const userInput = document.getElementById(`input-${index}`).value.trim();
+            const feedback = document.getElementById(`feedback-${index}`);
+            const statusText = document.getElementById(`status-text-${index}`);
+            const explainText = document.getElementById(`explain-text-${index}`);
+
+            feedback.style.display = "block";
+
+            if (userInput === item.answer || (item.answer === "へ" && userInput === "に")) {
+                totalScore++;
+                feedback.className = "explanation correct-feedback";
+                statusText.innerHTML = `<i class="bi bi-check-circle-fill me-2"></i>ถูกต้อง!`;
+                explainText.innerText = "เก่งมากครับ!";
+            } else {
+                feedback.className = "explanation wrong-feedback";
+                statusText.innerHTML = `<i class="bi bi-x-circle-fill me-2"></i>ผิดครับ (คำตอบคือ: ${item.answer})`;
+                explainText.innerHTML = item.explain;
+            }
+        });
+
+        document.getElementById('currentScore').innerText = totalScore;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
