@@ -43,7 +43,6 @@
             line-height: 1.8;
         }
 
-        /* สไตล์สำหรับ Romaji ที่เว้นช่องว่าง */
         .romaji-box {
             color: var(--jp-green);
             font-size: 1.1rem;
@@ -125,359 +124,350 @@
 
 <script>
     const quizData = [
-       const quiz_hidden = [
-
-{
-    sentence: ["私は水", "飲みます。"],
+        {
+            sentence: ["私は水", "飲みます。"],
+            answer: "を",
+            romaji_hidden: "Watashi wa mizu ( _ ) nomimasu.",
+            meaning: "ฉันดื่มน้ำ",
+            explain: "ใช้ particle <b>を (o)</b> เพื่อแสดงกรรมของกริยา"
+        },
+        {
+            sentence: ["7時", "寝ます。"],
+            answer: "に",
+            romaji_hidden: "Shichi-ji ( _ ) nemasu.",
+            meaning: "นอนตอน 7 โมง",
+            explain: "ใช้ <b>に (ni)</b> เพื่อระบุเวลา"
+        },
+        {
+            sentence: ["学校", "行きます。"],
+            answer: "へ",
+            romaji_hidden: "Gakkou ( _ ) ikimasu.",
+            meaning: "ไปโรงเรียน",
+            explain: "ใช้ <b>へ (e)</b> เพื่อแสดงทิศทาง"
+        },
+        {
+            sentence: ["机", "本があります。"],
+            answer: "に",
+            romaji_hidden: "Tsukue ( _ ) hon ga arimasu.",
+            meaning: "มีหนังสืออยู่บนโต๊ะ",
+            explain: "ใช้ <b>に (ni)</b> แสดงตำแหน่ง"
+        },
+        {
+            sentence: ["私は犬", "好きです。"],
+            answer: "ที่",
+            answer: "が",
+            romaji_hidden: "Watashi wa inu ( _ ) suki desu.",
+            meaning: "ฉันชอบหมา",
+            explain: "คำว่า 好き ใช้ <b>が</b>"
+        },
+        {
+            sentence: ["スーパー", "買い物します。"],
+            answer: "で",
+            romaji_hidden: "Suupaa ( _ ) kaimono shimasu.",
+            meaning: "ซื้อของที่ซุปเปอร์",
+            explain: "ใช้ <b>で</b> สำหรับสถานที่ทำกิจกรรม"
+        },
+        {
+            sentence: ["友だち", "話します。"],
+            answer: "と",
+            romaji_hidden: "Tomodachi ( _ ) hanashimasu.",
+            meaning: "คุยกับเพื่อน",
+            explain: "ใช้ <b>と</b> แปลว่า 'กับ'"
+        },
+        {
+            sentence: ["日本", "来ました。"],
+            answer: "に",
+            romaji_hidden: "Nihon ( _ ) kimashita.",
+            meaning: "มาญี่ปุ่น",
+            explain: "ใช้ <b>に</b> แสดงจุดหมาย"
+        },
+        {
+            sentence: ["私は本", "読みます。"],
+            answer: "を",
+            romaji_hidden: "Watashi wa hon ( _ ) yomimasu.",
+            meaning: "ฉันอ่านหนังสือ",
+            explain: "ใช้ <b>を</b> แสดงกรรม"
+        },
+        {
+            sentence: ["バス", "行きます。"],
+            answer: "で",
+            romaji_hidden: "Basu ( _ ) ikimasu.",
+            meaning: "ไปโดยรถบัส",
+            explain: "ใช้ <b>で</b> สำหรับพาหนะ"
+        },
+        {
+            sentence: ["母", "手紙を書きます。"],
+            answer: "に",
+            romaji_hidden: "Haha ( _ ) tegami o kakimasu.",
+            meaning: "เขียนจดหมายถึงแม่",
+            explain: "ใช้ <b>に</b> แสดงผู้รับ"
+        },
+        {
+            sentence: ["日曜日", "休みます。"],
+            answer: "は",
+            romaji_hidden: "Nichiyoubi ( _ ) yasumimasu.",
+            meaning: "วันอาทิตย์พัก",
+            explain: "ใช้ <b>は</b> เป็นหัวข้อ"
+        },
+        {
+            sentence: ["私は猫", "います。"],
+            answer: "ที่",
+            answer: "ที่",
+            answer: "ที่",
+            answer: "ที่",
+            answer: "ที่",
+            answer: "ที่",
+            answer: "ที่",
+            answer: "が",
+            romaji_hidden: "Watashi wa neko ( _ ) imasu.",
+            meaning: "ฉันมีแมว",
+            explain: "ใช้ <b>ที่</b> กับการมีอยู่"
+        },
+        {
+            sentence: ["公園", "遊びます。"],
+            answer: "で",
+            romaji_hidden: "Kouen ( _ ) asobimasu.",
+            meaning: "เล่นที่สวน",
+            explain: "ใช้ <b>で</b> สถานที่ทำกิจกรรม"
+        },
+        {
+            sentence: ["兄", "電話します。"],
+            answer: "に",
+            romaji_hidden: "Ani ( _ ) denwa shimasu.",
+            meaning: "โทรหาพี่ชาย",
+            explain: "ใช้ <b>に</b> ผู้รับ"
+        },
+        {
+            sentence: ["私は英語", "話します。"],
+            answer: "を",
+            romaji_hidden: "Watashi wa eigo ( _ ) hanashimasu.",
+            meaning: "ฉันพูดภาษาอังกฤษ",
+            explain: "ใช้ <b>を</b> เป็นกรรม"
+        },
+        {
+            sentence: ["朝", "コーヒーを飲みます。"],
+            answer: "に",
+            romaji_hidden: "Asa ( _ ) koohii o nomimasu.",
+            meaning: "ดื่มกาแฟตอนเช้า",
+            explain: "ใช้ <b>に</b> กับเวลา"
+        },
+        {
+            sentence: ["駅", "歩きます。"],
+            answer: "まで",
+            romaji_hidden: "Eki ( _ ) arukimasu.",
+            meaning: "เดินไปจนถึงสถานี",
+            explain: "ใช้ <b>まで</b> = จนถึง"
+        },
+        {
+            sentence: ["友ดะち", "映画を見ます。"],
+            answer: "と",
+            romaji_hidden: "Tomodachi ( _ ) eiga o mimasu.",
+            meaning: "ดูหนังกับเพื่อน",
+            explain: "ใช้ <b>と</b> = กับ"
+        },
+        {
+            sentence: ["机", "下にかばんがあります。"],
+            answer: "の",
+            romaji_hidden: "Tsukue ( _ ) shita ni kaban ga arimasu.",
+            meaning: "มีกระเป๋าใต้โต๊ะ",
+            explain: "ใช้ <b>の</b> เชื่อมคำนาม"
+        },
+        {
+            sentence: ["雨", "降っています。"],
+            answer: "が",
+            romaji_hidden: "Ame ( _ ) futteimasu.",
+            meaning: "ฝนกำลังตก",
+            explain: "ใช้ <b>ที่</b> เป็นประธาน"
+        },
+        {
+            sentence: ["私は会社", "働きます。"],
+            answer: "で",
+            romaji_hidden: "Watashi wa kaisha ( _ ) hatarakimasu.",
+            meaning: "ทำงานที่บริษัท",
+            explain: "ใช้ <b>で</b>"
+        },
+        {
+            sentence: ["父", "プレゼントをあげます。"],
+            answer: "に",
+            romaji_hidden: "Chichi ( _ ) purezento o agemasu.",
+            meaning: "ให้ของขวัญพ่อ",
+            explain: "ใช้ <b>に</b>"
+        },
+        {
+            sentence: ["図書館", "勉強します。"],
+            answer: "で",
+            romaji_hidden: "Toshokan ( _ ) benkyou shimasu.",
+            meaning: "เรียนที่ห้องสมุด",
+            explain: "ใช้ <b>で</b>"
+        },
+        {
+            sentence: ["私は料理", "できます。"],
+            answer: "が",
+            romaji_hidden: "Watashi wa ryouri ( _ ) dekimasu.",
+            meaning: "ฉันทำอาหารได้",
+            explain: "ใช้ <b>ที่</b>"
+        },
+        {
+            sentence: ["学校", "友だちに会いました。"],
+            answer: "で",
+            romaji_hidden: "Gakkou ( _ ) tomodachi ni aimashita.",
+            meaning: "เจอเพื่อนที่โรงเรียน",
+            explain: "ใช้ <b>で</b>"
+        },
+        {
+            sentence: ["私は朝ごはん", "食べません。"],
+            answer: "を",
+            romaji_hidden: "Watashi wa asagohan ( _ ) tabemasen.",
+            meaning: "ฉันไม่กินข้าวเช้า",
+            explain: "ใช้ <b>を</b>"
+        },
+        {
+            sentence: ["電車", "会社へ行きます。"],
+            answer: "で",
+            romaji_hidden: "Densha ( _ ) kaisha e ikimasu.",
+            meaning: "ไปบริษัทโดยรถไฟ",
+            explain: "ใช้ <b>で</b>"
+        },
+        {
+            sentence: ["家", "帰ります。"],
+            answer: "に",
+            romaji_hidden: "Ie ( _ ) kaerimasu.",
+            meaning: "กลับบ้าน",
+            explain: "ใช้ <b>に</b>"
+        },
+        {
+            sentence: ["私は日本語", "分かります。"],
+            answer: "が",
+            romaji_hidden: "Watashi wa nihongo ( _ ) wakarimasu.",
+            meaning: "ฉันเข้าใจภาษาญี่ปุ่น",
+            explain: "ใช้ <b>ที่</b>"
+        },
+        {
+    sentence: ["私は毎朝牛乳", "飲みます。"],
     answer: "を",
-    romaji_hidden: "Watashi wa mizu ( _ ) nomimasu.",
-    meaning: "ฉันดื่มน้ำ",
-    explain: "ใช้ particle <b>を (o)</b> เพื่อแสดงกรรมของกริยา"
-},
-{
-    sentence: ["7時", "寝ます。"],
-    answer: "に",
-    romaji_hidden: "Shichi-ji ( _ ) nemasu.",
-    meaning: "นอนตอน 7 โมง",
-    explain: "ใช้ <b>に (ni)</b> เพื่อระบุเวลา"
-},
-{
-    sentence: ["学校", "行きます。"],
-    answer: "へ",
-    romaji_hidden: "Gakkou ( _ ) ikimasu.",
-    meaning: "ไปโรงเรียน",
-    explain: "ใช้ <b>へ (e)</b> เพื่อแสดงทิศทาง"
-},
-{
-    sentence: ["机", "本があります。"],
-    answer: "に",
-    romaji_hidden: "Tsukue ( _ ) hon ga arimasu.",
-    meaning: "มีหนังสืออยู่บนโต๊ะ",
-    explain: "ใช้ <b>に (ni)</b> แสดงตำแหน่ง"
-},
-{
-    sentence: ["私は犬", "好きです。"],
-    answer: "が",
-    romaji_hidden: "Watashi wa inu ( _ ) suki desu.",
-    meaning: "ฉันชอบหมา",
-    explain: "คำว่า 好き ใช้ <b>が</b>"
-},
-
-// ---- 6–10 ----
-
-{
-    sentence: ["スーパー", "買い物します。"],
-    answer: "で",
-    romaji_hidden: "Suupaa ( _ ) kaimono shimasu.",
-    meaning: "ซื้อของที่ซุปเปอร์",
-    explain: "ใช้ <b>で</b> สำหรับสถานที่ทำกิจกรรม"
-},
-{
-    sentence: ["友だち", "話します。"],
-    answer: "と",
-    romaji_hidden: "Tomodachi ( _ ) hanashimasu.",
-    meaning: "คุยกับเพื่อน",
-    explain: "ใช้ <b>と</b> แปลว่า 'กับ'"
-},
-{
-    sentence: ["日本", "来ました。"],
-    answer: "に",
-    romaji_hidden: "Nihon ( _ ) kimashita.",
-    meaning: "มาญี่ปุ่น",
-    explain: "ใช้ <b>に</b> แสดงจุดหมาย"
-},
-{
-    sentence: ["私は本", "読みます。"],
-    answer: "を",
-    romaji_hidden: "Watashi wa hon ( _ ) yomimasu.",
-    meaning: "ฉันอ่านหนังสือ",
+    romaji_hidden: "Watashi wa maiasa gyuunyuu ( _ ) nomimasu.",
+    meaning: "ฉันดื่มนมทุกเช้า",
     explain: "ใช้ <b>を</b> แสดงกรรม"
 },
 {
-    sentence: ["バス", "行きます。"],
-    answer: "で",
-    romaji_hidden: "Basu ( _ ) ikimasu.",
-    meaning: "ไปโดยรถบัส",
-    explain: "ใช้ <b>で</b> สำหรับพาหนะ"
-},
-
-// ---- 11–20 ----
-
-{
-    sentence: ["母", "手紙を書きます。"],
+    sentence: ["10時", "寝ます。"],
     answer: "に",
-    romaji_hidden: "Haha ( _ ) tegami o kakimasu.",
-    meaning: "เขียนจดหมายถึงแม่",
-    explain: "ใช้ <b>に</b> แสดงผู้รับ"
-},
-{
-    sentence: ["日曜日", "休みます。"],
-    answer: "は",
-    romaji_hidden: "Nichiyoubi ( _ ) yasumimasu.",
-    meaning: "วันอาทิตย์พัก",
-    explain: "ใช้ <b>は</b> เป็นหัวข้อ"
-},
-{
-    sentence: ["私は猫", "います。"],
-    answer: "が",
-    romaji_hidden: "Watashi wa neko ( _ ) imasu.",
-    meaning: "ฉันมีแมว",
-    explain: "ใช้ <b>が</b> กับการมีอยู่"
-},
-{
-    sentence: ["公園", "遊びます。"],
-    answer: "で",
-    romaji_hidden: "Kouen ( _ ) asobimasu.",
-    meaning: "เล่นที่สวน",
-    explain: "ใช้ <b>で</b> สถานที่ทำกิจกรรม"
-},
-{
-    sentence: ["兄", "電話します。"],
-    answer: "に",
-    romaji_hidden: "Ani ( _ ) denwa shimasu.",
-    meaning: "โทรหาพี่ชาย",
-    explain: "ใช้ <b>に</b> ผู้รับ"
-},
-
-// ---- 21–30 ----
-
-{
-    sentence: ["私は英語", "話します。"],
-    answer: "を",
-    romaji_hidden: "Watashi wa eigo ( _ ) hanashimasu.",
-    meaning: "ฉันพูดภาษาอังกฤษ",
-    explain: "ใช้ <b>を</b> เป็นกรรม"
-},
-{
-    sentence: ["朝", "コーヒーを飲みます。"],
-    answer: "に",
-    romaji_hidden: "Asa ( _ ) koohii o nomimasu.",
-    meaning: "ดื่มกาแฟตอนเช้า",
+    romaji_hidden: "Juu-ji ( _ ) nemasu.",
+    meaning: "นอนตอน 10 โมง",
     explain: "ใช้ <b>に</b> กับเวลา"
 },
 {
-    sentence: ["駅", "歩きます。"],
-    answer: "まで",
-    romaji_hidden: "Eki ( _ ) arukimasu.",
-    meaning: "เดินไปจนถึงสถานี",
-    explain: "ใช้ <b>まで</b> = จนถึง"
+    sentence: ["学校", "帰ります。"],
+    answer: "から",
+    romaji_hidden: "Gakkou ( _ ) kaerimasu.",
+    meaning: "กลับจากโรงเรียน",
+    explain: "ใช้ <b>から</b> = จาก"
 },
 {
-    sentence: ["友だち", "映画を見ます。"],
-    answer: "と",
-    romaji_hidden: "Tomodachi ( _ ) eiga o mimasu.",
-    meaning: "ดูหนังกกับเพื่อน",
-    explain: "ใช้ <b>と</b> = กับ"
-},
-{
-    sentence: ["机", "下にかばんがあります。"],
-    answer: "の",
-    romaji_hidden: "Tsukue ( _ ) shita ni kaban ga arimasu.",
-    meaning: "มีกระเป๋าใต้โต๊ะ",
-    explain: "ใช้ <b>の</b> เชื่อมคำนาม"
-},
-
-// ---- 31–40 ----
-
-{
-    sentence: ["雨", "降っています。"],
-    answer: "が",
-    romaji_hidden: "Ame ( _ ) futteimasu.",
-    meaning: "ฝนกำลังตก",
-    explain: "ใช้ <b>が</b> เป็นประธาน"
-},
-{
-    sentence: ["私は会社", "働きます。"],
-    answer: "で",
-    romaji_hidden: "Watashi wa kaisha ( _ ) hatarakimasu.",
-    meaning: "ทำงานที่บริษัท",
-    explain: "ใช้ <b>で</b>"
-},
-{
-    sentence: ["父", "プレゼントをあげます。"],
+    sentence: ["部屋", "ベッドがあります。"],
     answer: "に",
-    romaji_hidden: "Chichi ( _ ) purezento o agemasu.",
-    meaning: "ให้ของขวัญพ่อ",
-    explain: "ใช้ <b>に</b>"
-},
-{
-    sentence: ["図書館", "勉強します。"],
-    answer: "で",
-    romaji_hidden: "Toshokan ( _ ) benkyou shimasu.",
-    meaning: "เรียนที่ห้องสมุด",
-    explain: "ใช้ <b>で</b>"
-},
-{
-    sentence: ["私は料理", "できます。"],
-    answer: "が",
-    romaji_hidden: "Watashi wa ryouri ( _ ) dekimasu.",
-    meaning: "ฉันทำอาหารได้",
-    explain: "ใช้ <b>が</b>"
-},
-
-// ---- 41–50 ----
-
-{
-    sentence: ["学校", "友だちに会いました。"],
-    answer: "で",
-    romaji_hidden: "Gakkou ( _ ) tomodachi ni aimashita.",
-    meaning: "เจอเพื่อนที่โรงเรียน",
-    explain: "ใช้ <b>で</b>"
-},
-{
-    sentence: ["私は朝ごはん", "食べません。"],
-    answer: "を",
-    romaji_hidden: "Watashi wa asagohan ( _ ) tabemasen.",
-    meaning: "ฉันไม่กินข้าวเช้า",
-    explain: "ใช้ <b>を</b>"
-},
-{
-    sentence: ["電車", "会社へ行きます。"],
-    answer: "で",
-    romaji_hidden: "Densha ( _ ) kaisha e ikimasu.",
-    meaning: "ไปบริษัทโดยรถไฟ",
-    explain: "ใช้ <b>で</b>"
-},
-{
-    sentence: ["家", "帰ります。"],
-    answer: "に",
-    romaji_hidden: "Ie ( _ ) kaerimasu.",
-    meaning: "กลับบ้าน",
-    explain: "ใช้ <b>に</b>"
-},
-{
-    sentence: ["私は日本語", "分かります。"],
-    answer: "が",
-    romaji_hidden: "Watashi wa nihongo ( _ ) wakarimasu.",
-    meaning: "ฉันเข้าใจภาษาญี่ปุ่น",
-    explain: "ใช้ <b>が</b>"
-},
-{
-    sentence: ["私は毎日パン", "食べます。"],
-    answer: "を",
-    romaji_hidden: "Watashi wa mainichi pan ( _ ) tabemasu.",
-    meaning: "ฉันกินขนมปังทุกวัน",
-    explain: "ใช้ <b>を</b> แสดงกรรม"
-},
-{
-    sentence: ["8時", "学校に行きます。"],
-    answer: "に",
-    romaji_hidden: "Hachi-ji ( _ ) gakkou ni ikimasu.",
-    meaning: "ไปโรงเรียนตอน 8 โมง",
-    explain: "ใช้ <b>に</b> กับเวลา"
-},
-{
-    sentence: ["会社", "来ました。"],
-    answer: "へ",
-    romaji_hidden: "Kaisha ( _ ) kimashita.",
-    meaning: "มาที่บริษัท",
-    explain: "ใช้ <b>へ</b> แสดงทิศทาง"
-},
-{
-    sentence: ["部屋", "椅子があります。"],
-    answer: "に",
-    romaji_hidden: "Heya ( _ ) isu ga arimasu.",
-    meaning: "มีเก้าอี้อยู่ในห้อง",
+    romaji_hidden: "Heya ( _ ) beddo ga arimasu.",
+    meaning: "มีเตียงอยู่ในห้อง",
     explain: "ใช้ <b>に</b> แสดงตำแหน่ง"
 },
 {
-    sentence: ["私は音楽", "好きです。"],
+    sentence: ["私は映画", "嫌いです。"],
     answer: "が",
-    romaji_hidden: "Watashi wa ongaku ( _ ) suki desu.",
-    meaning: "ฉันชอบเพลง",
-    explain: "好き ใช้ <b>が</b>"
+    romaji_hidden: "Watashi wa eiga ( _ ) kirai desu.",
+    meaning: "ฉันไม่ชอบหนัง",
+    explain: "嫌い ใช้ <b>が</b>"
 },
 
-// ---- 6–10 ----
+// ---- 106–110 ----
 
 {
-    sentence: ["学校", "勉強します。"],
+    sentence: ["レストラン", "食べます。"],
     answer: "で",
-    romaji_hidden: "Gakkou ( _ ) benkyou shimasu.",
-    meaning: "เรียนที่โรงเรียน",
+    romaji_hidden: "Resutoran ( _ ) tabemasu.",
+    meaning: "กินที่ร้านอาหาร",
     explain: "ใช้ <b>で</b> สถานที่ทำกิจกรรม"
 },
 {
-    sentence: ["友だち", "遊びます。"],
+    sentence: ["友だち", "勉強します。"],
     answer: "と",
-    romaji_hidden: "Tomodachi ( _ ) asobimasu.",
-    meaning: "เล่นกับเพื่อน",
+    romaji_hidden: "Tomodachi ( _ ) benkyou shimasu.",
+    meaning: "เรียนกับเพื่อน",
     explain: "ใช้ <b>と</b>"
 },
 {
-    sentence: ["日本", "住んでいます。"],
-    answer: "に",
-    romaji_hidden: "Nihon ( _ ) sundeimasu.",
-    meaning: "อาศัยอยู่ญี่ปุ่น",
-    explain: "ใช้ <b>に</b>"
+    sentence: ["タイ", "来ました。"],
+    answer: "から",
+    romaji_hidden: "Tai ( _ ) kimashita.",
+    meaning: "มาจากไทย",
+    explain: "ใช้ <b>から</b>"
 },
 {
-    sentence: ["私は映画", "見ます。"],
+    sentence: ["私は新聞", "読みます。"],
     answer: "を",
-    romaji_hidden: "Watashi wa eiga ( _ ) mimasu.",
-    meaning: "ฉันดูหนัง",
+    romaji_hidden: "Watashi wa shinbun ( _ ) yomimasu.",
+    meaning: "ฉันอ่านหนังสือพิมพ์",
     explain: "ใช้ <b>を</b>"
 },
 {
-    sentence: ["電車", "帰ります。"],
+    sentence: ["タクシー", "行きます。"],
     answer: "で",
-    romaji_hidden: "Densha ( _ ) kaerimasu.",
-    meaning: "กลับโดยรถไฟ",
+    romaji_hidden: "Takushii ( _ ) ikimasu.",
+    meaning: "ไปโดยแท็กซี่",
     explain: "ใช้ <b>で</b>"
 },
 
-// ---- 11–20 ----
+// ---- 111–120 ----
 
 {
-    sentence: ["母", "電話します。"],
+    sentence: ["母", "会います。"],
     answer: "に",
-    romaji_hidden: "Haha ( _ ) denwa shimasu.",
-    meaning: "โทรหาแม่",
+    romaji_hidden: "Haha ( _ ) aimasu.",
+    meaning: "เจอแม่",
     explain: "ใช้ <b>に</b>"
 },
 {
-    sentence: ["土曜日", "休みます。"],
+    sentence: ["金曜日", "働きます。"],
     answer: "は",
-    romaji_hidden: "Doyoubi ( _ ) yasumimasu.",
-    meaning: "วันเสาร์พัก",
+    romaji_hidden: "Kin-youbi ( _ ) hatarakimasu.",
+    meaning: "วันศุกร์ทำงาน",
     explain: "ใช้ <b>は</b>"
 },
 {
-    sentence: ["私は犬", "います。"],
+    sentence: ["私は車", "あります。"],
     answer: "が",
-    romaji_hidden: "Watashi wa inu ( _ ) imasu.",
-    meaning: "ฉันมีหมา",
+    romaji_hidden: "Watashi wa kuruma ( _ ) arimasu.",
+    meaning: "ฉันมีรถ",
     explain: "ใช้ <b>が</b>"
 },
 {
-    sentence: ["公園", "走ります。"],
+    sentence: ["公園", "散歩します。"],
     answer: "で",
-    romaji_hidden: "Kouen ( _ ) hashirimasu.",
-    meaning: "วิ่งที่สวน",
+    romaji_hidden: "Kouen ( _ ) sanpo shimasu.",
+    meaning: "เดินเล่นที่สวน",
     explain: "ใช้ <b>で</b>"
 },
 {
-    sentence: ["兄", "会います。"],
+    sentence: ["先生", "質問します。"],
     answer: "に",
-    romaji_hidden: "Ani ( _ ) aimasu.",
-    meaning: "เจอพี่ชาย",
+    romaji_hidden: "Sensei ( _ ) shitsumon shimasu.",
+    meaning: "ถามครู",
     explain: "ใช้ <b>に</b>"
 },
 
-// ---- 21–30 ----
+// ---- 121–130 ----
 
 {
-    sentence: ["私は水", "飲みません。"],
+    sentence: ["私はジュース", "飲みません。"],
     answer: "を",
-    romaji_hidden: "Watashi wa mizu ( _ ) nomimasen.",
-    meaning: "ฉันไม่ดื่มน้ำ",
+    romaji_hidden: "Watashi wa juusu ( _ ) nomimasen.",
+    meaning: "ฉันไม่ดื่มน้ำผลไม้",
     explain: "ใช้ <b>を</b>"
 },
 {
-    sentence: ["夜", "勉強します。"],
+    sentence: ["夜", "寝ます。"],
     answer: "に",
-    romaji_hidden: "Yoru ( _ ) benkyou shimasu.",
-    meaning: "เรียนตอนกลางคืน",
+    romaji_hidden: "Yoru ( _ ) nemasu.",
+    meaning: "นอนตอนกลางคืน",
     explain: "ใช้ <b>に</b>"
 },
 {
@@ -488,59 +478,59 @@
     explain: "ใช้ <b>まで</b>"
 },
 {
-    sentence: ["友だち", "旅行します。"],
+    sentence: ["友だち", "食事します。"],
     answer: "と",
-    romaji_hidden: "Tomodachi ( _ ) ryokou shimasu.",
-    meaning: "ไปเที่ยวกับเพื่อน",
+    romaji_hidden: "Tomodachi ( _ ) shokuji shimasu.",
+    meaning: "กินข้าวกับเพื่อน",
     explain: "ใช้ <b>と</b>"
 },
 {
-    sentence: ["机", "上に本があります。"],
+    sentence: ["机", "横に椅子があります。"],
     answer: "の",
-    romaji_hidden: "Tsukue ( _ ) ue ni hon ga arimasu.",
-    meaning: "มีหนังสืออยู่บนโต๊ะ",
+    romaji_hidden: "Tsukue ( _ ) yoko ni isu ga arimasu.",
+    meaning: "มีเก้าอี้อยู่ข้างโต๊ะ",
     explain: "ใช้ <b>の</b>"
 },
 
-// ---- 31–40 ----
+// ---- 131–140 ----
 
 {
-    sentence: ["雪", "降っています。"],
+    sentence: ["風", "吹いています。"],
     answer: "が",
-    romaji_hidden: "Yuki ( _ ) futteimasu.",
-    meaning: "หิมะกำลังตก",
+    romaji_hidden: "Kaze ( _ ) fuiteimasu.",
+    meaning: "ลมกำลังพัด",
     explain: "ใช้ <b>が</b>"
 },
 {
-    sentence: ["私は会社", "働きます。"],
+    sentence: ["私は会社", "働いています。"],
     answer: "で",
-    romaji_hidden: "Watashi wa kaisha ( _ ) hatarakimasu.",
-    meaning: "ทำงานที่บริษัท",
+    romaji_hidden: "Watashi wa kaisha ( _ ) hataraiteimasu.",
+    meaning: "ทำงานอยู่ที่บริษัท",
     explain: "ใช้ <b>で</b>"
 },
 {
-    sentence: ["父", "プレゼントをもらいます。"],
+    sentence: ["父", "電話します。"],
     answer: "に",
-    romaji_hidden: "Chichi ( _ ) purezento o moraimasu.",
-    meaning: "รับของขวัญจากพ่อ",
+    romaji_hidden: "Chichi ( _ ) denwa shimasu.",
+    meaning: "โทรหาพ่อ",
     explain: "ใช้ <b>に</b>"
 },
 {
-    sentence: ["図書館", "本を借ります。"],
+    sentence: ["図書館", "本を読みます。"],
     answer: "で",
-    romaji_hidden: "Toshokan ( _ ) hon o karimasu.",
-    meaning: "ยืมหนังสือที่ห้องสมุด",
+    romaji_hidden: "Toshokan ( _ ) hon o yomimasu.",
+    meaning: "อ่านหนังสือที่ห้องสมุด",
     explain: "ใช้ <b>で</b>"
 },
 {
-    sentence: ["私は料理", "できます。"],
+    sentence: ["私は英語", "話せます。"],
     answer: "が",
-    romaji_hidden: "Watashi wa ryouri ( _ ) dekimasu.",
-    meaning: "ฉันทำอาหารได้",
+    romaji_hidden: "Watashi wa eigo ( _ ) hanasemasu.",
+    meaning: "ฉันพูดภาษาอังกฤษได้",
     explain: "ใช้ <b>が</b>"
 },
 
-// ---- 41–50 ----
+// ---- 141–150 ----
 
 {
     sentence: ["学校", "先生に聞きました。"],
@@ -550,57 +540,59 @@
     explain: "ใช้ <b>で</b>"
 },
 {
-    sentence: ["私は昼ごはん", "食べます。"],
+    sentence: ["私は夕ごはん", "食べます。"],
     answer: "を",
-    romaji_hidden: "Watashi wa hirugohan ( _ ) tabemasu.",
-    meaning: "ฉันกินข้าวกลางวัน",
+    romaji_hidden: "Watashi wa yuugohan ( _ ) tabemasu.",
+    meaning: "ฉันกินข้าวเย็น",
     explain: "ใช้ <b>を</b>"
 },
 {
-    sentence: ["バス", "会社へ行きます。"],
+    sentence: ["電車", "学校へ行きます。"],
     answer: "で",
-    romaji_hidden: "Basu ( _ ) kaisha e ikimasu.",
-    meaning: "ไปบริษัทโดยรถบัส",
+    romaji_hidden: "Densha ( _ ) gakkou e ikimasu.",
+    meaning: "ไปโรงเรียนโดยรถไฟ",
     explain: "ใช้ <b>で</b>"
 },
 {
-    sentence: ["家", "帰りました。"],
+    sentence: ["家", "帰ります。"],
     answer: "に",
-    romaji_hidden: "Ie ( _ ) kaerimashita.",
-    meaning: "กลับบ้านแล้ว",
+    romaji_hidden: "Ie ( _ ) kaerimasu.",
+    meaning: "กลับบ้าน",
     explain: "ใช้ <b>に</b>"
 },
 {
-    sentence: ["私は英語", "分かります。"],
+    sentence: ["私は日本語", "少し分かります。"],
     answer: "が",
-    romaji_hidden: "Watashi wa eigo ( _ ) wakarimasu.",
-    meaning: "ฉันเข้าใจภาษาอังกฤษ",
+    romaji_hidden: "Watashi wa nihongo ( _ ) sukoshi wakarimasu.",
+    meaning: "ฉันเข้าใจภาษาญี่ปุ่นนิดหน่อย",
     explain: "ใช้ <b>が</b>"
 }
-
-];
+    ];
 
     const quizContainer = document.getElementById('quizContainer');
-    document.getElementById('maxScore').innerText = quizData.length;
-
-    quizData.forEach((item, index) => {
-        const card = document.createElement('div');
-        card.className = 'quiz-card';
-        card.innerHTML = `
-            <div class="sentence-box">
-                ${index + 1}. ${item.sentence[0]} 
-                <input type="text" class="particle-input" id="input-${index}" maxlength="2" placeholder="?"> 
-                ${item.sentence[1]}
-            </div>
-            <div class="romaji-box">Romaji: ${item.romaji_hidden}</div>
-            <div class="text-muted small mb-2">คำแปล: ${item.meaning}</div>
-            <div id="feedback-${index}" class="explanation">
-                <div class="fw-bold mb-1" id="status-text-${index}"></div>
-                <div id="explain-text-${index}"></div>
-            </div>
-        `;
-        quizContainer.appendChild(card);
-    });
+    
+    function initQuiz() {
+        document.getElementById('maxScore').innerText = quizData.length;
+        quizContainer.innerHTML = "";
+        quizData.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'quiz-card';
+            card.innerHTML = `
+                <div class="sentence-box">
+                    ${index + 1}. ${item.sentence[0]} 
+                    <input type="text" class="particle-input" id="input-${index}" maxlength="2" placeholder="?"> 
+                    ${item.sentence[1]}
+                </div>
+                <div class="romaji-box">Romaji: ${item.romaji_hidden}</div>
+                <div class="text-muted small mb-2">คำแปล: ${item.meaning}</div>
+                <div id="feedback-${index}" class="explanation">
+                    <div class="fw-bold mb-1" id="status-text-${index}"></div>
+                    <div id="explain-text-${index}"></div>
+                </div>
+            `;
+            quizContainer.appendChild(card);
+        });
+    }
 
     function checkAll() {
         let totalScore = 0;
@@ -613,7 +605,6 @@
 
             feedback.style.display = "block";
 
-            // ตรวจสอบความถูกต้อง
             const isCorrect = (userInput === item.answer) || 
                               (item.answer === "へ" && userInput === "に") || 
                               (item.answer === "に" && userInput === "へ" && item.romaji_hidden.includes("ikimasu"));
@@ -635,6 +626,9 @@
         document.getElementById('currentScore').innerText = totalScore;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // เรียกใช้งานครั้งแรก
+    initQuiz();
 </script>
 
 </body>
