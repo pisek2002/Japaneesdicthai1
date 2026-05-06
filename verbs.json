@@ -2428,6 +2428,606 @@
     "type": "V3",
     "emoji": "🏗️",
     "color": "#FD79A8"
+  },
+  {
+    "th": "กำกับดูแล",
+    "jp": "統制する",
+    "hira": "とうせいする",
+    "romaji": "Tousei suru",
+    "reading": "โท-เซ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧭",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "บริหารจัดการ",
+    "jp": "運用する",
+    "hira": "うんようする",
+    "romaji": "Unyou suru",
+    "reading": "อุน-โย-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚙️",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ควบคุมคุณภาพ",
+    "jp": "品質を管理する",
+    "hira": "ひんしつをかんりする",
+    "romaji": "Hinshitsu o kanri suru",
+    "reading": "ฮิน-ชิ-สึ-โอ-คัน-ริ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧪",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ตรวจสอบความสอดคล้อง",
+    "jp": "適合する",
+    "hira": "てきごうする",
+    "romaji": "Tekigou suru",
+    "reading": "เท-คิ-โก-สุ-รุ",
+    "type": "V3",
+    "emoji": "✔️",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ไม่สอดคล้อง",
+    "jp": "逸脱する",
+    "hira": "いつだつする",
+    "romaji": "Itsudatsu suru",
+    "reading": "อิท-สึ-ดะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚠️",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ควบคุมความเสี่ยง",
+    "jp": "リスクを管理する",
+    "hira": "りすくをかんりする",
+    "romaji": "Risuku o kanri suru",
+    "reading": "ริ-สุ-คุ-โอ-คัน-ริ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🛡️",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ลดต้นทุน",
+    "jp": "コストを削減する",
+    "hira": "こすとをさくげんする",
+    "romaji": "Kosuto o sakugen suru",
+    "reading": "โค-สุ-โตะ-โอ-สะ-คุ-เก็น-สุ-รุ",
+    "type": "V3",
+    "emoji": "💰",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "เพิ่มประสิทธิภาพ",
+    "jp": "効率を向上させる",
+    "hira": "こうりつをこうじょうさせる",
+    "romaji": "Kouritsu o koujou saseru",
+    "reading": "โค-ริ-สึ-โอ-โค-โจ-สะ-เซ-รุ",
+    "type": "V2",
+    "emoji": "📈",
+    "color": "#00B894"
+  },
+  {
+    "th": "ดำเนินมาตรการ",
+    "jp": "対策を講じる",
+    "hira": "たいさくをこうじる",
+    "romaji": "Taisaku o koujiru",
+    "reading": "ไท-สะ-คุ-โอ-โค-จิ-รุ",
+    "type": "V2",
+    "emoji": "🛠️",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "แก้ไขปัญหา",
+    "jp": "問題を解消する",
+    "hira": "もんだいをかいしょうする",
+    "romaji": "Mondai o kaishou suru",
+    "reading": "มง-ได-โอ-ไค-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "💡",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ระงับ",
+    "jp": "停止させる",
+    "hira": "ていしさせる",
+    "romaji": "Teishi saseru",
+    "reading": "เท-ชิ-สะ-เซ-รุ",
+    "type": "V2",
+    "emoji": "⛔",
+    "color": "#636E72"
+  },
+  {
+    "th": "กระตุ้น",
+    "jp": "促す",
+    "hira": "うながす",
+    "romaji": "Unagasu",
+    "reading": "อุ-นะ-งะ-สุ",
+    "type": "V1",
+    "emoji": "👉",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "ชะลอ",
+    "jp": "遅らせる",
+    "hira": "おくらせる",
+    "romaji": "Okuraseru",
+    "reading": "โอ-คุ-ระ-เซ-รุ",
+    "type": "V2",
+    "emoji": "🐢",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "เร่ง",
+    "jp": "加速する",
+    "hira": "かそくする",
+    "romaji": "Kasoku suru",
+    "reading": "คะ-โซ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏎️",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ชี้แจง",
+    "jp": "説明を補足する",
+    "hira": "せつめいをほそくする",
+    "romaji": "Setsumei o hosoku suru",
+    "reading": "เซะ-สึ-เม-โอ-โฮ-โซ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📢",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "สรุป (เชิงทางการ)",
+    "jp": "総括する",
+    "hira": "そうかつする",
+    "romaji": "Soukatsu suru",
+    "reading": "โซ-คัต-สุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📚",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ตรวจสอบย้อนกลับ",
+    "jp": "遡る",
+    "hira": "さかのぼる",
+    "romaji": "Sakanoboru",
+    "reading": "สะ-คะ-โนะ-โบะ-รุ",
+    "type": "V1",
+    "emoji": "⏪",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ประสานงาน (หลายฝ่าย)",
+    "jp": "調整を図る",
+    "hira": "ちょうせいをはかる",
+    "romaji": "Chousei o hakaru",
+    "reading": "โช-เซ-โอ-ฮะ-คะ-รุ",
+    "type": "V1",
+    "emoji": "🤝",
+    "color": "#00B894"
+  },
+  {
+    "th": "ตั้งเป้าหมาย",
+    "jp": "目標を設定する",
+    "hira": "もくひょうをせっていする",
+    "romaji": "Mokuhyou o settei suru",
+    "reading": "โมค-เคียว-โอ-เซต-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "🎯",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ดำเนินตามแผน",
+    "jp": "計画に従う",
+    "hira": "けいかくにしたがう",
+    "romaji": "Keikaku ni shitagau",
+    "reading": "เค-คะ-คุ-นิ-ชิ-ตะ-กะ-อุ",
+    "type": "V1",
+    "emoji": "📍",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "กำหนดนโยบาย",
+    "jp": "方針を策定する",
+    "hira": "ほうしんをさくていする",
+    "romaji": "Houshin o sakutei suru",
+    "reading": "โฮ-ชิน-โอ-สะ-คุ-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "📜",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "วางกลยุทธ์",
+    "jp": "戦略を立てる",
+    "hira": "せんりゃくをたてる",
+    "romaji": "Senryaku o tateru",
+    "reading": "เซ็น-เรียะ-คุ-โอ-ทะ-เท-รุ",
+    "type": "V2",
+    "emoji": "♟️",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ดำเนินกลยุทธ์",
+    "jp": "戦略を実行する",
+    "hira": "せんりゃくをじっこうする",
+    "romaji": "Senryaku o jikkou suru",
+    "reading": "เซ็น-เรียะ-คุ-โอ-จิค-โค-สุ-รุ",
+    "type": "V3",
+    "emoji": "🚀",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "กำหนดกรอบ",
+    "jp": "枠組みを構築する",
+    "hira": "わくぐみをこうちくする",
+    "romaji": "Wakugumi o kouchiku suru",
+    "reading": "วะ-คุ-กุ-มิ-โอ-โค-ชิค-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏗️",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เสริมสร้าง",
+    "jp": "強化を図る",
+    "hira": "きょうかをはかる",
+    "romaji": "Kyouka o hakaru",
+    "reading": "เคียว-คะ-โอ-ฮะ-คะ-รุ",
+    "type": "V1",
+    "emoji": "💪",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "เพิ่มความสามารถ",
+    "jp": "能力を高める",
+    "hira": "のうりょくをたかめる",
+    "romaji": "Nouryoku o takameru",
+    "reading": "โน-เรียะ-คุ-โอ-ทะ-คะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "📈",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "เพิ่มมูลค่า",
+    "jp": "価値を高める",
+    "hira": "かちをたかめる",
+    "romaji": "Kachi o takameru",
+    "reading": "คะ-จิ-โอ-ทะ-คะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "💎",
+    "color": "#00B894"
+  },
+  {
+    "th": "ลดความสูญเสีย",
+    "jp": "損失を抑える",
+    "hira": "そんしつをおさえる",
+    "romaji": "Sonshitsu o osaeru",
+    "reading": "ซน-ชิ-สึ-โอ-โอะ-สะ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "📉",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ควบคุมสถานการณ์",
+    "jp": "状況を制御する",
+    "hira": "じょうきょうをせいぎょする",
+    "romaji": "Joukyou o seigyo suru",
+    "reading": "โจ-เคียว-โอ-เซ-เกียว-สุ-รุ",
+    "type": "V3",
+    "emoji": "🎛️",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ควบคุมอย่างเข้มงวด",
+    "jp": "厳格に管理する",
+    "hira": "げんかくにかんりする",
+    "romaji": "Genkaku ni kanri suru",
+    "reading": "เก็น-คะ-คุ-นิ-คัน-ริ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔒",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ประเมินผลกระทบ",
+    "jp": "影響を評価する",
+    "hira": "えいきょうをひょうかする",
+    "romaji": "Eikyou o hyouka suru",
+    "reading": "เอ-เคียว-โอ-เฮียว-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📊",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "วิเคราะห์ความเสี่ยง",
+    "jp": "リスクを分析する",
+    "hira": "りすくをぶんせきする",
+    "romaji": "Risuku o bunseki suru",
+    "reading": "ริ-สุ-คุ-โอ-บุน-เซะ-คิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚠️",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "วางมาตรการ",
+    "jp": "措置を講じる",
+    "hira": "そちをこうじる",
+    "romaji": "Sochi o koujiru",
+    "reading": "โซ-จิ-โอ-โค-จิ-รุ",
+    "type": "V2",
+    "emoji": "🛠️",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "กำจัดปัญหา",
+    "jp": "問題を排除する",
+    "hira": "もんだいをはいじょする",
+    "romaji": "Mondai o haijo suru",
+    "reading": "มง-ได-โอ-ไฮ-โจ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧹",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "สร้างมาตรฐาน",
+    "jp": "基準を確立する",
+    "hira": "きじゅんをかくりつする",
+    "romaji": "Kijun o kakuritsu suru",
+    "reading": "คิ-จุน-โอ-คะ-คุ-ริ-สึ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📏",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "รักษามาตรฐาน",
+    "jp": "基準を維持する",
+    "hira": "きじゅんをいじする",
+    "romaji": "Kijun o iji suru",
+    "reading": "คิ-จุน-โอ-อิ-จิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🛡️",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ทำให้เป็นระบบ",
+    "jp": "体系化する",
+    "hira": "たいけいかする",
+    "romaji": "Taikeika suru",
+    "reading": "ไท-เค-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🗂️",
+    "color": "#00B894"
+  },
+  {
+    "th": "สร้างโครงสร้างใหม่",
+    "jp": "再構築する",
+    "hira": "さいこうちくする",
+    "romaji": "Saikouchiku suru",
+    "reading": "ไซ-โค-ชิค-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏗️",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "นำไปใช้จริง",
+    "jp": "実用化する",
+    "hira": "じつようかする",
+    "romaji": "Jitsuyouka suru",
+    "reading": "จิ-สึ-โย-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔧",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ขยายธุรกิจ",
+    "jp": "事業を拡張する",
+    "hira": "じぎょうをかくちょうする",
+    "romaji": "Jigyou o kakuchou suru",
+    "reading": "จิ-เกียว-โอ-คะ-คุ-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏢",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "กำหนดทิศทาง",
+    "jp": "方向性を定める",
+    "hira": "ほうこうせいをさだめる",
+    "romaji": "Houkousei o sadameru",
+    "reading": "โฮ-โค-เซ-โอ-สะ-ดะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "🧭",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ตัดสินใจขั้นสุดท้าย",
+    "jp": "最終決定する",
+    "hira": "さいしゅうけっていする",
+    "romaji": "Saishuu kettei suru",
+    "reading": "ไซ-ชู-เคต-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "✅",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "กำหนดขอบเขต",
+    "jp": "範囲を限定する",
+    "hira": "はんいをげんていする",
+    "romaji": "Han'i o gentei suru",
+    "reading": "ฮัน-อิ-โอ-เก็น-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "📏",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ขยายขอบเขต",
+    "jp": "範囲を拡張する",
+    "hira": "はんいをかくちょうする",
+    "romaji": "Han'i o kakuchou suru",
+    "reading": "ฮัน-อิ-โอ-คะ-คุ-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "📈",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ปรับเปลี่ยนแนวทาง",
+    "jp": "方針を転換する",
+    "hira": "ほうしんをてんかんする",
+    "romaji": "Houshin o tenkan suru",
+    "reading": "โฮ-ชิน-โอ-เท็น-คัน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔄",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "เจาะลึก",
+    "jp": "掘り下げる",
+    "hira": "ほりさげる",
+    "romaji": "Horisageru",
+    "reading": "โฮ-ริ-สะ-เกะ-รุ",
+    "type": "V2",
+    "emoji": "⛏️",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "สรุปเชิงนามธรรม",
+    "jp": "抽象化する",
+    "hira": "ちゅうしょうかする",
+    "romaji": "Chuushouka suru",
+    "reading": "ชู-โช-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧠",
+    "color": "#00B894"
+  },
+  {
+    "th": "ทำให้เป็นรูปธรรม",
+    "jp": "具体化する",
+    "hira": "ぐたいかする",
+    "romaji": "Gutaika suru",
+    "reading": "กุ-ไท-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧱",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ตีความ",
+    "jp": "解釈する",
+    "hira": "かいしゃくする",
+    "romaji": "Kaishaku suru",
+    "reading": "ไค-ชะ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📖",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ให้เหตุผล",
+    "jp": "論証する",
+    "hira": "ろんしょうする",
+    "romaji": "Ronshou suru",
+    "reading": "รน-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧾",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ยืนยันเชิงตรรกะ",
+    "jp": "裏付ける",
+    "hira": "うらづける",
+    "romaji": "Urazukeru",
+    "reading": "อุ-ระ-สึ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "📌",
+    "color": "#636E72"
+  },
+  {
+    "th": "คาดการณ์แนวโน้ม",
+    "jp": "動向を見極める",
+    "hira": "どうこうをみきわめる",
+    "romaji": "Doukou o mikiwameru",
+    "reading": "โด-โค-โอ-มิ-คิ-วะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "🔍",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "จับประเด็นสำคัญ",
+    "jp": "要点を捉える",
+    "hira": "ようてんをとらえる",
+    "romaji": "Youten o toraeru",
+    "reading": "โย-เท็น-โอ-โทะ-ระ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "🎯",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "มองภาพรวม",
+    "jp": "全体像を把握する",
+    "hira": "ぜんたいぞうをはあくする",
+    "romaji": "Zentaizou o haaku suru",
+    "reading": "เซ็น-ไต-โซ-โอ-ฮะ-อา-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🗺️",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "เจาะจง",
+    "jp": "絞り込む",
+    "hira": "しぼりこむ",
+    "romaji": "Shiborikomu",
+    "reading": "ชิ-โบะ-ริ-โคะ-มุ",
+    "type": "V1",
+    "emoji": "🔽",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ขยายความ",
+    "jp": "詳細化する",
+    "hira": "しょうさいかする",
+    "romaji": "Shousaika suru",
+    "reading": "โช-ไซ-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔍",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "เชื่อมโยง",
+    "jp": "関連付ける",
+    "hira": "かんれんづける",
+    "romaji": "Kanrenzukeru",
+    "reading": "คัน-เร็น-สึ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "🔗",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "จัดโครงสร้าง",
+    "jp": "構造化する",
+    "hira": "こうぞうかする",
+    "romaji": "Kouzouka suru",
+    "reading": "โค-โซ-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏗️",
+    "color": "#00B894"
+  },
+  {
+    "th": "สังเคราะห์",
+    "jp": "統合的にまとめる",
+    "hira": "とうごうてきにまとめる",
+    "romaji": "Tougouteki ni matomeru",
+    "reading": "โท-โก-เท-คิ-นิ-มะ-โทะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "🧩",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ตัดสินใจเชิงกลยุทธ์",
+    "jp": "戦略的に判断する",
+    "hira": "せんりゃくてきにはんだんする",
+    "romaji": "Senryakuteki ni handan suru",
+    "reading": "เซ็น-เรียะ-คุ-เท-คิ-นิ-ฮัน-ดัน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧠",
+    "color": "#0984E3"
   }
 ]
 
