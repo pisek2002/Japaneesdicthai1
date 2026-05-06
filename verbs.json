@@ -3028,6 +3028,206 @@
     "type": "V3",
     "emoji": "🧠",
     "color": "#0984E3"
+  },
+  {
+    "th": "กำหนดวิสัยทัศน์",
+    "jp": "ビジョンを策定する",
+    "hira": "びじょんをさくていする",
+    "romaji": "Bijon o sakutei suru",
+    "reading": "บิ-จง-โอ-สะ-คุ-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔭",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "กำหนดทิศทางองค์กร",
+    "jp": "方向付ける",
+    "hira": "ほうこうづける",
+    "romaji": "Houkouzukeru",
+    "reading": "โฮ-โค-สึ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "🧭",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ขับเคลื่อนองค์กร",
+    "jp": "推進する",
+    "hira": "すいしんする",
+    "romaji": "Suishin suru",
+    "reading": "ซุย-ชิน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🚀",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ยกระดับ",
+    "jp": "引き上げる",
+    "hira": "ひきあげる",
+    "romaji": "Hikiageru",
+    "reading": "ฮิ-คิ-อะ-เกะ-รุ",
+    "type": "V2",
+    "emoji": "📈",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ลดระดับ",
+    "jp": "引き下げる",
+    "hira": "ひきさげる",
+    "romaji": "Hikisageru",
+    "reading": "ฮิ-คิ-สะ-เกะ-รุ",
+    "type": "V2",
+    "emoji": "📉",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ปรับสมดุล",
+    "jp": "均衡を保つ",
+    "hira": "きんこうをたもつ",
+    "romaji": "Kinkou o tamotsu",
+    "reading": "คิน-โค-โอ-ทะ-โมะ-สึ",
+    "type": "V1",
+    "emoji": "⚖️",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "เสริมศักยภาพ",
+    "jp": "潜在能力を引き出す",
+    "hira": "せんざいのうりょくをひきだす",
+    "romaji": "Senzai nouryoku o hikidasu",
+    "reading": "เซ็น-ไซ-โน-เรียะ-คุ-โอ-ฮิ-คิ-ดะ-สุ",
+    "type": "V1",
+    "emoji": "💪",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ขยายศักยภาพ",
+    "jp": "可能性を広げる",
+    "hira": "かのうせいをひろげる",
+    "romaji": "Kanousei o hirogeru",
+    "reading": "คะ-โน-เซ-โอ-ฮิ-โระ-เกะ-รุ",
+    "type": "V2",
+    "emoji": "🌍",
+    "color": "#00B894"
+  },
+  {
+    "th": "สร้างผลกระทบ",
+    "jp": "影響を及ぼす",
+    "hira": "えいきょうをおよぼす",
+    "romaji": "Eikyou o oyobosu",
+    "reading": "เอ-เคียว-โอ-โอะ-โยะ-โบะ-สุ",
+    "type": "V1",
+    "emoji": "🌊",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "บรรลุเป้าหมาย",
+    "jp": "目標を達成する",
+    "hira": "もくひょうをたっせいする",
+    "romaji": "Mokuhyou o tassei suru",
+    "reading": "โมค-เคียว-โอ-ทัส-เซ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏆",
+    "color": "#0984E3"
+  },
+  {
+    "th": "เกินเป้าหมาย",
+    "jp": "目標を上回る",
+    "hira": "もくひょうをうわまわる",
+    "romaji": "Mokuhyou o uwamawaru",
+    "reading": "โมค-เคียว-โอ-อุ-วะ-มะ-วะ-รุ",
+    "type": "V1",
+    "emoji": "🚀",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ไม่ถึงเป้า",
+    "jp": "目標に達しない",
+    "hira": "もくひょうにたっしない",
+    "romaji": "Mokuhyou ni tasshinai",
+    "reading": "โมค-เคียว-นิ-ทัส-ชิ-นา-อิ",
+    "type": "V1",
+    "emoji": "⚠️",
+    "color": "#FF7675"
+  },
+  {
+    "th": "สร้างความแตกต่าง",
+    "jp": "差別化する",
+    "hira": "さべつかする",
+    "romaji": "Sabetsuka suru",
+    "reading": "สะ-เบะ-สึ-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🆕",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "สร้างมูลค่าเพิ่ม",
+    "jp": "付加価値を生み出す",
+    "hira": "ふかかちをうみだす",
+    "romaji": "Fukakachi o umidasu",
+    "reading": "ฟุ-คะ-คะ-จิ-โอ-อุ-มิ-ดะ-สุ",
+    "type": "V1",
+    "emoji": "💎",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "รักษาความสามารถแข่งขัน",
+    "jp": "競争力を維持する",
+    "hira": "きょうそうりょくをいじする",
+    "romaji": "Kyousouryoku o iji suru",
+    "reading": "เคียว-โซ-เรียะ-คุ-โอ-อิ-จิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏁",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เพิ่มความได้เปรียบ",
+    "jp": "優位性を高める",
+    "hira": "ゆういせいをたかめる",
+    "romaji": "Yuui sei o takameru",
+    "reading": "ยู-อิ-เซ-โอ-ทะ-คะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "📊",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ปรับตัว",
+    "jp": "適応する",
+    "hira": "てきおうする",
+    "romaji": "Tekiou suru",
+    "reading": "เท-คิ-โอ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧩",
+    "color": "#00B894"
+  },
+  {
+    "th": "ปรับเปลี่ยนอย่างยืดหยุ่น",
+    "jp": "柔軟に対応する",
+    "hira": "じゅうなんにたいおうする",
+    "romaji": "Juunan ni taiou suru",
+    "reading": "จู-นัน-นิ-ไท-โอ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🤸",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "แก้ไขอย่างทันท่วงที",
+    "jp": "迅速に対処する",
+    "hira": "じんそくにたいしょする",
+    "romaji": "Jinsoku ni taisho suru",
+    "reading": "จิน-โซ-คุ-นิ-ไท-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚡",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ตัดสินใจเชิงวิสัยทัศน์",
+    "jp": "将来を見据えて判断する",
+    "hira": "しょうらいをみすえてはんだんする",
+    "romaji": "Shourai o misuete handan suru",
+    "reading": "โช-ไร-โอ-มิ-สุ-เอะ-เตะ-ฮัน-ดัน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔮",
+    "color": "#FD79A8"
   }
 ]
 
