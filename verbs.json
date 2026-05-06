@@ -1,0 +1,2433 @@
+[
+  {
+    "th": "กิน",
+    "jp": "食べる",
+    "hira": "たべる",
+    "romaji": "Taberu",
+    "reading": "ทา-เบ-รุ",
+    "type": "V1",
+    "emoji": "🍕",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ดื่ม",
+    "jp": "飲む",
+    "hira": "のむ",
+    "romaji": "Nomu",
+    "reading": "โนะ-มุ",
+    "type": "V1",
+    "emoji": "🥤",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ไป",
+    "jp": "行く",
+    "hira": "いく",
+    "romaji": "Iku",
+    "reading": "อิ-คุ",
+    "type": "V1",
+    "emoji": "🏃‍♂️",
+    "color": "#55E6C1"
+  },
+  {
+    "th": "มา",
+    "jp": "来る",
+    "hira": "くる",
+    "romaji": "Kuru",
+    "reading": "คุ-รุ",
+    "type": "V3",
+    "emoji": "🚶",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ทำ",
+    "jp": "する",
+    "hira": "する",
+    "romaji": "Suru",
+    "reading": "สุ-รุ",
+    "type": "V3",
+    "emoji": "🛠️",
+    "color": "#E17055"
+  },
+  {
+    "th": "ดู / เห็น",
+    "jp": "見る",
+    "hira": "みる",
+    "romaji": "Miru",
+    "reading": "มิ-รุ",
+    "type": "V2",
+    "emoji": "👀",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ฟัง",
+    "jp": "聞く",
+    "hira": "きく",
+    "romaji": "Kiku",
+    "reading": "คิ-คุ",
+    "type": "V1",
+    "emoji": "👂",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "พูด",
+    "jp": "話す",
+    "hira": "はなす",
+    "romaji": "Hanasu",
+    "reading": "ฮา-นะ-สุ",
+    "type": "V1",
+    "emoji": "🗣️",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "อ่าน",
+    "jp": "読む",
+    "hira": "よむ",
+    "romaji": "Yomu",
+    "reading": "โยะ-มุ",
+    "type": "V1",
+    "emoji": "📖",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เขียน",
+    "jp": "書く",
+    "hira": "かく",
+    "romaji": "Kaku",
+    "reading": "คะ-คุ",
+    "type": "V1",
+    "emoji": "✍️",
+    "color": "#FAB1A0"
+  },
+  {
+    "th": "ซื้อ",
+    "jp": "買う",
+    "hira": "かう",
+    "romaji": "Kau",
+    "reading": "คา-อุ",
+    "type": "V1",
+    "emoji": "🛒",
+    "color": "#FFEAA7"
+  },
+  {
+    "th": "ขาย",
+    "jp": "売る",
+    "hira": "うる",
+    "romaji": "Uru",
+    "reading": "อุ-รุ",
+    "type": "V1",
+    "emoji": "💰",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "นอน",
+    "jp": "寝る",
+    "hira": "ねる",
+    "romaji": "Neru",
+    "reading": "เนะ-รุ",
+    "type": "V2",
+    "emoji": "😴",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ตื่น",
+    "jp": "起きる",
+    "hira": "おきる",
+    "romaji": "Okiru",
+    "reading": "โอ-คิ-รุ",
+    "type": "V2",
+    "emoji": "⏰",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เดิน",
+    "jp": "歩く",
+    "hira": "あるく",
+    "romaji": "Aruku",
+    "reading": "อะ-รุ-คุ",
+    "type": "V1",
+    "emoji": "🚶‍♂️",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "วิ่ง",
+    "jp": "走る",
+    "hira": "はしる",
+    "romaji": "Hashiru",
+    "reading": "ฮะ-ชิ-รุ",
+    "type": "V1",
+    "emoji": "🏃",
+    "color": "#FF7675"
+  },
+  {
+    "th": "เปิด",
+    "jp": "開ける",
+    "hira": "あける",
+    "romaji": "Akeru",
+    "reading": "อะ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "🚪",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ปิด",
+    "jp": "閉める",
+    "hira": "しめる",
+    "romaji": "Shimeru",
+    "reading": "ชิ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "🔒",
+    "color": "#636E72"
+  },
+  {
+    "th": "เข้า",
+    "jp": "入る",
+    "hira": "はいる",
+    "romaji": "Hairu",
+    "reading": "ฮะ-อิ-รุ",
+    "type": "V1",
+    "emoji": "➡️",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ออก",
+    "jp": "出る",
+    "hira": "でる",
+    "romaji": "Deru",
+    "reading": "เดะ-รุ",
+    "type": "V2",
+    "emoji": "⬅️",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ยืน",
+    "jp": "立つ",
+    "hira": "たつ",
+    "romaji": "Tatsu",
+    "reading": "ทา-สึ",
+    "type": "V1",
+    "emoji": "🧍",
+    "color": "#00B894"
+  },
+  {
+    "th": "นั่ง",
+    "jp": "座る",
+    "hira": "すわる",
+    "romaji": "Suwaru",
+    "reading": "สุ-วะ-รุ",
+    "type": "V1",
+    "emoji": "🪑",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ทำงาน",
+    "jp": "働く",
+    "hira": "はたらく",
+    "romaji": "Hataraku",
+    "reading": "ฮะ-ตะ-ระ-คุ",
+    "type": "V1",
+    "emoji": "💼",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "อยู่",
+    "jp": "いる",
+    "hira": "いる",
+    "romaji": "Iru",
+    "reading": "อิ-รุ",
+    "type": "V2",
+    "emoji": "👤",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "มี (สิ่งของ)",
+    "jp": "ある",
+    "hira": "ある",
+    "romaji": "Aru",
+    "reading": "อะ-รุ",
+    "type": "V1",
+    "emoji": "📦",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "เข้าใจ",
+    "jp": "分かる",
+    "hira": "わかる",
+    "romaji": "Wakaru",
+    "reading": "วะ-คะ-รุ",
+    "type": "V1",
+    "emoji": "💡",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "จำได้",
+    "jp": "覚える",
+    "hira": "おぼえる",
+    "romaji": "Oboeru",
+    "reading": "โอะ-โบ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "🧠",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ลืม",
+    "jp": "忘れる",
+    "hira": "わすれる",
+    "romaji": "Wasureru",
+    "reading": "วะ-สุ-เระ-รุ",
+    "type": "V2",
+    "emoji": "😅",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "สอน",
+    "jp": "教える",
+    "hira": "おしえる",
+    "romaji": "Oshieru",
+    "reading": "โอะ-ชิ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "👨‍🏫",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เรียน",
+    "jp": "習う",
+    "hira": "ならう",
+    "romaji": "Narau",
+    "reading": "นะ-รา-อุ",
+    "type": "V1",
+    "emoji": "📚",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ทำความสะอาด",
+    "jp": "掃除する",
+    "hira": "そうじする",
+    "romaji": "Souji suru",
+    "reading": "โซ-จิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧹",
+    "color": "#00B894"
+  },
+  {
+    "th": "ซักผ้า",
+    "jp": "洗う",
+    "hira": "あらう",
+    "romaji": "Arau",
+    "reading": "อะ-รา-อุ",
+    "type": "V1",
+    "emoji": "🧺",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "อาบน้ำ",
+    "jp": "浴びる",
+    "hira": "あびる",
+    "romaji": "Abiru",
+    "reading": "อะ-บิ-รุ",
+    "type": "V2",
+    "emoji": "🚿",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ใส่ (เสื้อผ้า)",
+    "jp": "着る",
+    "hira": "きる",
+    "romaji": "Kiru",
+    "reading": "คิ-รุ",
+    "type": "V2",
+    "emoji": "👕",
+    "color": "#FFEAA7"
+  },
+  {
+    "th": "ถอด (เสื้อผ้า)",
+    "jp": "脱ぐ",
+    "hira": "ぬぐ",
+    "romaji": "Nugu",
+    "reading": "นุ-งุ",
+    "type": "V1",
+    "emoji": "👚",
+    "color": "#FAB1A0"
+  },
+  {
+    "th": "ถือ",
+    "jp": "持つ",
+    "hira": "もつ",
+    "romaji": "Motsu",
+    "reading": "โมะ-สึ",
+    "type": "V1",
+    "emoji": "👜",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "วาง",
+    "jp": "置く",
+    "hira": "おく",
+    "romaji": "Oku",
+    "reading": "โอะ-คุ",
+    "type": "V1",
+    "emoji": "📌",
+    "color": "#636E72"
+  },
+  {
+    "th": "ส่ง",
+    "jp": "送る",
+    "hira": "おくる",
+    "romaji": "Okuru",
+    "reading": "โอะ-คุ-รุ",
+    "type": "V1",
+    "emoji": "📦",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "รับ",
+    "jp": "受け取る",
+    "hira": "うけとる",
+    "romaji": "Uketoru",
+    "reading": "อุ-เคะ-โท-รุ",
+    "type": "V1",
+    "emoji": "📥",
+    "color": "#0984E3"
+  },
+  {
+    "th": "เปิด (สวิตช์)",
+    "jp": "つける",
+    "hira": "つける",
+    "romaji": "Tsukeru",
+    "reading": "สึ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "💡",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ปิด (สวิตช์)",
+    "jp": "消す",
+    "hira": "けす",
+    "romaji": "Kesu",
+    "reading": "เคะ-สุ",
+    "type": "V1",
+    "emoji": "🔌",
+    "color": "#2D3436"
+  },
+  {
+    "th": "ขึ้น (ยานพาหนะ)",
+    "jp": "乗る",
+    "hira": "のる",
+    "romaji": "Noru",
+    "reading": "โนะ-รุ",
+    "type": "V1",
+    "emoji": "🚌",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ลง (ยานพาหนะ)",
+    "jp": "降りる",
+    "hira": "おりる",
+    "romaji": "Oriru",
+    "reading": "โอ-ริ-รุ",
+    "type": "V2",
+    "emoji": "🚉",
+    "color": "#00B894"
+  },
+   {
+    "th": "ยืม",
+    "jp": "借りる",
+    "hira": "かりる",
+    "romaji": "Kariru",
+    "reading": "คะ-ริ-รุ",
+    "type": "V2",
+    "emoji": "📚",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ให้ยืม",
+    "jp": "貸す",
+    "hira": "かす",
+    "romaji": "Kasu",
+    "reading": "คะ-สุ",
+    "type": "V1",
+    "emoji": "🤝",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ถ่ายรูป",
+    "jp": "撮る",
+    "hira": "とる",
+    "romaji": "Toru",
+    "reading": "โทะ-รุ",
+    "type": "V1",
+    "emoji": "📸",
+    "color": "#FFEAA7"
+  },
+  {
+    "th": "ตัด",
+    "jp": "切る",
+    "hira": "きる",
+    "romaji": "Kiru",
+    "reading": "คิ-รุ",
+    "type": "V1",
+    "emoji": "✂️",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "ส่ง (ของ/คน)",
+    "jp": "届ける",
+    "hira": "とどける",
+    "romaji": "Todokeru",
+    "reading": "โทะ-โดะ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "🚚",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "เอาออก",
+    "jp": "出す",
+    "hira": "だす",
+    "romaji": "Dasu",
+    "reading": "ดะ-สุ",
+    "type": "V1",
+    "emoji": "📤",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "นำเข้า / เอาเข้า",
+    "jp": "入れる",
+    "hira": "いれる",
+    "romaji": "Ireru",
+    "reading": "อิ-เระ-รุ",
+    "type": "V2",
+    "emoji": "📥",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ทำหาย",
+    "jp": "なくす",
+    "hira": "なくす",
+    "romaji": "Nakusu",
+    "reading": "นะ-คุ-สุ",
+    "type": "V1",
+    "emoji": "😱",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ตก (ของตก)",
+    "jp": "落ちる",
+    "hira": "おちる",
+    "romaji": "Ochiru",
+    "reading": "โอ-จิ-รุ",
+    "type": "V2",
+    "emoji": "📉",
+    "color": "#636E72"
+  },
+  {
+    "th": "ทำตก",
+    "jp": "落とす",
+    "hira": "おとす",
+    "romaji": "Otosu",
+    "reading": "โอ-โทะ-สุ",
+    "type": "V1",
+    "emoji": "⬇️",
+    "color": "#2D3436"
+  },
+  {
+    "th": "เริ่ม",
+    "jp": "始める",
+    "hira": "はじめる",
+    "romaji": "Hajimeru",
+    "reading": "ฮะ-จิ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "▶️",
+    "color": "#00B894"
+  },
+  {
+    "th": "เริ่ม (ธรรมดา)",
+    "jp": "始まる",
+    "hira": "はじまる",
+    "romaji": "Hajimaru",
+    "reading": "ฮะ-จิ-มะ-รุ",
+    "type": "V1",
+    "emoji": "⏳",
+    "color": "#0984E3"
+  },
+  {
+    "th": "จบ",
+    "jp": "終わる",
+    "hira": "おわる",
+    "romaji": "Owaru",
+    "reading": "โอ-วะ-รุ",
+    "type": "V1",
+    "emoji": "⏹️",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ช่วย",
+    "jp": "手伝う",
+    "hira": "てつだう",
+    "romaji": "Tetsudau",
+    "reading": "เทะ-สึ-ดะ-อุ",
+    "type": "V1",
+    "emoji": "🤲",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "รอ",
+    "jp": "待つ",
+    "hira": "まつ",
+    "romaji": "Matsu",
+    "reading": "มะ-สึ",
+    "type": "V1",
+    "emoji": "⏰",
+    "color": "#FAB1A0"
+  },
+  {
+    "th": "รีบ",
+    "jp": "急ぐ",
+    "hira": "いそぐ",
+    "romaji": "Isogu",
+    "reading": "อิ-โสะ-งุ",
+    "type": "V1",
+    "emoji": "💨",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "พัก",
+    "jp": "休む",
+    "hira": "やすむ",
+    "romaji": "Yasumu",
+    "reading": "ยะ-สุ-มุ",
+    "type": "V1",
+    "emoji": "🛌",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เล่น",
+    "jp": "遊ぶ",
+    "hira": "あそぶ",
+    "romaji": "Asobu",
+    "reading": "อะ-โสะ-บุ",
+    "type": "V1",
+    "emoji": "🎮",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ใช้",
+    "jp": "使う",
+    "hira": "つかう",
+    "romaji": "Tsukau",
+    "reading": "สึ-คะ-อุ",
+    "type": "V1",
+    "emoji": "🔧",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ต้องการ",
+    "jp": "要る",
+    "hira": "いる",
+    "romaji": "Iru",
+    "reading": "อิ-รุ",
+    "type": "V1",
+    "emoji": "🙏",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ทำอาหาร",
+    "jp": "料理する",
+    "hira": "りょうりする",
+    "romaji": "Ryouri suru",
+    "reading": "เรียว-ริ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🍳",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ชง (กาแฟ/ชา)",
+    "jp": "入れる",
+    "hira": "いれる",
+    "romaji": "Ireru",
+    "reading": "อิ-เระ-รุ",
+    "type": "V2",
+    "emoji": "☕",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "เปิด (ประตู/ของ)",
+    "jp": "開く",
+    "hira": "ひらく",
+    "romaji": "Hiraku",
+    "reading": "ฮิ-ระ-คุ",
+    "type": "V1",
+    "emoji": "🚪",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ปิด (สิ่งของ)",
+    "jp": "閉じる",
+    "hira": "とじる",
+    "romaji": "Tojiru",
+    "reading": "โทะ-จิ-รุ",
+    "type": "V2",
+    "emoji": "📕",
+    "color": "#FF7675"
+  },
+  {
+    "th": "หยิบ",
+    "jp": "取る",
+    "hira": "とる",
+    "romaji": "Toru",
+    "reading": "โทะ-รุ",
+    "type": "V1",
+    "emoji": "✋",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "จับ",
+    "jp": "つかむ",
+    "hira": "つかむ",
+    "romaji": "Tsukamu",
+    "reading": "สึ-คะ-มุ",
+    "type": "V1",
+    "emoji": "🤏",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "แตะ",
+    "jp": "触る",
+    "hira": "さわる",
+    "romaji": "Sawaru",
+    "reading": "สะ-วะ-รุ",
+    "type": "V1",
+    "emoji": "🖐️",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "คิด",
+    "jp": "考える",
+    "hira": "かんがえる",
+    "romaji": "Kangaeru",
+    "reading": "คัน-งะ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "🤔",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "รู้",
+    "jp": "知る",
+    "hira": "しる",
+    "romaji": "Shiru",
+    "reading": "ชิ-รุ",
+    "type": "V1",
+    "emoji": "📘",
+    "color": "#0984E3"
+  },
+  {
+    "th": "อาศัยอยู่",
+    "jp": "住む",
+    "hira": "すむ",
+    "romaji": "Sumu",
+    "reading": "สุ-มุ",
+    "type": "V1",
+    "emoji": "🏠",
+    "color": "#00B894"
+  },
+  {
+    "th": "พัก (ค้างคืน)",
+    "jp": "泊まる",
+    "hira": "とまる",
+    "romaji": "Tomaru",
+    "reading": "โทะ-มะ-รุ",
+    "type": "V1",
+    "emoji": "🏨",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ลง (จากรถ)",
+    "jp": "降る",
+    "hira": "ふる",
+    "romaji": "Furu",
+    "reading": "ฟุ-รุ",
+    "type": "V1",
+    "emoji": "🌧️",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ขึ้น (ปี/อายุ)",
+    "jp": "上がる",
+    "hira": "あがる",
+    "romaji": "Agaru",
+    "reading": "อะ-งะ-รุ",
+    "type": "V1",
+    "emoji": "📈",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ลดลง",
+    "jp": "下がる",
+    "hira": "さがる",
+    "romaji": "Sagaru",
+    "reading": "สะ-งะ-รุ",
+    "type": "V1",
+    "emoji": "📉",
+    "color": "#FF7675"
+  },
+  {
+    "th": "คืน (ของ)",
+    "jp": "返す",
+    "hira": "かえす",
+    "romaji": "Kaesu",
+    "reading": "คะ-เอะ-สุ",
+    "type": "V1",
+    "emoji": "🔄",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "เปลี่ยน",
+    "jp": "変える",
+    "hira": "かえる",
+    "romaji": "Kaeru",
+    "reading": "คะ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "🔁",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เปลี่ยน (ตัวเองเปลี่ยน)",
+    "jp": "変わる",
+    "hira": "かわる",
+    "romaji": "Kawaru",
+    "reading": "คะ-วะ-รุ",
+    "type": "V1",
+    "emoji": "♻️",
+    "color": "#00B894"
+  },
+  {
+    "th": "เลิก",
+    "jp": "やめる",
+    "hira": "やめる",
+    "romaji": "Yameru",
+    "reading": "ยะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "⛔",
+    "color": "#2D3436"
+  },
+  {
+    "th": "ฝึก",
+    "jp": "練習する",
+    "hira": "れんしゅうする",
+    "romaji": "Renshuu suru",
+    "reading": "เร็น-ชู-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏋️",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "โทร",
+    "jp": "電話する",
+    "hira": "でんわする",
+    "romaji": "Denwa suru",
+    "reading": "เด็น-วะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📞",
+    "color": "#0984E3"
+  },
+  {
+    "th": "หัด / ฝึกฝน",
+    "jp": "慣れる",
+    "hira": "なれる",
+    "romaji": "Nareru",
+    "reading": "นะ-เระ-รุ",
+    "type": "V2",
+    "emoji": "💪",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ชิน",
+    "jp": "慣らす",
+    "hira": "ならす",
+    "romaji": "Narasu",
+    "reading": "นะ-ระ-สุ",
+    "type": "V1",
+    "emoji": "🔁",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ย้าย",
+    "jp": "引っ越す",
+    "hira": "ひっこす",
+    "romaji": "Hikkosu",
+    "reading": "ฮิก-โคะ-สุ",
+    "type": "V1",
+    "emoji": "📦",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "เลี้ยว",
+    "jp": "曲がる",
+    "hira": "まがる",
+    "romaji": "Magaru",
+    "reading": "มะ-งะ-รุ",
+    "type": "V1",
+    "emoji": "↩️",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ตรงไป",
+    "jp": "進む",
+    "hira": "すすむ",
+    "romaji": "Susumu",
+    "reading": "สุ-สุ-มุ",
+    "type": "V1",
+    "emoji": "➡️",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "หยุด",
+    "jp": "止まる",
+    "hira": "とまる",
+    "romaji": "Tomaru",
+    "reading": "โทะ-มะ-รุ",
+    "type": "V1",
+    "emoji": "🛑",
+    "color": "#FF7675"
+  },
+  {
+    "th": "หยุด (ทำให้หยุด)",
+    "jp": "止める",
+    "hira": "とめる",
+    "romaji": "Tomeru",
+    "reading": "โทะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "✋",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "เริ่มทำ",
+    "jp": "続ける",
+    "hira": "つづける",
+    "romaji": "Tsuzukeru",
+    "reading": "สึ-สึ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "🔄",
+    "color": "#00B894"
+  },
+  {
+    "th": "ต่อเนื่อง",
+    "jp": "続く",
+    "hira": "つづく",
+    "romaji": "Tsuzuku",
+    "reading": "สึ-สึ-คุ",
+    "type": "V1",
+    "emoji": "♻️",
+    "color": "#0984E3"
+  },
+  {
+    "th": "สอบผ่าน",
+    "jp": "受かる",
+    "hira": "うかる",
+    "romaji": "Ukaru",
+    "reading": "อุ-คะ-รุ",
+    "type": "V1",
+    "emoji": "🎉",
+    "color": "#FFEAA7"
+  },
+  {
+    "th": "สอบตก",
+    "jp": "落第する",
+    "hira": "らくだいする",
+    "romaji": "Rakudai suru",
+    "reading": "รัก-คุ-ได-สุ-รุ",
+    "type": "V3",
+    "emoji": "😢",
+    "color": "#636E72"
+  },
+  {
+    "th": "ซ่อม",
+    "jp": "直す",
+    "hira": "なおす",
+    "romaji": "Naosu",
+    "reading": "นะ-โอะ-สุ",
+    "type": "V1",
+    "emoji": "🔧",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "พัง",
+    "jp": "壊れる",
+    "hira": "こわれる",
+    "romaji": "Kowareru",
+    "reading": "โคะ-วะ-เระ-รุ",
+    "type": "V2",
+    "emoji": "💥",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ทำให้พัง",
+    "jp": "壊す",
+    "hira": "こわす",
+    "romaji": "Kowasu",
+    "reading": "โคะ-วะ-สุ",
+    "type": "V1",
+    "emoji": "🔨",
+    "color": "#2D3436"
+  },
+  {
+    "th": "หาย (ของ)",
+    "jp": "なくなる",
+    "hira": "なくなる",
+    "romaji": "Nakunaru",
+    "reading": "นะ-คุ-นะ-รุ",
+    "type": "V1",
+    "emoji": "❌",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "เตรียม",
+    "jp": "用意する",
+    "hira": "よういする",
+    "romaji": "Youi suru",
+    "reading": "โย-อิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📋",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "จอง",
+    "jp": "予約する",
+    "hira": "よやくする",
+    "romaji": "Yoyaku suru",
+    "reading": "โย-ยะ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📅",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ใช้เวลา",
+    "jp": "かかる",
+    "hira": "かかる",
+    "romaji": "Kakaru",
+    "reading": "คะ-คะ-รุ",
+    "type": "V1",
+    "emoji": "⏳",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ใส่ (accessory)",
+    "jp": "かける",
+    "hira": "かける",
+    "romaji": "Kakeru",
+    "reading": "คะ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "👓",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "เอาออก (ถอด)",
+    "jp": "外す",
+    "hira": "はずす",
+    "romaji": "Hazusu",
+    "reading": "ฮะ-สุ-สุ",
+    "type": "V1",
+    "emoji": "📎",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "ส่งมอบ",
+    "jp": "渡す",
+    "hira": "わたす",
+    "romaji": "Watasu",
+    "reading": "วะ-ตะ-สุ",
+    "type": "V1",
+    "emoji": "🤲",
+    "color": "#00B894"
+  },
+  {
+    "th": "ข้าม",
+    "jp": "渡る",
+    "hira": "わたる",
+    "romaji": "Wataru",
+    "reading": "วะ-ตะ-รุ",
+    "type": "V1",
+    "emoji": "🌉",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "เลือก",
+    "jp": "選ぶ",
+    "hira": "えらぶ",
+    "romaji": "Erabu",
+    "reading": "เอะ-ระ-บุ",
+    "type": "V1",
+    "emoji": "✅",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ตัดสินใจ",
+    "jp": "決める",
+    "hira": "きめる",
+    "romaji": "Kimeru",
+    "reading": "คิ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "🎯",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "พบ / เจอ",
+    "jp": "見つける",
+    "hira": "みつける",
+    "romaji": "Mitsukeru",
+    "reading": "มิ-สึ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "🔍",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "หาเจอ (เอง)",
+    "jp": "見つかる",
+    "hira": "みつかる",
+    "romaji": "Mitsukaru",
+    "reading": "มิ-สึ-คะ-รุ",
+    "type": "V1",
+    "emoji": "📍",
+    "color": "#0984E3"
+  },
+  {
+    "th": "แปล",
+    "jp": "訳す",
+    "hira": "やくす",
+    "romaji": "Yakusu",
+    "reading": "ยะ-คุ-สุ",
+    "type": "V1",
+    "emoji": "🌐",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "อธิบาย",
+    "jp": "説明する",
+    "hira": "せつめいする",
+    "romaji": "Setsumei suru",
+    "reading": "เซะ-สึ-เม-สุ-รุ",
+    "type": "V3",
+    "emoji": "📝",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เตือน",
+    "jp": "知らせる",
+    "hira": "しらせる",
+    "romaji": "Shiraseru",
+    "reading": "ชิ-ระ-เซะ-รุ",
+    "type": "V2",
+    "emoji": "📢",
+    "color": "#FF7675"
+  },
+  {
+    "th": "แจ้ง",
+    "jp": "伝える",
+    "hira": "つたえる",
+    "romaji": "Tsutaeru",
+    "reading": "สึ-ตะ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "📨",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ยอมรับ",
+    "jp": "認める",
+    "hira": "みとめる",
+    "romaji": "Mitomeru",
+    "reading": "มิ-โทะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "👍",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ปฏิเสธ",
+    "jp": "断る",
+    "hira": "ことわる",
+    "romaji": "Kotowaru",
+    "reading": "โคะ-โทะ-วะ-รุ",
+    "type": "V1",
+    "emoji": "❌",
+    "color": "#2D3436"
+  },
+  {
+    "th": "เปรียบเทียบ",
+    "jp": "比べる",
+    "hira": "くらべる",
+    "romaji": "Kuraberu",
+    "reading": "คุ-ระ-เบะ-รุ",
+    "type": "V2",
+    "emoji": "⚖️",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "เพิ่ม",
+    "jp": "増やす",
+    "hira": "ふやす",
+    "romaji": "Fuyasu",
+    "reading": "ฟุ-ยะ-สุ",
+    "type": "V1",
+    "emoji": "➕",
+    "color": "#00B894"
+  },
+  {
+    "th": "เพิ่มขึ้น",
+    "jp": "増える",
+    "hira": "ふえる",
+    "romaji": "Fueru",
+    "reading": "ฟุ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "📈",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ลด",
+    "jp": "減らす",
+    "hira": "へらす",
+    "romaji": "Herasu",
+    "reading": "เฮะ-ระ-สุ",
+    "type": "V1",
+    "emoji": "➖",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ลดลง",
+    "jp": "減る",
+    "hira": "へる",
+    "romaji": "Heru",
+    "reading": "เฮะ-รุ",
+    "type": "V1",
+    "emoji": "📉",
+    "color": "#636E72"
+  },
+  {
+    "th": "เติบโต",
+    "jp": "育つ",
+    "hira": "そだつ",
+    "romaji": "Sodatsu",
+    "reading": "โสะ-ดะ-สึ",
+    "type": "V1",
+    "emoji": "🌱",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เลี้ยงดู",
+    "jp": "育てる",
+    "hira": "そだてる",
+    "romaji": "Sodateru",
+    "reading": "โสะ-ดะ-เตะ-รุ",
+    "type": "V2",
+    "emoji": "👶",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ขอร้อง",
+    "jp": "頼む",
+    "hira": "たのむ",
+    "romaji": "Tanomu",
+    "reading": "ทะ-โนะ-มุ",
+    "type": "V1",
+    "emoji": "🙏",
+    "color": "#0984E3"
+  },
+   {
+    "th": "ตรวจสอบ",
+    "jp": "確かめる",
+    "hira": "たしかめる",
+    "romaji": "Tashikameru",
+    "reading": "ทะ-ชิ-คะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "🔍",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ตรวจ (เอกสาร/สุขภาพ)",
+    "jp": "調べる",
+    "hira": "しらべる",
+    "romaji": "Shiraberu",
+    "reading": "ชิ-ระ-เบะ-รุ",
+    "type": "V2",
+    "emoji": "📋",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "แก้ไข",
+    "jp": "直る",
+    "hira": "なおる",
+    "romaji": "Naoru",
+    "reading": "นะ-โอะ-รุ",
+    "type": "V1",
+    "emoji": "🛠️",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ปรับ",
+    "jp": "調整する",
+    "hira": "ちょうせいする",
+    "romaji": "Chousei suru",
+    "reading": "โช-เซ-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚙️",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "แก้ปัญหา",
+    "jp": "解決する",
+    "hira": "かいけつする",
+    "romaji": "Kaiketsu suru",
+    "reading": "ไค-เคะ-สึ-สุ-รุ",
+    "type": "V3",
+    "emoji": "💡",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "เกิดขึ้น",
+    "jp": "起こる",
+    "hira": "おこる",
+    "romaji": "Okoru",
+    "reading": "โอ-โคะ-รุ",
+    "type": "V1",
+    "emoji": "⚡",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ทำให้เกิด",
+    "jp": "起こす",
+    "hira": "おこす",
+    "romaji": "Okosu",
+    "reading": "โอ-โคะ-สุ",
+    "type": "V1",
+    "emoji": "🔥",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "พัฒนา",
+    "jp": "発展する",
+    "hira": "はってんする",
+    "romaji": "Hatten suru",
+    "reading": "ฮัต-เท็น-สุ-รุ",
+    "type": "V3",
+    "emoji": "📈",
+    "color": "#00B894"
+  },
+  {
+    "th": "เตรียมตัว",
+    "jp": "準備する",
+    "hira": "じゅんびする",
+    "romaji": "Junbi suru",
+    "reading": "จุน-บิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🎒",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "เข้าร่วม",
+    "jp": "参加する",
+    "hira": "さんかする",
+    "romaji": "Sanka suru",
+    "reading": "ซัน-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "👥",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ยกเลิก",
+    "jp": "中止する",
+    "hira": "ちゅうしする",
+    "romaji": "Chuushi suru",
+    "reading": "ชู-ชิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "⛔",
+    "color": "#2D3436"
+  },
+  {
+    "th": "ติดต่อ",
+    "jp": "連絡する",
+    "hira": "れんらくする",
+    "romaji": "Renraku suru",
+    "reading": "เร็น-ระ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📞",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ขอ",
+    "jp": "申し込む",
+    "hira": "もうしこむ",
+    "romaji": "Moushikomu",
+    "reading": "โม-ชิ-โคะ-มุ",
+    "type": "V1",
+    "emoji": "📨",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "สมัคร",
+    "jp": "応募する",
+    "hira": "おうぼする",
+    "romaji": "Oubo suru",
+    "reading": "โอ-โบ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📝",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ผ่าน (การตรวจ)",
+    "jp": "通る",
+    "hira": "とおる",
+    "romaji": "Tooru",
+    "reading": "โท-โอ-รุ",
+    "type": "V1",
+    "emoji": "✔️",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ผ่าน (ทำให้ผ่าน)",
+    "jp": "通す",
+    "hira": "とおす",
+    "romaji": "Toosu",
+    "reading": "โท-โอ-สุ",
+    "type": "V1",
+    "emoji": "➡️",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "หยุด (ชั่วคราว)",
+    "jp": "止める",
+    "hira": "とめる",
+    "romaji": "Tomeru",
+    "reading": "โทะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "⏸️",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ดำเนินต่อ",
+    "jp": "進める",
+    "hira": "すすめる",
+    "romaji": "Susumeru",
+    "reading": "สุ-สุ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "🚀",
+    "color": "#00B894"
+  },
+  {
+    "th": "ก้าวหน้า",
+    "jp": "進む",
+    "hira": "すすむ",
+    "romaji": "Susumu",
+    "reading": "สุ-สุ-มุ",
+    "type": "V1",
+    "emoji": "📊",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "รับผิดชอบ",
+    "jp": "担当する",
+    "hira": "たんとうする",
+    "romaji": "Tantou suru",
+    "reading": "ทัน-โท-สุ-รุ",
+    "type": "V3",
+    "emoji": "📌",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ส่ง (เอกสาร/อีเมล)",
+    "jp": "提出する",
+    "hira": "ていしゅつする",
+    "romaji": "Teishutsu suru",
+    "reading": "เท-ชุ-สึ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📄",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ยื่น (ใบสมัคร)",
+    "jp": "申請する",
+    "hira": "しんせいする",
+    "romaji": "Shinsei suru",
+    "reading": "ชิน-เซ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📝",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ยอมรับ (ข้อเสนอ)",
+    "jp": "受け入れる",
+    "hira": "うけいれる",
+    "romaji": "Ukeireru",
+    "reading": "อุ-เคะ-อิ-เระ-รุ",
+    "type": "V2",
+    "emoji": "🤝",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ปฏิเสธ (คำขอ)",
+    "jp": "拒否する",
+    "hira": "きょひする",
+    "romaji": "Kyohi suru",
+    "reading": "เคียว-ฮิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🙅",
+    "color": "#FF7675"
+  },
+  {
+    "th": "คาดหวัง",
+    "jp": "期待する",
+    "hira": "きたいする",
+    "romaji": "Kitai suru",
+    "reading": "คิ-ไต-สุ-รุ",
+    "type": "V3",
+    "emoji": "🌟",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "พยายาม",
+    "jp": "努力する",
+    "hira": "どりょくする",
+    "romaji": "Doryoku suru",
+    "reading": "โดะ-เรียะ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "💪",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ประสบความสำเร็จ",
+    "jp": "成功する",
+    "hira": "せいこうする",
+    "romaji": "Seikou suru",
+    "reading": "เซ-โค-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏆",
+    "color": "#00B894"
+  },
+  {
+    "th": "ล้มเหลว",
+    "jp": "失敗する",
+    "hira": "しっぱいする",
+    "romaji": "Shippai suru",
+    "reading": "ชิป-ไป-สุ-รุ",
+    "type": "V3",
+    "emoji": "💥",
+    "color": "#636E72"
+  },
+  {
+    "th": "เชื่อ",
+    "jp": "信じる",
+    "hira": "しんじる",
+    "romaji": "Shinjiru",
+    "reading": "ชิน-จิ-รุ",
+    "type": "V2",
+    "emoji": "🙏",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "สงสัย",
+    "jp": "疑う",
+    "hira": "うたがう",
+    "romaji": "Utagau",
+    "reading": "อุ-ตะ-งะ-อุ",
+    "type": "V1",
+    "emoji": "🤨",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "หลงลืม (ชั่วคราว)",
+    "jp": "忘れかける",
+    "hira": "わすれかける",
+    "romaji": "Wasurekakeru",
+    "reading": "วะ-สุ-เระ-คะ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "😵",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "จำได้ (ทันที)",
+    "jp": "思い出す",
+    "hira": "おもいだす",
+    "romaji": "Omoidasu",
+    "reading": "โอ-โมะ-อิ-ดะ-สุ",
+    "type": "V1",
+    "emoji": "💭",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ตัดออก",
+    "jp": "削る",
+    "hira": "けずる",
+    "romaji": "Kezuru",
+    "reading": "เคะ-สุ-รุ",
+    "type": "V1",
+    "emoji": "✂️",
+    "color": "#FF7675"
+  },
+  {
+    "th": "เพิ่มเข้า",
+    "jp": "加える",
+    "hira": "くわえる",
+    "romaji": "Kuwaeru",
+    "reading": "คุ-วะ-เอะ-รุ",
+    "type": "V2",
+    "emoji": "➕",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "รวม",
+    "jp": "まとめる",
+    "hira": "まとめる",
+    "romaji": "Matomeru",
+    "reading": "มะ-โทะ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "📚",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "แยก",
+    "jp": "分ける",
+    "hira": "わける",
+    "romaji": "Wakeru",
+    "reading": "วะ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "🔀",
+    "color": "#0984E3"
+  },
+  {
+    "th": "รวมกัน",
+    "jp": "集まる",
+    "hira": "あつまる",
+    "romaji": "Atsumaru",
+    "reading": "อะ-สึ-มะ-รุ",
+    "type": "V1",
+    "emoji": "👥",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "รวบรวม",
+    "jp": "集める",
+    "hira": "あつめる",
+    "romaji": "Atsumeru",
+    "reading": "อะ-สึ-เมะ-รุ",
+    "type": "V2",
+    "emoji": "📦",
+    "color": "#00B894"
+  },
+  {
+    "th": "เลือกใช้",
+    "jp": "選択する",
+    "hira": "せんたくする",
+    "romaji": "Sentaku suru",
+    "reading": "เซ็น-ตะ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📌",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "พิจารณา",
+    "jp": "検討する",
+    "hira": "けんとうする",
+    "romaji": "Kentou suru",
+    "reading": "เค็น-โท-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧠",
+    "color": "#2D3436"
+  },
+   {
+    "th": "นำเข้า (สินค้า)",
+    "jp": "輸入する",
+    "hira": "ゆにゅうする",
+    "romaji": "Yunyuu suru",
+    "reading": "ยู-นิว-สุ-รุ",
+    "type": "V3",
+    "emoji": "📦",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ส่งออก",
+    "jp": "輸出する",
+    "hira": "ゆしゅつする",
+    "romaji": "Yushutsu suru",
+    "reading": "ยู-ชุ-สึ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🚢",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ผลิต",
+    "jp": "生産する",
+    "hira": "せいさんする",
+    "romaji": "Seisan suru",
+    "reading": "เซ-ซัน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏭",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "บริโภค",
+    "jp": "消費する",
+    "hira": "しょうひする",
+    "romaji": "Shouhi suru",
+    "reading": "โช-ฮิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🛒",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "จัดส่ง",
+    "jp": "配送する",
+    "hira": "はいそうする",
+    "romaji": "Haisou suru",
+    "reading": "ไฮ-โซ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🚚",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "เก็บรักษา",
+    "jp": "保存する",
+    "hira": "ほぞんする",
+    "romaji": "Hozon suru",
+    "reading": "โฮ-ซน-สุ-รุ",
+    "type": "V3",
+    "emoji": "💾",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "บันทึก",
+    "jp": "記録する",
+    "hira": "きろくする",
+    "romaji": "Kiroku suru",
+    "reading": "คิ-โระ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📝",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ควบคุม",
+    "jp": "管理する",
+    "hira": "かんりする",
+    "romaji": "Kanri suru",
+    "reading": "คัน-ริ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📊",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ตรวจสอบ (คุณภาพ)",
+    "jp": "確認する",
+    "hira": "かくにんする",
+    "romaji": "Kakunin suru",
+    "reading": "คะ-คุ-นิน-สุ-รุ",
+    "type": "V3",
+    "emoji": "✔️",
+    "color": "#00B894"
+  },
+  {
+    "th": "ควบคุม (เครื่องจักร)",
+    "jp": "操作する",
+    "hira": "そうさする",
+    "romaji": "Sousa suru",
+    "reading": "โซ-สะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🕹️",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "เริ่มใช้งาน",
+    "jp": "起動する",
+    "hira": "きどうする",
+    "romaji": "Kidou suru",
+    "reading": "คิ-โด-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚡",
+    "color": "#FF7675"
+  },
+  {
+    "th": "หยุดการทำงาน",
+    "jp": "停止する",
+    "hira": "ていしする",
+    "romaji": "Teishi suru",
+    "reading": "เท-ชิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "⛔",
+    "color": "#636E72"
+  },
+  {
+    "th": "ติดตั้ง",
+    "jp": "設置する",
+    "hira": "せっちする",
+    "romaji": "Secchi suru",
+    "reading": "เซต-จิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔧",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ซ่อมบำรุง",
+    "jp": "修理する",
+    "hira": "しゅうりする",
+    "romaji": "Shuuri suru",
+    "reading": "ชู-ริ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🛠️",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ตรวจสอบ (เครื่องจักร)",
+    "jp": "点検する",
+    "hira": "てんけんする",
+    "romaji": "Tenken suru",
+    "reading": "เท็น-เค็น-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔍",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ทดสอบ",
+    "jp": "試す",
+    "hira": "ためす",
+    "romaji": "Tamesu",
+    "reading": "ทะ-เมะ-สุ",
+    "type": "V1",
+    "emoji": "🧪",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ตรวจวัด",
+    "jp": "測る",
+    "hira": "はかる",
+    "romaji": "Hakaru",
+    "reading": "ฮะ-คะ-รุ",
+    "type": "V1",
+    "emoji": "📏",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "คำนวณ",
+    "jp": "計算する",
+    "hira": "けいさんする",
+    "romaji": "Keisan suru",
+    "reading": "เค-ซัน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧮",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "วิเคราะห์",
+    "jp": "分析する",
+    "hira": "ぶんせきする",
+    "romaji": "Bunseki suru",
+    "reading": "บุน-เซะ-คิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📊",
+    "color": "#0984E3"
+  },
+  {
+    "th": "รายงาน",
+    "jp": "報告する",
+    "hira": "ほうこくする",
+    "romaji": "Houkoku suru",
+    "reading": "โฮ-โคะ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📢",
+    "color": "#00B894"
+  },
+  {
+    "th": "ดำเนินการ",
+    "jp": "実施する",
+    "hira": "じっしする",
+    "romaji": "Jisshi suru",
+    "reading": "จิซ-ชิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🚀",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ดำเนินงาน",
+    "jp": "運営する",
+    "hira": "うんえいする",
+    "romaji": "Un'ei suru",
+    "reading": "อุน-เอ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏢",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "จัดการ",
+    "jp": "処理する",
+    "hira": "しょりする",
+    "romaji": "Shori suru",
+    "reading": "โชะ-ริ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📦",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ดำเนินต่อ",
+    "jp": "継続する",
+    "hira": "けいぞくする",
+    "romaji": "Keizoku suru",
+    "reading": "เค-โซ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "♻️",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "หยุดชั่วคราว",
+    "jp": "中断する",
+    "hira": "ちゅうだんする",
+    "romaji": "Chuudan suru",
+    "reading": "ชู-ดัน-สุ-รุ",
+    "type": "V3",
+    "emoji": "⏸️",
+    "color": "#FF7675"
+  },
+  {
+    "th": "เลื่อน",
+    "jp": "延期する",
+    "hira": "えんきする",
+    "romaji": "Enki suru",
+    "reading": "เอ็น-คิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📅",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "กำหนด",
+    "jp": "設定する",
+    "hira": "せっていする",
+    "romaji": "Settei suru",
+    "reading": "เซต-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚙️",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ปรับปรุง",
+    "jp": "改善する",
+    "hira": "かいぜんする",
+    "romaji": "Kaizen suru",
+    "reading": "ไค-เซ็น-สุ-รุ",
+    "type": "V3",
+    "emoji": "📈",
+    "color": "#00B894"
+  },
+  {
+    "th": "พัฒนา (เชิงเทคนิค)",
+    "jp": "開発する",
+    "hira": "かいはつする",
+    "romaji": "Kaihatsu suru",
+    "reading": "ไค-ฮัต-สุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧠",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "นำเสนอ",
+    "jp": "提案する",
+    "hira": "ていあんする",
+    "romaji": "Teian suru",
+    "reading": "เท-อัน-สุ-รุ",
+    "type": "V3",
+    "emoji": "💡",
+    "color": "#0984E3"
+  },
+  {
+    "th": "อนุมัติ",
+    "jp": "承認する",
+    "hira": "しょうにんする",
+    "romaji": "Shounin suru",
+    "reading": "โช-นิน-สุ-รุ",
+    "type": "V3",
+    "emoji": "✔️",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ปฏิเสธ (ทางการ)",
+    "jp": "却下する",
+    "hira": "きゃっかする",
+    "romaji": "Kyakuka suru",
+    "reading": "เคียะ-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "❌",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ติดต่อประสานงาน",
+    "jp": "連携する",
+    "hira": "れんけいする",
+    "romaji": "Renkei suru",
+    "reading": "เร็น-เค-สุ-รุ",
+    "type": "V3",
+    "emoji": "🤝",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ร่วมมือ",
+    "jp": "協力する",
+    "hira": "きょうりょくする",
+    "romaji": "Kyouryoku suru",
+    "reading": "เคียว-เรียะ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "👥",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "แข่งขัน",
+    "jp": "競争する",
+    "hira": "きょうそうする",
+    "romaji": "Kyousou suru",
+    "reading": "เคียว-โซ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏁",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ขยาย",
+    "jp": "拡大する",
+    "hira": "かくだいする",
+    "romaji": "Kakudai suru",
+    "reading": "คะ-คุ-ได-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔍",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ลดขนาด",
+    "jp": "縮小する",
+    "hira": "しゅくしょうする",
+    "romaji": "Shukushou suru",
+    "reading": "ชุค-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔽",
+    "color": "#636E72"
+  },
+  {
+    "th": "จัดลำดับ",
+    "jp": "整理する",
+    "hira": "せいりする",
+    "romaji": "Seiri suru",
+    "reading": "เซ-ริ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📂",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "จัดการ (แก้ปัญหา)",
+    "jp": "対応する",
+    "hira": "たいおうする",
+    "romaji": "Taiou suru",
+    "reading": "ไท-โอ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🛠️",
+    "color": "#00B894"
+  },
+  {
+    "th": "รับมือ",
+    "jp": "対処する",
+    "hira": "たいしょする",
+    "romaji": "Taisho suru",
+    "reading": "ไท-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚡",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "ตรวจจับ",
+    "jp": "検出する",
+    "hira": "けんしゅつする",
+    "romaji": "Kenshutsu suru",
+    "reading": "เค็น-ชุ-สึ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔍",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ตรวจสอบ (ละเอียด)",
+    "jp": "点検を行う",
+    "hira": "てんけんをおこなう",
+    "romaji": "Tenken o okonau",
+    "reading": "เท็น-เค็น-โอ-โอะ-โคะ-นะ-อุ",
+    "type": "V1",
+    "emoji": "🛠️",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ดำเนินการ (อย่างเป็นทางการ)",
+    "jp": "実行する",
+    "hira": "じっこうする",
+    "romaji": "Jikkou suru",
+    "reading": "จิค-โค-สุ-รุ",
+    "type": "V3",
+    "emoji": "🚀",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "ดำเนินการตามแผน",
+    "jp": "遂行する",
+    "hira": "すいこうする",
+    "romaji": "Suikou suru",
+    "reading": "ซุย-โค-สุ-รุ",
+    "type": "V3",
+    "emoji": "📋",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ดำเนินงานให้เสร็จ",
+    "jp": "完了する",
+    "hira": "かんりょうする",
+    "romaji": "Kanryou suru",
+    "reading": "คัน-เรียว-สุ-รุ",
+    "type": "V3",
+    "emoji": "✔️",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ยืนยัน",
+    "jp": "保証する",
+    "hira": "ほしょうする",
+    "romaji": "Hoshou suru",
+    "reading": "โฮ-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "🛡️",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "ป้องกัน",
+    "jp": "防止する",
+    "hira": "ぼうしする",
+    "romaji": "Boushi suru",
+    "reading": "โบ-ชิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "⛔",
+    "color": "#FF7675"
+  },
+  {
+    "th": "หลีกเลี่ยง",
+    "jp": "回避する",
+    "hira": "かいひする",
+    "romaji": "Kaihi suru",
+    "reading": "ไค-ฮิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "↩️",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "ตรวจสอบซ้ำ",
+    "jp": "再確認する",
+    "hira": "さいかくにんする",
+    "romaji": "Saikakunin suru",
+    "reading": "ไซ-คะ-คุ-นิน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔁",
+    "color": "#00B894"
+  },
+  {
+    "th": "ติดตามผล",
+    "jp": "追跡する",
+    "hira": "ついせきする",
+    "romaji": "Tsuiseki suru",
+    "reading": "ซุย-เซะ-คิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📍",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "วัดผล",
+    "jp": "評価する",
+    "hira": "ひょうかする",
+    "romaji": "Hyouka suru",
+    "reading": "เฮียว-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📊",
+    "color": "#0984E3"
+  },
+  {
+    "th": "ประเมิน",
+    "jp": "査定する",
+    "hira": "さていする",
+    "romaji": "Satei suru",
+    "reading": "สะ-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "📈",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "วิเคราะห์เชิงลึก",
+    "jp": "解析する",
+    "hira": "かいせきする",
+    "romaji": "Kaiseki suru",
+    "reading": "ไค-เซะ-คิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧠",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ตรวจสอบ (ข้อผิดพลาด)",
+    "jp": "検証する",
+    "hira": "けんしょうする",
+    "romaji": "Kenshou suru",
+    "reading": "เค็น-โช-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔎",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "ระบุ",
+    "jp": "特定する",
+    "hira": "とくていする",
+    "romaji": "Tokutei suru",
+    "reading": "โท-คุ-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "🎯",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "กำหนด (มาตรฐาน)",
+    "jp": "規定する",
+    "hira": "きていする",
+    "romaji": "Kitei suru",
+    "reading": "คิ-เท-สุ-รุ",
+    "type": "V3",
+    "emoji": "📏",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ปรับปรุงแก้ไข",
+    "jp": "修正する",
+    "hira": "しゅうせいする",
+    "romaji": "Shuusei suru",
+    "reading": "ชู-เซ-สุ-รุ",
+    "type": "V3",
+    "emoji": "✏️",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ปรับปรุงพัฒนา",
+    "jp": "改良する",
+    "hira": "かいりょうする",
+    "romaji": "Kairyou suru",
+    "reading": "ไค-เรียว-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔧",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "เสริม",
+    "jp": "強化する",
+    "hira": "きょうかする",
+    "romaji": "Kyouka suru",
+    "reading": "เคียว-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "💪",
+    "color": "#00B894"
+  },
+  {
+    "th": "ลดความเสี่ยง",
+    "jp": "軽減する",
+    "hira": "けいげんする",
+    "romaji": "Keigen suru",
+    "reading": "เค-เก็น-สุ-รุ",
+    "type": "V3",
+    "emoji": "🛡️",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ตรวจสอบเชิงระบบ",
+    "jp": "監視する",
+    "hira": "かんしする",
+    "romaji": "Kanshi suru",
+    "reading": "คัน-ชิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "👀",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ควบคุมดูแล",
+    "jp": "監督する",
+    "hira": "かんとくする",
+    "romaji": "Kantoku suru",
+    "reading": "คัน-โท-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧑‍💼",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ตรวจสอบ (มาตรฐาน)",
+    "jp": "審査する",
+    "hira": "しんさする",
+    "romaji": "Shinsa suru",
+    "reading": "ชิน-สะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📋",
+    "color": "#6C5CE7"
+  },
+  {
+    "th": "วินิจฉัย",
+    "jp": "診断する",
+    "hira": "しんだんする",
+    "romaji": "Shindan suru",
+    "reading": "ชิน-ดัน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🩺",
+    "color": "#FDCB6E"
+  },
+  {
+    "th": "ระบุสาเหตุ",
+    "jp": "究明する",
+    "hira": "きゅうめいする",
+    "romaji": "Kyuumei suru",
+    "reading": "คิว-เม-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔎",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "สกัด (ปัญหา/ข้อมูล)",
+    "jp": "抽出する",
+    "hira": "ちゅうしゅつする",
+    "romaji": "Chuushutsu suru",
+    "reading": "ชู-ชุ-สึ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🧲",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "รวบรวมข้อมูล",
+    "jp": "収集する",
+    "hira": "しゅうしゅうする",
+    "romaji": "Shuushuu suru",
+    "reading": "ชู-ชู-สุ-รุ",
+    "type": "V3",
+    "emoji": "📥",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "จัดหมวดหมู่",
+    "jp": "分類する",
+    "hira": "ぶんるいする",
+    "romaji": "Bunrui suru",
+    "reading": "บุน-รุย-สุ-รุ",
+    "type": "V3",
+    "emoji": "🗂️",
+    "color": "#0984E3"
+  },
+  {
+    "th": "กำหนดเงื่อนไข",
+    "jp": "設定づける",
+    "hira": "せっていづける",
+    "romaji": "Setteizukeru",
+    "reading": "เซต-เท-สึ-เคะ-รุ",
+    "type": "V2",
+    "emoji": "⚙️",
+    "color": "#00B894"
+  },
+  {
+    "th": "บังคับใช้",
+    "jp": "適用する",
+    "hira": "てきようする",
+    "romaji": "Tekiyou suru",
+    "reading": "เท-คิ-โย-สุ-รุ",
+    "type": "V3",
+    "emoji": "📌",
+    "color": "#FD79A8"
+  },
+  {
+    "th": "ยกเลิก (กฎ/สัญญา)",
+    "jp": "解除する",
+    "hira": "かいじょする",
+    "romaji": "Kaijo suru",
+    "reading": "ไค-โจ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔓",
+    "color": "#FF7675"
+  },
+  {
+    "th": "ยับยั้ง",
+    "jp": "抑制する",
+    "hira": "よくせいする",
+    "romaji": "Yokusei suru",
+    "reading": "โยะ-คุ-เซ-สุ-รุ",
+    "type": "V3",
+    "emoji": "✋",
+    "color": "#636E72"
+  },
+  {
+    "th": "ส่งเสริม",
+    "jp": "促進する",
+    "hira": "そくしんする",
+    "romaji": "Sokushin suru",
+    "reading": "โซค-ชิน-สุ-รุ",
+    "type": "V3",
+    "emoji": "🚀",
+    "color": "#74B9FF"
+  },
+  {
+    "th": "ขัดขวาง",
+    "jp": "妨害する",
+    "hira": "ぼうがいする",
+    "romaji": "Bougai suru",
+    "reading": "โบ-ไง-สุ-รุ",
+    "type": "V3",
+    "emoji": "🚧",
+    "color": "#00CEC9"
+  },
+  {
+    "th": "ตรวจจับ (สัญญาณ)",
+    "jp": "検知する",
+    "hira": "けんちする",
+    "romaji": "Kench i suru",
+    "reading": "เค็น-จิ-สุ-รุ",
+    "type": "V3",
+    "emoji": "📡",
+    "color": "#55EFC4"
+  },
+  {
+    "th": "คาดการณ์",
+    "jp": "予測する",
+    "hira": "よそくする",
+    "romaji": "Yosoku suru",
+    "reading": "โยะ-โซ-คุ-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔮",
+    "color": "#A29BFE"
+  },
+  {
+    "th": "จำลอง",
+    "jp": "再現する",
+    "hira": "さいげんする",
+    "romaji": "Saigen suru",
+    "reading": "ไซ-เก็น-สุ-รุ",
+    "type": "V3",
+    "emoji": "🎬",
+    "color": "#81ECEC"
+  },
+  {
+    "th": "ปรับให้เหมาะสม",
+    "jp": "最適化する",
+    "hira": "さいてきかする",
+    "romaji": "Saitekika suru",
+    "reading": "ไซ-เท-คิ-คะ-สุ-รุ",
+    "type": "V3",
+    "emoji": "⚡",
+    "color": "#0984E3"
+  },
+  {
+    "th": "บูรณาการ",
+    "jp": "統合する",
+    "hira": "とうごうする",
+    "romaji": "Tougou suru",
+    "reading": "โท-โก-สุ-รุ",
+    "type": "V3",
+    "emoji": "🔗",
+    "color": "#00B894"
+  },
+  {
+    "th": "ปรับโครงสร้าง",
+    "jp": "再編する",
+    "hira": "さいへんする",
+    "romaji": "Saihen suru",
+    "reading": "ไซ-เฮ็น-สุ-รุ",
+    "type": "V3",
+    "emoji": "🏗️",
+    "color": "#FD79A8"
+  }
+]
+
