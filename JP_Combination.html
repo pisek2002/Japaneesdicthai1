@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pisek JP - ฝึกสะกดคันจิและฮิระงะนะ</title>
+    <title>Pisek JP - ฝึกอ่านแยกเสียงและรวมคำ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&family=Kanit:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-soft: #6c5ce7;
-            --jp-dark: #2c3e50;
+            --type-sep: #00cec9;
+            --type-comb: #fd79a8;
             --bg-color: #f1f2f6;
         }
 
@@ -22,121 +23,137 @@
             border-radius: 30px;
             padding: 30px;
             text-align: center;
+            border: none;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             transition: 0.3s ease;
             height: 100%;
-            border: none;
+            position: relative;
         }
 
-        .combo-card:hover { transform: translateY(-5px); }
+        .type-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+        }
+        .bg-sep { background-color: var(--type-sep); }
+        .bg-comb { background-color: var(--type-comb); }
 
-        .main-word { font-size: 3.5rem; font-weight: 800; color: var(--jp-dark); margin: 10px 0; }
-        .hira-display { font-size: 1.5rem; color: var(--primary-soft); font-weight: 600; margin-bottom: 5px; }
+        .main-word { font-size: 3.5rem; font-weight: 800; color: #2d3436; margin: 15px 0; letter-spacing: 5px; }
+        .formula-text { font-size: 1.5rem; color: var(--primary-soft); font-weight: 600; margin-bottom: 10px; }
         
-        .info-box {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            text-align: left;
+        .voice-btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .voice-btn {
             background: var(--primary-soft);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: 600;
-            width: 100%;
-            margin-top: 15px;
             transition: 0.2s;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
         }
 
-        .voice-btn:hover { background: #5649c0; }
-        .status-msg { height: 24px; font-size: 0.9rem; color: var(--primary-soft); font-weight: 600; margin-top: 10px; }
+        .voice-btn:hover { transform: scale(1.05); background: #5649c0; }
+        .voice-btn:active { transform: scale(0.95); }
+
+        .status-msg { height: 24px; font-size: 0.9rem; color: var(--primary-soft); font-weight: 600; }
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-dark bg-dark sticky-top">
     <div class="container d-flex justify-content-between">
-        <a class="navbar-brand kanit fw-bold" href="index.html">Kanit Sound Combiner</a>
+        <a class="navbar-brand kanit fw-bold" href="index.html">JP Sound Combiner</a>
         <a href="index.html" class="btn btn-outline-light btn-sm rounded-pill px-4">Home</a>
     </div>
 </nav>
 
 <div class="container mt-5">
     <div class="text-center mb-5">
-        <h2 class="kanit fw-bold">ฝึกสะกดคำศัพท์คันจิ</h2>
-        <p class="text-muted">ระบบจะแยกเสียงอ่านจากฮิระงะนะทีละตัว แล้วค่อยอ่านรวมเป็นคำครับ</p>
+        <h2 class="kanit fw-bold">ฝึกสะกดและรวมเสียง</h2>
+        <p class="text-muted">ระบบจะอ่านออกเสียงทีละตัวก่อน แล้วจึงอ่านรวมเป็นคำครับ</p>
     </div>
 
     <div class="row g-4" id="comboGrid"></div>
 </div>
 
 <script>
-    let combinationsData = [];
+    let combinationsData = []; // เก็บข้อมูลไว้ที่นี่เพื่อไม่ต้อง fetch ซ้ำ
 
     async function loadCombinations() {
         try {
-            // ดึงข้อมูลจากไฟล์ JSON ของ 先生
             const response = await fetch('combinations.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            
             combinationsData = await response.json();
             const grid = document.getElementById('comboGrid');
-            grid.innerHTML = "";
+            grid.innerHTML = ""; // ล้างข้อมูลเก่า
 
             combinationsData.forEach((item, index) => {
+                const typeClass = item.type === "แยก" ? "bg-sep" : "bg-comb";
                 const col = document.createElement('div');
                 col.className = 'col-md-6 col-lg-4';
                 col.innerHTML = `
-                    <div class="combo-card shadow-sm">
-                        <div class="hira-display">${item.ฮิระงะนะ}</div>
-                        <div class="main-word">${item.คันจิ}</div>
+                    <div class="combo-card">
+                        <span class="type-badge ${typeClass}">อ่านแบบ${item.type}</span>
+                        <div class="text-end" style="font-size: 2rem;">${item.emoji}</div>
+                        <div class="formula-text">${item.hira}</div>
+                        <div class="main-word">${item.word}</div>
+                        <div class="badge bg-light text-dark border mb-2">${item.romaji}</div>
+                        <div class="fw-bold text-danger">${item.meaning}</div>
                         
-                        <div class="info-box">
-                            <div><strong>Onyomi:</strong> ${item.Onyomi}</div>
-                            <div><strong>Kunyomi:</strong> ${item.Kunyomi}</div>
-                            <div class="text-primary mt-1"><strong>คำอ่านไทย:</strong> ${item.คำอ่านไทย}</div>
+                        <div class="voice-btn-container">
+                            <div id="status-${index}" class="status-msg"></div>
+                            <button class="voice-btn" onclick="playStepByStep(${index})">
+                                <i class="bi bi-play-circle-fill me-2"></i>ฟังการสะกดเสียง
+                            </button>
                         </div>
-
-                        <div class="fw-bold text-danger fs-5">แปล: ${item.ความหมายไทย}</div>
-                        
-                        <div id="status-${index}" class="status-msg"></div>
-                        <button class="voice-btn" onclick="playStepByStep(${index})">
-                            <i class="bi bi-play-circle-fill me-2"></i>สะกดเสียงฮิระงะนะ
-                        </button>
                     </div>
                 `;
                 grid.appendChild(col);
             });
         } catch (error) {
             console.error("Error:", error);
-            document.getElementById('comboGrid').innerHTML = "<p class='text-center'>ไม่สามารถโหลดไฟล์ JSON ได้ (กรุณาใช้ Live Server)</p>";
+            document.getElementById('comboGrid').innerHTML = `
+                <div class="col-12 text-center">
+                    <div class="alert alert-danger">
+                        ไม่สามารถโหลดไฟล์ combinations.json ได้<br>
+                        <small>ตรวจสอบว่าคุณเปิดผ่าน Live Server (VS Code) หรืออัปโหลดขึ้นโฮสต์แล้วหรือยัง</small>
+                    </div>
+                </div>`;
         }
     }
 
     async function playStepByStep(index) {
-        const item = combinationsData[index];
+        const item = combinationsData[index]; // ดึงข้อมูลจากตัวแปรที่โหลดไว้แล้ว
         const statusMsg = document.getElementById(`status-${index}`);
-        
-        // แยกตัวอักษรจาก "ฮิระงะนะ" อัตโนมัติ (เช่น "おぼえる" -> ["お", "ぼ", "え", "る"])
-        // และจัดการตัวควบขนาดเล็กให้อ่านรวมกับตัวหน้าอัตโนมัติ
-        const chars = item.ฮิระงะนะ.match(/[\u3040-\u309F][ゃゅょャュョ]?/g) || [];
         
         window.speechSynthesis.cancel();
         
-        // 1. อ่านสะกดทีละตัว
-        for (let char of chars) {
-            statusMsg.innerText = `กำลังสะกด: ${char}`;
-            await speak(char, 0.7); 
-            await delay(500); 
+        // 1. อ่านทีละตัว
+        if (item.chars && Array.isArray(item.chars)) {
+            for (let char of item.chars) {
+                statusMsg.innerText = `กำลังอ่าน: ${char}`;
+                await speak(char, 0.7); 
+                await delay(600); 
+            }
         }
 
-        // 2. อ่านรวมคำ (อ่านจาก ฮิระงะนะ)
-        statusMsg.innerText = `อ่านรวมว่า: ${item.ฮิระงะนะ}`;
-        await speak(item.ฮิระงะนะ, 1.0); 
+        // 2. อ่านรวมคำ
+        statusMsg.innerText = `รวมเป็น: ${item.word}`;
+        await speak(item.word, 1.0); 
         
         setTimeout(() => { statusMsg.innerText = ""; }, 2000);
     }
@@ -155,6 +172,7 @@
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    // เรียกใช้งาน
     loadCombinations();
 </script>
 </body>
