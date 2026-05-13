@@ -1748,5 +1748,505 @@
     "meaning": "คาบเรียน",
     "emoji": "🏫",
     "type": "ควบ"
+  },
+  {
+    "word": "あめ",
+    "chars": ["あ", "め"],
+    "hira": "あ + め",
+    "romaji": "ame",
+    "reading": "อะ-เมะ",
+    "meaning": "ฝน",
+    "emoji": "🌧️",
+    "type": "แยก"
+  },
+  {
+    "word": "いす",
+    "chars": ["い", "す"],
+    "hira": "い + す",
+    "romaji": "isu",
+    "reading": "อิ-สุ",
+    "meaning": "เก้าอี้",
+    "emoji": "🪑",
+    "type": "แยก"
+  },
+  {
+    "word": "うた",
+    "chars": ["う", "た"],
+    "hira": "う + た",
+    "romaji": "uta",
+    "reading": "อุ-ตะ",
+    "meaning": "เพลง",
+    "emoji": "🎵",
+    "type": "แยก"
+  },
+  {
+    "word": "えんぴつ",
+    "chars": ["え", "ん", "ぴ", "つ"],
+    "hira": "え + ん + ぴ + つ",
+    "romaji": "enpitsu",
+    "reading": "เอ็น-พิ-สึ",
+    "meaning": "ดินสอ",
+    "emoji": "✏️",
+    "type": "แยก"
+  },
+  {
+    "word": "おかね",
+    "chars": ["お", "か", "ね"],
+    "hira": "お + か + ね",
+    "romaji": "okane",
+    "reading": "โอะ-คะ-เนะ",
+    "meaning": "เงิน",
+    "emoji": "💴",
+    "type": "แยก"
+  },
+  {
+    "word": "かに",
+    "chars": ["か", "に"],
+    "hira": "か + に",
+    "romaji": "kani",
+    "reading": "คะ-นิ",
+    "meaning": "ปู",
+    "emoji": "🦀",
+    "type": "แยก"
+  },
+  {
+    "word": "きつね",
+    "chars": ["き", "つ", "ね"],
+    "hira": "き + つ + ね",
+    "romaji": "kitsune",
+    "reading": "คิ-สึ-เนะ",
+    "meaning": "สุนัขจิ้งจอก",
+    "emoji": "🦊",
+    "type": "แยก"
+  },
+  {
+    "word": "くつ",
+    "chars": ["く", "つ"],
+    "hira": "く + つ",
+    "romaji": "kutsu",
+    "reading": "คุ-สึ",
+    "meaning": "รองเท้า",
+    "emoji": "👟",
+    "type": "แยก"
+  },
+  {
+    "word": "けむり",
+    "chars": ["け", "む", "り"],
+    "hira": "け + む + り",
+    "romaji": "kemuri",
+    "reading": "เคะ-มุ-ริ",
+    "meaning": "ควัน",
+    "emoji": "💨",
+    "type": "แยก"
+  },
+  {
+    "word": "こえ",
+    "chars": ["こ", "え"],
+    "hira": "こ + え",
+    "romaji": "koe",
+    "reading": "โคะ-เอะ",
+    "meaning": "เสียง",
+    "emoji": "🔊",
+    "type": "แยก"
+  },
+  {
+    "word": "さかな",
+    "chars": ["さ", "か", "な"],
+    "hira": "さ + か + な",
+    "romaji": "sakana",
+    "reading": "สะ-คะ-นะ",
+    "meaning": "ปลา",
+    "emoji": "🐟",
+    "type": "แยก"
+  },
+  {
+    "word": "しんぶん",
+    "chars": ["し", "ん", "ぶ", "ん"],
+    "hira": "し + ん + ぶ + ん",
+    "romaji": "shinbun",
+    "reading": "ชิน-บุน",
+    "meaning": "หนังสือพิมพ์",
+    "emoji": "📰",
+    "type": "แยก"
+  },
+  {
+    "word": "すな",
+    "chars": ["す", "な"],
+    "hira": "す + な",
+    "romaji": "suna",
+    "reading": "สุ-นะ",
+    "meaning": "ทราย",
+    "emoji": "🏖️",
+    "type": "แยก"
+  },
+  {
+    "word": "せなか",
+    "chars": ["せ", "な", "か"],
+    "hira": "せ + な + か",
+    "romaji": "senaka",
+    "reading": "เซะ-นะ-คะ",
+    "meaning": "หลัง",
+    "emoji": "🧍",
+    "type": "แยก"
+  },
+  {
+    "word": "そと",
+    "chars": ["そ", "と"],
+    "hira": "そ + と",
+    "romaji": "soto",
+    "reading": "โสะ-โตะ",
+    "meaning": "ข้างนอก",
+    "emoji": "🌳",
+    "type": "แยก"
+  },
+  {
+    "word": "たぬき",
+    "chars": ["た", "ぬ", "き"],
+    "hira": "た + ぬ + き",
+    "romaji": "tanuki",
+    "reading": "ทะ-นุ-คิ",
+    "meaning": "ทานุกิ",
+    "emoji": "🦝",
+    "type": "แยก"
+  },
+  {
+    "word": "ちかてつ",
+    "chars": ["ち", "か", "て", "つ"],
+    "hira": "ち + か + て + つ",
+    "romaji": "chikatetsu",
+    "reading": "จิ-คะ-เทะ-สึ",
+    "meaning": "รถไฟใต้ดิน",
+    "emoji": "🚇",
+    "type": "แยก"
+  },
+  {
+    "word": "つき",
+    "chars": ["つ", "き"],
+    "hira": "つ + き",
+    "romaji": "tsuki",
+    "reading": "สึ-คิ",
+    "meaning": "พระจันทร์",
+    "emoji": "🌕",
+    "type": "แยก"
+  },
+  {
+    "word": "てんき",
+    "chars": ["て", "ん", "き"],
+    "hira": "て + ん + き",
+    "romaji": "tenki",
+    "reading": "เท็น-คิ",
+    "meaning": "สภาพอากาศ",
+    "emoji": "☀️",
+    "type": "แยก"
+  },
+  {
+    "word": "とり",
+    "chars": ["と", "り"],
+    "hira": "と + り",
+    "romaji": "tori",
+    "reading": "โทะ-ริ",
+    "meaning": "นก",
+    "emoji": "🐦",
+    "type": "แยก"
+  },
+  {
+    "word": "なつ",
+    "chars": ["な", "つ"],
+    "hira": "な + つ",
+    "romaji": "natsu",
+    "reading": "นะ-สึ",
+    "meaning": "ฤดูร้อน",
+    "emoji": "🏖️",
+    "type": "แยก"
+  },
+  {
+    "word": "にわ",
+    "chars": ["に", "わ"],
+    "hira": "に + わ",
+    "romaji": "niwa",
+    "reading": "นิ-วะ",
+    "meaning": "สวน",
+    "emoji": "🌷",
+    "type": "แยก"
+  },
+  {
+    "word": "ぬりえ",
+    "chars": ["ぬ", "り", "え"],
+    "hira": "ぬ + り + え",
+    "romaji": "nurie",
+    "reading": "นุ-ริ-เอะ",
+    "meaning": "สมุดระบายสี",
+    "emoji": "🎨",
+    "type": "แยก"
+  },
+  {
+    "word": "ねずみ",
+    "chars": ["ね", "ず", "み"],
+    "hira": "ね + ず + み",
+    "romaji": "nezumi",
+    "reading": "เนะ-ซุ-มิ",
+    "meaning": "หนู",
+    "emoji": "🐭",
+    "type": "แยก"
+  },
+  {
+    "word": "のり",
+    "chars": ["の", "り"],
+    "hira": "の + り",
+    "romaji": "nori",
+    "reading": "โนะ-ริ",
+    "meaning": "สาหร่าย",
+    "emoji": "🍙",
+    "type": "แยก"
+  },
+  {
+    "word": "はこ",
+    "chars": ["は", "こ"],
+    "hira": "は + こ",
+    "romaji": "hako",
+    "reading": "ฮะ-โคะ",
+    "meaning": "กล่อง",
+    "emoji": "📦",
+    "type": "แยก"
+  },
+  {
+    "word": "ひこうき",
+    "chars": ["ひ", "こ", "う", "き"],
+    "hira": "ひ + こ + う + き",
+    "romaji": "hikouki",
+    "reading": "ฮิ-โค-คิ",
+    "meaning": "เครื่องบิน",
+    "emoji": "✈️",
+    "type": "เสียงยาว"
+  },
+  {
+    "word": "ふく",
+    "chars": ["ふ", "く"],
+    "hira": "ふ + く",
+    "romaji": "fuku",
+    "reading": "ฟุ-คุ",
+    "meaning": "เสื้อผ้า",
+    "emoji": "👕",
+    "type": "แยก"
+  },
+  {
+    "word": "へび",
+    "chars": ["へ", "び"],
+    "hira": "へ + び",
+    "romaji": "hebi",
+    "reading": "เฮะ-บิ",
+    "meaning": "งู",
+    "emoji": "🐍",
+    "type": "แยก"
+  },
+  {
+    "word": "ほん",
+    "chars": ["ほ", "ん"],
+    "hira": "ほ + ん",
+    "romaji": "hon",
+    "reading": "ฮง",
+    "meaning": "หนังสือ",
+    "emoji": "📚",
+    "type": "แยก"
+  },
+    {
+    "word": "まち",
+    "chars": ["ま", "ち"],
+    "hira": "ま + ち",
+    "romaji": "machi",
+    "reading": "มะ-จิ",
+    "meaning": "เมือง",
+    "emoji": "🏙️",
+    "type": "แยก"
+  },
+  {
+    "word": "みせ",
+    "chars": ["み", "せ"],
+    "hira": "み + せ",
+    "romaji": "mise",
+    "reading": "มิ-เซะ",
+    "meaning": "ร้านค้า",
+    "emoji": "🏪",
+    "type": "แยก"
+  },
+  {
+    "word": "むら",
+    "chars": ["む", "ら"],
+    "hira": "む + ら",
+    "romaji": "mura",
+    "reading": "มุ-ระ",
+    "meaning": "หมู่บ้าน",
+    "emoji": "🏘️",
+    "type": "แยก"
+  },
+  {
+    "word": "めがね",
+    "chars": ["め", "が", "ね"],
+    "hira": "め + が + ね",
+    "romaji": "megane",
+    "reading": "เมะ-งะ-เนะ",
+    "meaning": "แว่นตา",
+    "emoji": "👓",
+    "type": "แยก"
+  },
+  {
+    "word": "もり",
+    "chars": ["も", "り"],
+    "hira": "も + り",
+    "romaji": "mori",
+    "reading": "โมะ-ริ",
+    "meaning": "ป่า",
+    "emoji": "🌲",
+    "type": "แยก"
+  },
+  {
+    "word": "やさい",
+    "chars": ["や", "さ", "い"],
+    "hira": "や + さ + い",
+    "romaji": "yasai",
+    "reading": "ยะ-ไซ",
+    "meaning": "ผัก",
+    "emoji": "🥬",
+    "type": "แยก"
+  },
+  {
+    "word": "ゆび",
+    "chars": ["ゆ", "び"],
+    "hira": "ゆ + び",
+    "romaji": "yubi",
+    "reading": "ยุ-บิ",
+    "meaning": "นิ้ว",
+    "emoji": "☝️",
+    "type": "แยก"
+  },
+  {
+    "word": "よこ",
+    "chars": ["よ", "こ"],
+    "hira": "よ + こ",
+    "romaji": "yoko",
+    "reading": "โยะ-โคะ",
+    "meaning": "ด้านข้าง",
+    "emoji": "↔️",
+    "type": "แยก"
+  },
+  {
+    "word": "らいおん",
+    "chars": ["ら", "い", "お", "ん"],
+    "hira": "ら + い + お + ん",
+    "romaji": "raion",
+    "reading": "ไร-อน",
+    "meaning": "สิงโต",
+    "emoji": "🦁",
+    "type": "แยก"
+  },
+  {
+    "word": "りす",
+    "chars": ["り", "す"],
+    "hira": "り + す",
+    "romaji": "risu",
+    "reading": "ริ-สุ",
+    "meaning": "กระรอก",
+    "emoji": "🐿️",
+    "type": "แยก"
+  },
+  {
+    "word": "れきし",
+    "chars": ["れ", "き", "し"],
+    "hira": "れ + き + し",
+    "romaji": "rekishi",
+    "reading": "เระ-คิ-ชิ",
+    "meaning": "ประวัติศาสตร์",
+    "emoji": "📜",
+    "type": "แยก"
+  },
+  {
+    "word": "ろうか",
+    "chars": ["ろ", "う", "か"],
+    "hira": "ろ + う + か",
+    "romaji": "rouka",
+    "reading": "โร-คะ",
+    "meaning": "ทางเดิน",
+    "emoji": "🚪",
+    "type": "เสียงยาว"
+  },
+  {
+    "word": "わに",
+    "chars": ["わ", "に"],
+    "hira": "わ + に",
+    "romaji": "wani",
+    "reading": "วะ-นิ",
+    "meaning": "จระเข้",
+    "emoji": "🐊",
+    "type": "แยก"
+  },
+  {
+    "word": "をとこ",
+    "chars": ["を", "と", "こ"],
+    "hira": "を + と + こ",
+    "romaji": "wotoko",
+    "reading": "โอะ-โทะ-โคะ",
+    "meaning": "ผู้ชาย/รูปเก่า ไม่ค่อยใช้",
+    "emoji": "👨",
+    "type": "แยก"
+  },
+  {
+    "word": "んま",
+    "chars": ["ん", "ま"],
+    "hira": "ん + ま",
+    "romaji": "nma",
+    "reading": "อึน-มะ",
+    "meaning": "เสียงเลียนแบบ/คำฝึกอ่าน",
+    "emoji": "🎧",
+    "type": "ฝึกอ่าน"
+  },
+  {
+    "word": "かばん",
+    "chars": ["か", "ば", "ん"],
+    "hira": "か + ば + ん",
+    "romaji": "kaban",
+    "reading": "คะ-บัง",
+    "meaning": "กระเป๋า",
+    "emoji": "🎒",
+    "type": "แยก"
+  },
+  {
+    "word": "ぎんこう",
+    "chars": ["ぎ", "ん", "こ", "う"],
+    "hira": "ぎ + ん + こ + う",
+    "romaji": "ginkou",
+    "reading": "กิง-โค",
+    "meaning": "ธนาคาร",
+    "emoji": "🏦",
+    "type": "เสียงยาว"
+  },
+  {
+    "word": "くすり",
+    "chars": ["く", "す", "り"],
+    "hira": "く + す + り",
+    "romaji": "kusuri",
+    "reading": "คุ-สุ-ริ",
+    "meaning": "ยา",
+    "emoji": "💊",
+    "type": "แยก"
+  },
+  {
+    "word": "げんき",
+    "chars": ["げ", "ん", "き"],
+    "hira": "げ + ん + き",
+    "romaji": "genki",
+    "reading": "เก็น-คิ",
+    "meaning": "แข็งแรง/สบายดี",
+    "emoji": "💪",
+    "type": "แยก"
+  },
+  {
+    "word": "ごはん",
+    "chars": ["ご", "は", "ん"],
+    "hira": "ご + は + ん",
+    "romaji": "gohan",
+    "reading": "โกะ-ฮัง",
+    "meaning": "ข้าว/อาหาร",
+    "emoji": "🍚",
+    "type": "แยก"
   }
 ]
